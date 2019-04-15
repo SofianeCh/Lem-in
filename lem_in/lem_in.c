@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/15 17:16:14 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/15 22:23:41 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ unsigned long		hash(unsigned char *str)
 
 	hash = 5381;
 	i = 0;
-	while (str[i] && str[i] != ' ' && str[i] != '-')
+	while (str[i] && str[i] != ' ' && str[i] != '-' && str[i] != '\n')
 	{
 		c = str[i];
 		hash = ((hash << 7) + hash) + c;
@@ -194,11 +194,54 @@ void			ft_crea_salles(t_lem *lem)
 		}
 		lem->salles[i]->name = ft_name(lem->line + lem->index[jump]);
 		lem->hash[i] = hash((unsigned char*)(lem->line + lem->index[jump]));
+		lem->salles[i]->couloirs = NULL;
 		// ft_printf("nom des salles = %s\n", lem->salles[i]->name);
 		// ft_printf("start = %d et end = %d\n", lem->salles[i]->start, lem->salles[i]->end);
 		ft_printf("nom salle = %s et hash par salles = %lu\n", lem->salles[i]->name, lem->hash[i]);
 		jump++;
 	}
+}
+
+int		ft_index(t_lem *lem, unsigned long hash)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < lem->nbr_salles)
+	{
+		if (hash == lem->hash[i])
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+t_couloir	*ft_list(t_couloir *couloir, int prem, int deux)
+{
+	t_couloir	*new;
+
+	if ((new = (t_couloir*)malloc(sizeof(*new))) == NULL)
+		return (NULL);
+	if (!couloir)
+	{
+		new->salle_1 = prem;
+		new->salle_2 = deux;
+		new->next = NULL;
+	}
+	else
+	{
+		if ((new->content = (void*)malloc(content_size)) == NULL)
+			return (NULL);
+		ft_memcpy(new->couloir, couloir, sizeof(couloir));
+		new->next = NULL;
+	}
+	return (new);
+}
+
+void ft_verif(t_lem *lem, int prem, int deux)
+{
+	lem->salles[prem]->couloir2
+
 }
 
 void		ft_link_couloir(t_lem *lem)
@@ -210,17 +253,15 @@ void		ft_link_couloir(t_lem *lem)
 	int		prem;
 	int		deux;
 	int		check;
-	int		compt = 3;
 
 	index_c = lem->index[lem->lignes - 1];
-	printf("%d\n", index_c);
 	while (lem->line[index_c])
 	{
-		printf("je rentre\n");
 		len = 0;
 		len1 = 0;
 		check = 0;
 		index_s = 0;
+		t_couloir clr;
 		while (lem->line[index_c + len] && lem->line[index_c + len] != '\n')
 		{
 			!check ? len1++ : 0;
@@ -228,11 +269,17 @@ void		ft_link_couloir(t_lem *lem)
 				check = 1;
 			len++;
 		}
-		// sale->couloirs = NULL;
-		// t_list *node;
-		// t_couloir *couloir;
-		// node = ft_lstnew((void *)&couloir, sizeof(couloir));
-		// !node ? exit(1) : 0;
+		if (lem->line[index_c] != '#')
+		{
+			prem = ft_index(lem, hash((unsigned char*)(lem->line + index_c)));
+			deux = ft_index(lem, hash((unsigned char*)(lem->line + index_c + len1)));
+			if (lem->salles[prem]->couloirs)
+			{
+				ft_verif(lem, prem, deux);
+			}
+			else
+				lem->salles[prem]->couloirs = ft_list((void*)&clr, sizeof(clr));
+		}
 		// ft_lstadd(salle->couloirs, node);
 		// t_couloir *couloir;
 		// while (list)
@@ -241,13 +288,6 @@ void		ft_link_couloir(t_lem *lem)
 		// 	couloir->a
 		// 	list = list->next;
 		// }
-		ft_printf("debut couloir = %c\n", lem->line[index_c]);
-		ft_printf("debut deuxieme salle = %c len = %d\n", lem->line[index_c + len1], len1);
-		if (lem->line[index_c] != '#')
-		{
-			prem = hash((unsigned char*)(lem->line + index_c));
-			deux = hash((unsigned char*)(lem->line + index_c + len1));
-		}
 		index_c += len + 1;
 	}
 }
