@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/16 20:00:55 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/16 21:45:09 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,8 @@ void			ft_crea_salles(t_lem *lem)
 		lem->salles[i]->name = ft_name(lem->line + lem->index[jump]);
 		lem->hash[i] = hash((unsigned char*)(lem->line + lem->index[jump]));
 		lem->salles[i]->couloirs = NULL;
+		printf("adresse = %p\n", lem->salles[i]->couloirs);
+		printf("i = %zu\n", i);
 		ft_printf("nom salle = %s et hash par salles = %lu\n", lem->salles[i]->name, lem->hash[i]);
 		jump++;
 	}
@@ -236,10 +238,11 @@ t_couloir	*ft_list(t_lem *lem, int prem, int deux)
 
 	if ((new = (t_couloir*)malloc(sizeof(*new))) == NULL)
 		return (NULL);
-	ft_bzero(&new, sizeof(new));
+	ft_bzero(new, sizeof(new));
 	new->salle_1 = prem;
 	new->salle_2 = deux;
 	new->next = NULL;
+	printf("hey %d\n", new->salle_1);
 	if (!lem->salles[deux]->couloirs)
 		lem->salles[deux]->couloirs = new;
 	else
@@ -270,7 +273,7 @@ void		new_connection(t_lem *lem, int prem, int deux)
 		{
 			if ((new = (t_couloir*)malloc(sizeof(*new))) == NULL)
 				exit(1);
-			ft_bzero(&new, sizeof(new));
+			ft_bzero(new, sizeof(new));
 			new->salle_1 = prem;
 			new->salle_2 = deux;
 			new->next = NULL;
@@ -314,6 +317,7 @@ void		ft_link_couloir(t_lem *lem)
 		{
 			prem = ft_index(lem, hash((unsigned char*)(lem->line + index_c)));
 			deux = ft_index(lem, hash((unsigned char*)(lem->line + index_c + len1)));
+			// printf("prem avant seg %d\n", prem);
 			if (lem->salles[prem]->couloirs)
 			{
 				if (!ft_verif(lem->salles[prem]->couloirs, prem, deux))
@@ -322,7 +326,10 @@ void		ft_link_couloir(t_lem *lem)
 				}
 			}
 			else
+			{
 				lem->salles[prem]->couloirs = ft_list(lem, prem, deux);
+				// printf("yop\n");
+			}
 		}
 		index_c += len + 1;
 	}
