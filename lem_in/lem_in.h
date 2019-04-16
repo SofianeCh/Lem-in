@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/15 22:09:41 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/16 19:55:40 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@
 
 typedef struct s_salle t_salle;
 
-typedef struct		s_couloir
+typedef struct			s_couloir
 {
-	int				salle_1;
-	int				salle_2;
-	t_salle			*salle_origine;
-	t_salle			*salle_dest;
-	int				dir_orig;
-	int				dir_dest;
-	t_couloir		*next;
-}					t_couloir;
+	int					salle_1;
+	int					salle_2;
+	t_salle				*salle_origine;
+	t_salle				*salle_dest;
+	int					dir_orig;
+	int					dir_dest;
+	struct s_couloir	*next;
+}						t_couloir;
 
 typedef struct		s_salle
 {

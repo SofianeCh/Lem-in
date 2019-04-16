@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/16 15:39:20 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/16 20:00:55 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,7 +243,7 @@ t_couloir	*ft_list(t_lem *lem, int prem, int deux)
 	if (!lem->salles[deux]->couloirs)
 		lem->salles[deux]->couloirs = new;
 	else
-		ft_add_salle2(lem, &new, deux);
+		ft_add_salle2(lem, new, deux);
 	return (new);
 }
 
@@ -269,7 +269,7 @@ void		new_connection(t_lem *lem, int prem, int deux)
 		if (tmp->next == NULL)
 		{
 			if ((new = (t_couloir*)malloc(sizeof(*new))) == NULL)
-				return (NULL);
+				exit(1);
 			ft_bzero(&new, sizeof(new));
 			new->salle_1 = prem;
 			new->salle_2 = deux;
@@ -277,7 +277,7 @@ void		new_connection(t_lem *lem, int prem, int deux)
 			if (!lem->salles[deux]->couloirs)
 				lem->salles[deux]->couloirs = new;
 			else
-				ft_add_salle2(lem, &new, deux);
+				ft_add_salle2(lem, new, deux);
 			tmp->next = new;
 			return ;
 		}
@@ -318,11 +318,11 @@ void		ft_link_couloir(t_lem *lem)
 			{
 				if (!ft_verif(lem->salles[prem]->couloirs, prem, deux))
 				{
-					new_connection(lem->salles[prem]->couloirs, prem, deux);
+					new_connection(lem, prem, deux);
 				}
 			}
 			else
-				lem->salles[prem]->couloirs = ft_list(prem, deux);
+				lem->salles[prem]->couloirs = ft_list(lem, prem, deux);
 		}
 		index_c += len + 1;
 	}
