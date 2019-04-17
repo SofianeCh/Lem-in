@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/16 21:45:09 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/17 12:20:06 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,13 @@ char			*ft_strdup2(const char *s, t_lem *lem)
 		}
 	}
 	lem->nbr_salles = lem->lignes - 3 - lem->comm;
-	str[i] = 0;
+	str[i] = '\0';
 	return (str);
 }
 
 void			ft_read_map(t_lem *lem)
 {
-	lem->b_size = 2000;
+	lem->b_size = 50000;
 	lem->buff = ft_strnew(lem->b_size - 1);
 	while ((lem->ret = read(lem->fd, lem->buff, lem->b_size)) > 0)
 	{
@@ -180,6 +180,7 @@ void			ft_crea_salles(t_lem *lem)
 	while (++i < lem->nbr_salles)
 	{
 		lem->salles[i] = (t_salle *)ft_memalloc(sizeof(t_salle));
+		ft_bzero(lem->salles[i], sizeof(lem->salles[i]));
 		lem->salles[i]->index_s = i;
 		while (lem->line[lem->index[jump]] == '#')
 		{
@@ -194,10 +195,6 @@ void			ft_crea_salles(t_lem *lem)
 		}
 		lem->salles[i]->name = ft_name(lem->line + lem->index[jump]);
 		lem->hash[i] = hash((unsigned char*)(lem->line + lem->index[jump]));
-		lem->salles[i]->couloirs = NULL;
-		printf("adresse = %p\n", lem->salles[i]->couloirs);
-		printf("i = %zu\n", i);
-		ft_printf("nom salle = %s et hash par salles = %lu\n", lem->salles[i]->name, lem->hash[i]);
 		jump++;
 	}
 }
@@ -242,7 +239,6 @@ t_couloir	*ft_list(t_lem *lem, int prem, int deux)
 	new->salle_1 = prem;
 	new->salle_2 = deux;
 	new->next = NULL;
-	printf("hey %d\n", new->salle_1);
 	if (!lem->salles[deux]->couloirs)
 		lem->salles[deux]->couloirs = new;
 	else
@@ -278,9 +274,13 @@ void		new_connection(t_lem *lem, int prem, int deux)
 			new->salle_2 = deux;
 			new->next = NULL;
 			if (!lem->salles[deux]->couloirs)
+			{
 				lem->salles[deux]->couloirs = new;
+			}
 			else
+			{
 				ft_add_salle2(lem, new, deux);
+			}
 			tmp->next = new;
 			return ;
 		}
@@ -317,18 +317,20 @@ void		ft_link_couloir(t_lem *lem)
 		{
 			prem = ft_index(lem, hash((unsigned char*)(lem->line + index_c)));
 			deux = ft_index(lem, hash((unsigned char*)(lem->line + index_c + len1)));
-			// printf("prem avant seg %d\n", prem);
 			if (lem->salles[prem]->couloirs)
 			{
 				if (!ft_verif(lem->salles[prem]->couloirs, prem, deux))
 				{
 					new_connection(lem, prem, deux);
+					lem->salles[prem]->nbr_voisin++;
+					lem->salles[deux]->nbr_voisin++;
 				}
 			}
 			else
 			{
 				lem->salles[prem]->couloirs = ft_list(lem, prem, deux);
-				// printf("yop\n");
+				lem->salles[prem]->nbr_voisin++;
+				lem->salles[deux]->nbr_voisin++;
 			}
 		}
 		index_c += len + 1;
@@ -338,6 +340,7 @@ void		ft_link_couloir(t_lem *lem)
 int			main(int argc, char **argv)
 {
 	t_lem	lem;
+	t_couloir *tmp;
 
 	if (argc == 2)
 	{
@@ -346,10 +349,16 @@ int			main(int argc, char **argv)
 		ft_read_map(&lem);
 		ft_crea_salles(&lem);
 		ft_link_couloir(&lem);
-		// ft_printf("couloirs = %d\n", lem.couloirs);
-		// printf("test: %d\n", lem.salles[0]->start);
-		// printf("%s\n", lem.line);
-		// ft_printf("\n\n\n");
+		for (int k = 0; k < lem.nbr_salles ; k ++)
+		{
+			printf("nom de la salles %s et le nombre de connection = %d\n", lem.salles[k]->name, lem.salles[k]->nbr_voisin);
+			tmp = lem.salles[k]->couloirs;
+			while (tmp)
+			{
+				printf("couloir connection 1 = %s et connection 2 = %s\n", lem.salles[tmp->salle_1]->name, lem.salles[tmp->salle_2]->name);
+				tmp = tmp->next;
+			}
+		}
 		close(lem.fd);
 	}
 	// printf("%s\n", lem.line);
