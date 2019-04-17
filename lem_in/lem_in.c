@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/17 12:20:06 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/17 17:42:00 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void			ft_read_map(t_lem *lem)
 	while ((lem->ret = read(lem->fd, lem->buff, lem->b_size)) > 0)
 	{
 		lem->len += lem->ret;
-		lem->b_size *= 1.6;
+		lem->b_size *= 2;
 		lem->tmp = lem->line;
 		lem->line = !lem->line ? ft_strdup(lem->buff) :
 		ft_strjoin2(lem->line, lem->buff);
@@ -213,80 +213,99 @@ int		ft_index(t_lem *lem, unsigned long hash)
 	return (-1);
 }
 
-void	ft_add_salle2(t_lem *lem, t_couloir *new, int deux)
-{
-	t_couloir *tmp;
-
-	tmp = lem->salles[deux]->couloirs;
-	while (tmp)
-	{
-		if (tmp->next == NULL)
-		{
-			tmp->next = new;
-			return ;
-		}
-		tmp = tmp->next;
-	}
-}
+// void	ft_add_salle2(t_lem *lem, t_couloir *new, int deux)
+// {
+// 	// t_couloir *tmp;
+// 	//
+// 	// // tmp =
+// 	// new->next = lem->salles[deux]->couloirs;
+// 	// lem->salles[deux]->couloirs = new;
+// 	// while (tmp)
+// 	// {
+// 	// 	if (tmp->next == NULL)
+// 	// 	{
+// 	// 		tmp->next = new;
+// 	// 		return ;
+// 	// 	}
+// 	// 	tmp = tmp->next;
+// 	// }
+// }
 
 t_couloir	*ft_list(t_lem *lem, int prem, int deux)
 {
-	t_couloir	*new;
+	t_couloir		*new;
+	t_ptr_couloir	*s1;
+	t_ptr_couloir	*s2;
 
-	if ((new = (t_couloir*)malloc(sizeof(*new))) == NULL)
+	if (!(new = (t_couloir*)malloc(sizeof(*new))) ||
+		!(s1 = (t_ptr_couloir*)malloc(sizeof(t_ptr_couloir))) ||
+		!(s2 = (t_ptr_couloir*)malloc(sizeof(t_ptr_couloir))))
 		return (NULL);
-	ft_bzero(new, sizeof(new));
+	s1->element = new;
+	s2->element = new;
+	s1->next = lem->salles[prem]->couloirs;
+	s2->next = lem->salles[deux]->couloirs;
+	lem->salles[prem]->couloirs = s1;
+	lem->salles[deux]->couloirs = s2;
+	ft_bzero(new, sizeof(*new));
 	new->salle_1 = prem;
 	new->salle_2 = deux;
 	new->next = NULL;
-	if (!lem->salles[deux]->couloirs)
-		lem->salles[deux]->couloirs = new;
-	else
-		ft_add_salle2(lem, new, deux);
+	// if (!lem->salles[deux]->couloirs)
+	// 	lem->salles[deux]->couloirs = new;
+	// else
+	// 	ft_add_salle2(lem, new, deux);
+	// if (!lem->salles[prem]->couloirs)
+	// 	lem->salles[prem]->couloirs = new;
+	// else
+	// 	ft_add_salle2(lem, new, prem);
 	return (new);
 }
 
-int			ft_verif(t_couloir *list, int prem, int deux)
+int			ft_verif(t_ptr_couloir *list, int prem, int deux, t_lem *lem)
 {
-	while (list)
+	t_ptr_couloir *tmp;
+
+	tmp = list;
+	while (tmp)
 	{
-		if (list->salle_1 == deux || list->salle_2 == deux)
+		if (tmp->element->salle_1 == deux || tmp->element->salle_2 == deux)
 			return (1);
-		list = list->next;
+		tmp = tmp->next;
 	}
 	return (0);
 }
 
-void		new_connection(t_lem *lem, int prem, int deux)
-{
-	t_couloir	*tmp;
-	t_couloir	*new;
-
-	tmp = lem->salles[prem]->couloirs;
-	while (tmp)
-	{
-		if (tmp->next == NULL)
-		{
-			if ((new = (t_couloir*)malloc(sizeof(*new))) == NULL)
-				exit(1);
-			ft_bzero(new, sizeof(new));
-			new->salle_1 = prem;
-			new->salle_2 = deux;
-			new->next = NULL;
-			if (!lem->salles[deux]->couloirs)
-			{
-				lem->salles[deux]->couloirs = new;
-			}
-			else
-			{
-				ft_add_salle2(lem, new, deux);
-			}
-			tmp->next = new;
-			return ;
-		}
-		tmp = tmp->next;
-	}
-}
+// void		new_connection(t_lem *lem, int prem, int deux)
+// {
+// 	t_couloir	*tmp;
+// 	t_couloir	*new;
+//
+// 	tmp = lem->salles[prem]->couloirs;
+// 	while (tmp)
+// 	{
+// 		if (tmp->next == NULL)
+// 		{
+// 			if ((new = (t_couloir*)malloc(sizeof(*new))) == NULL)
+// 				exit(1);
+// 			ft_bzero(new, sizeof(*new));
+// 			new->salle_1 = prem;
+// 			new->salle_2 = deux;
+// 			new->next = NULL;
+// 			if (!lem->salles[deux]->couloirs)
+// 			{
+// 				lem->salles[deux]->couloirs = new;
+// 			}
+// 			else
+// 			{
+// 				ft_add_salle2(lem, new, deux);
+// 			}
+// 			tmp->next = new;
+// 			return ;
+// 		}
+// 		tmp = tmp->next;
+// 	}
+// }
 
 void		ft_link_couloir(t_lem *lem)
 {
@@ -317,21 +336,29 @@ void		ft_link_couloir(t_lem *lem)
 		{
 			prem = ft_index(lem, hash((unsigned char*)(lem->line + index_c)));
 			deux = ft_index(lem, hash((unsigned char*)(lem->line + index_c + len1)));
-			if (lem->salles[prem]->couloirs)
+			// ft_list(lem, prem, deux);
+			// lem->salles[prem]->nbr_voisin++;
+			// lem->salles[deux]->nbr_voisin++;
+			// if (lem->salles[prem]->couloirs)
+			// {
+			if (!ft_verif(lem->salles[prem]->couloirs, prem, deux, lem))
 			{
-				if (!ft_verif(lem->salles[prem]->couloirs, prem, deux))
-				{
-					new_connection(lem, prem, deux);
-					lem->salles[prem]->nbr_voisin++;
-					lem->salles[deux]->nbr_voisin++;
-				}
-			}
-			else
-			{
-				lem->salles[prem]->couloirs = ft_list(lem, prem, deux);
+				//new_connection(lem, prem, deux);
+				ft_list(lem, prem, deux);
 				lem->salles[prem]->nbr_voisin++;
 				lem->salles[deux]->nbr_voisin++;
+				// printf("salle = %s couloir connection = %s\n", lem->salles[prem]->name, lem->salles[deux]->name);
+				// printf("salle = %s couloir connection = %s\n", lem->salles[prem]->name, lem->salles[deux]->name);
+
 			}
+			// }
+			// else
+			// {
+			// 	// lem->salles[prem]->couloirs =
+			// 	ft_list(lem, prem, deux);
+			// 	lem->salles[prem]->nbr_voisin++;
+			// 	lem->salles[deux]->nbr_voisin++;
+			// }
 		}
 		index_c += len + 1;
 	}
@@ -340,7 +367,7 @@ void		ft_link_couloir(t_lem *lem)
 int			main(int argc, char **argv)
 {
 	t_lem	lem;
-	t_couloir *tmp;
+	t_ptr_couloir *tmp;
 
 	if (argc == 2)
 	{
@@ -355,12 +382,11 @@ int			main(int argc, char **argv)
 			tmp = lem.salles[k]->couloirs;
 			while (tmp)
 			{
-				printf("couloir connection 1 = %s et connection 2 = %s\n", lem.salles[tmp->salle_1]->name, lem.salles[tmp->salle_2]->name);
+				printf("couloir = %s -> = %s\n", lem.salles[tmp->element->salle_1]->name, lem.salles[tmp->element->salle_2]->name);
 				tmp = tmp->next;
 			}
 		}
 		close(lem.fd);
 	}
-	// printf("%s\n", lem.line);
 	return (0);
 }
