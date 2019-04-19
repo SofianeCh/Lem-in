@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/17 17:42:00 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/19 18:48:28 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,24 +213,6 @@ int		ft_index(t_lem *lem, unsigned long hash)
 	return (-1);
 }
 
-// void	ft_add_salle2(t_lem *lem, t_couloir *new, int deux)
-// {
-// 	// t_couloir *tmp;
-// 	//
-// 	// // tmp =
-// 	// new->next = lem->salles[deux]->couloirs;
-// 	// lem->salles[deux]->couloirs = new;
-// 	// while (tmp)
-// 	// {
-// 	// 	if (tmp->next == NULL)
-// 	// 	{
-// 	// 		tmp->next = new;
-// 	// 		return ;
-// 	// 	}
-// 	// 	tmp = tmp->next;
-// 	// }
-// }
-
 t_couloir	*ft_list(t_lem *lem, int prem, int deux)
 {
 	t_couloir		*new;
@@ -251,14 +233,6 @@ t_couloir	*ft_list(t_lem *lem, int prem, int deux)
 	new->salle_1 = prem;
 	new->salle_2 = deux;
 	new->next = NULL;
-	// if (!lem->salles[deux]->couloirs)
-	// 	lem->salles[deux]->couloirs = new;
-	// else
-	// 	ft_add_salle2(lem, new, deux);
-	// if (!lem->salles[prem]->couloirs)
-	// 	lem->salles[prem]->couloirs = new;
-	// else
-	// 	ft_add_salle2(lem, new, prem);
 	return (new);
 }
 
@@ -275,37 +249,6 @@ int			ft_verif(t_ptr_couloir *list, int prem, int deux, t_lem *lem)
 	}
 	return (0);
 }
-
-// void		new_connection(t_lem *lem, int prem, int deux)
-// {
-// 	t_couloir	*tmp;
-// 	t_couloir	*new;
-//
-// 	tmp = lem->salles[prem]->couloirs;
-// 	while (tmp)
-// 	{
-// 		if (tmp->next == NULL)
-// 		{
-// 			if ((new = (t_couloir*)malloc(sizeof(*new))) == NULL)
-// 				exit(1);
-// 			ft_bzero(new, sizeof(*new));
-// 			new->salle_1 = prem;
-// 			new->salle_2 = deux;
-// 			new->next = NULL;
-// 			if (!lem->salles[deux]->couloirs)
-// 			{
-// 				lem->salles[deux]->couloirs = new;
-// 			}
-// 			else
-// 			{
-// 				ft_add_salle2(lem, new, deux);
-// 			}
-// 			tmp->next = new;
-// 			return ;
-// 		}
-// 		tmp = tmp->next;
-// 	}
-// }
 
 void		ft_link_couloir(t_lem *lem)
 {
@@ -336,31 +279,73 @@ void		ft_link_couloir(t_lem *lem)
 		{
 			prem = ft_index(lem, hash((unsigned char*)(lem->line + index_c)));
 			deux = ft_index(lem, hash((unsigned char*)(lem->line + index_c + len1)));
-			// ft_list(lem, prem, deux);
-			// lem->salles[prem]->nbr_voisin++;
-			// lem->salles[deux]->nbr_voisin++;
-			// if (lem->salles[prem]->couloirs)
-			// {
 			if (!ft_verif(lem->salles[prem]->couloirs, prem, deux, lem))
 			{
-				//new_connection(lem, prem, deux);
 				ft_list(lem, prem, deux);
 				lem->salles[prem]->nbr_voisin++;
 				lem->salles[deux]->nbr_voisin++;
-				// printf("salle = %s couloir connection = %s\n", lem->salles[prem]->name, lem->salles[deux]->name);
-				// printf("salle = %s couloir connection = %s\n", lem->salles[prem]->name, lem->salles[deux]->name);
-
 			}
-			// }
-			// else
-			// {
-			// 	// lem->salles[prem]->couloirs =
-			// 	ft_list(lem, prem, deux);
-			// 	lem->salles[prem]->nbr_voisin++;
-			// 	lem->salles[deux]->nbr_voisin++;
-			// }
 		}
 		index_c += len + 1;
+	}
+}
+
+void 	ft_solve_path(t_lem *lem)
+{
+	int *rooms;
+	int it;
+	int p;
+	int elem;
+	int size_q;
+	t_ptr_couloir *tmp;
+
+	it = -1;
+	p = -1;
+	size_q = 0;
+	rooms = malloc(sizeof(rooms) * lem->nbr_salles);
+	while (++it < lem->nbr_salles)
+	{
+		rooms[it] = -1;
+		if (lem->salles[it]->start)
+			rooms[0] = it;
+	}
+	while (++p < lem->nbr_salles)
+	{
+		// printf("yop grand\n");
+		if (rooms[p] != -1)
+		{
+			printf("size = %d\n", size_q);
+			tmp = lem->salles[rooms[p]]->couloirs;
+			elem = 0;
+			while (lem->salles[rooms[p]]->couloirs && tmp)
+			{
+				// printf("yop boucle \n");
+				if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != rooms[p])
+				{
+					// printf("yop\n");
+					elem++;
+					rooms[0 + elem + size_q] = tmp->element->salle_2;
+					lem->salles[tmp->element->salle_2]->papa = rooms[p];
+					// printf("papa = %d et room = %d\n", rooms);
+					lem->salles[tmp->element->salle_2]->visited++;
+				}
+				else if (tmp->element->salle_2 == rooms[p] && !lem->salles[tmp->element->salle_1]->visited)
+				{
+					elem++;
+					rooms[0 + elem + size_q] = tmp->element->salle_1;
+					lem->salles[tmp->element->salle_1]->visited++;
+					lem->salles[tmp->element->salle_1]->papa = rooms[p];
+				}
+				tmp = tmp->next;
+			}
+			size_q += elem;
+			lem->salles[rooms[p]]->visited++;
+		}
+	}
+	for (it = 0; it < lem->nbr_salles; it++)
+	{
+		printf("valeur dans le room = %d  ", rooms[it]);
+		rooms[it] != -1 ? printf("et chambre %s\n", lem->salles[rooms[it]]->name) : printf(" -1\n");
 	}
 }
 
@@ -385,6 +370,19 @@ int			main(int argc, char **argv)
 				printf("couloir = %s -> = %s\n", lem.salles[tmp->element->salle_1]->name, lem.salles[tmp->element->salle_2]->name);
 				tmp = tmp->next;
 			}
+		}
+		unsigned long check;
+		check = 0;
+		for (int p = 0; p < lem.nbr_salles; p++)
+		{
+			check = lem.hash[p];
+			if (check == lem.hash[p+1])
+				printf("probleme doublon\n");
+		}
+		ft_solve_path(&lem);
+		for (int k = 0; k < lem.nbr_salles;k++)
+		{
+			printf("%d\n", lem.salles[k]->papa);
 		}
 		close(lem.fd);
 	}

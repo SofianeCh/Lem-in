@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/17 17:46:29 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/19 15:56:15 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct			s_ptr_couloir
 typedef struct		s_salle
 {
 	char			*name;
+	int				visited;
+	int				papa;
 	int				index_s;
 	int				start;
 	int				fourmis;
@@ -53,9 +55,9 @@ typedef struct		s_lem
 	int				dieze;
 	int				pos_start;
 	int				pos_end;
-	int				probleme;
 	int				comm;
 	int				len;
+	int				probleme;
 	int				fd;
 	int				ret;
 	int				fourmis;
@@ -66,8 +68,8 @@ typedef struct		s_lem
 	char			*buff;
 	char			*line;
 	t_salle			**salles;
-	int				index[500000];
-	unsigned long	hash[500000];
+	int				index[50000];
+	unsigned long	hash[50000];
 	int				b_size;
 }					t_lem;
 #endif
