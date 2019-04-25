@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/19 18:48:28 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/25 22:57:41 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ unsigned long		hash(unsigned char *str)
 	int				c;
 	int				i;
 
-	hash = 5381;
+	hash = 012405;
 	i = 0;
 	while (str[i] && str[i] != ' ' && str[i] != '-' && str[i] != '\n')
 	{
@@ -290,6 +290,32 @@ void		ft_link_couloir(t_lem *lem)
 	}
 }
 
+void	crea_path(t_lem *lem, int p)
+{
+	int len;
+	int tmp;
+
+	len = 1;
+	tmp = p;
+	while (!lem->salles[p]->start && ++len)
+		p = lem->salles[p]->papa;
+	lem->paths[0] = (t_path *)ft_memalloc(sizeof(t_path));
+	lem->paths[0]->size = len;
+	lem->paths[0]->path = malloc(sizeof(int) * len);
+	while (--len)
+	{
+		lem->paths[0]->path[len] = lem->salles[tmp]->index_s;
+		printf("remplis = %s et le len = %d\n", lem->salles[lem->salles[tmp]->index_s]->name, len);
+		tmp = lem->salles[tmp]->papa;
+	}
+	lem->paths[0]->path[len] = lem->salles[tmp]->index_s;
+	while (len < lem->paths[0]->size)
+	{
+		printf("path = %s\n", lem->salles[lem->paths[0]->path[len]]->name);
+		len++;
+	}
+}
+
 void 	ft_solve_path(t_lem *lem)
 {
 	int *rooms;
@@ -297,36 +323,42 @@ void 	ft_solve_path(t_lem *lem)
 	int p;
 	int elem;
 	int size_q;
+	int start;
+	int end;
 	t_ptr_couloir *tmp;
 
 	it = -1;
 	p = -1;
 	size_q = 0;
+	start = 0;
+	end = 0;
 	rooms = malloc(sizeof(rooms) * lem->nbr_salles);
 	while (++it < lem->nbr_salles)
 	{
 		rooms[it] = -1;
 		if (lem->salles[it]->start)
+		{
 			rooms[0] = it;
+			start = lem->salles[it]->nbr_voisin;
+		}
+		if (lem->salles[it]->end)
+			end = lem->salles[it]->nbr_voisin;
 	}
+	printf("start = %d et end = %d\n", start, end);
+	lem->paths = (t_path**)ft_memalloc(sizeof(t_path*) * (start > end ? start : end));
 	while (++p < lem->nbr_salles)
 	{
-		// printf("yop grand\n");
 		if (rooms[p] != -1)
 		{
-			printf("size = %d\n", size_q);
 			tmp = lem->salles[rooms[p]]->couloirs;
 			elem = 0;
 			while (lem->salles[rooms[p]]->couloirs && tmp)
 			{
-				// printf("yop boucle \n");
 				if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != rooms[p])
 				{
-					// printf("yop\n");
 					elem++;
 					rooms[0 + elem + size_q] = tmp->element->salle_2;
 					lem->salles[tmp->element->salle_2]->papa = rooms[p];
-					// printf("papa = %d et room = %d\n", rooms);
 					lem->salles[tmp->element->salle_2]->visited++;
 				}
 				else if (tmp->element->salle_2 == rooms[p] && !lem->salles[tmp->element->salle_1]->visited)
@@ -336,17 +368,28 @@ void 	ft_solve_path(t_lem *lem)
 					lem->salles[tmp->element->salle_1]->visited++;
 					lem->salles[tmp->element->salle_1]->papa = rooms[p];
 				}
+				if (lem->salles[rooms[p]]->end)
+				{
+					crea_path(lem, rooms[p]);
+					break ;
+				}
 				tmp = tmp->next;
 			}
 			size_q += elem;
 			lem->salles[rooms[p]]->visited++;
 		}
 	}
-	for (it = 0; it < lem->nbr_salles; it++)
-	{
-		printf("valeur dans le room = %d  ", rooms[it]);
-		rooms[it] != -1 ? printf("et chambre %s\n", lem->salles[rooms[it]]->name) : printf(" -1\n");
-	}
+	// for (it = 0; it < lem->nbr_salles; it++)
+	// {
+	// 	printf("valeur dans le room = %d  ", rooms[it]);
+	// 	rooms[it] != -1 ? printf("et chambre %s\n", lem->salles[rooms[it]]->name) : printf(" -1\n");
+	// }
+	// int path = 7;
+	// while (!lem->salles[path]->start)
+	// {
+	// 	printf("papa et room = %s\n", lem->salles[lem->salles[path]->papa]->name);
+	// 	path = lem->salles[path]->papa;
+	// }
 }
 
 int			main(int argc, char **argv)
@@ -380,10 +423,10 @@ int			main(int argc, char **argv)
 				printf("probleme doublon\n");
 		}
 		ft_solve_path(&lem);
-		for (int k = 0; k < lem.nbr_salles;k++)
-		{
-			printf("%d\n", lem.salles[k]->papa);
-		}
+		// for (int k = 0; k < lem.nbr_salles;k++)
+		// {
+		// 	printf("%d\n", lem.salles[k]->papa);
+		// }
 		close(lem.fd);
 	}
 	return (0);
