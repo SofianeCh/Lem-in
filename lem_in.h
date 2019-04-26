@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/25 22:30:36 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:08:10 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,22 @@ typedef struct		s_salle
 	t_ptr_couloir	*couloirs;
 }					t_salle;
 
+typedef struct 		s_solve
+{
+	int				*rooms;
+	int				it;
+	int				p;
+	int				elem;
+	int				size_q;
+	int				start;
+	int				end;
+}					t_solve;
+
 typedef struct		s_lem
 {
 	int				lignes;
 	int				dieze;
+	int 			nbr_coups;
 	int				pos_start;
 	int				pos_end;
 	int				comm;
