@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/26 15:08:10 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/27 19:41:21 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ typedef struct 		s_solve
 	int				*rooms;
 	int				it;
 	int				p;
-	int				elem;
 	int				size_q;
 	int				start;
 	int				end;
@@ -70,7 +69,7 @@ typedef struct		s_lem
 {
 	int				lignes;
 	int				dieze;
-	int 			nbr_coups;
+	int 			nbr_etapes;
 	int				pos_start;
 	int				pos_end;
 	int				comm;

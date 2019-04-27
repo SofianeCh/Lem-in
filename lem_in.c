@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/26 23:48:01 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/27 20:19:14 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 ** Proteger les malloc.
 ** erreurs quand map ne termine pas part \n, (ft-link_couloirs)
 ** gestoin d'erreur dans le parsins
+** gerer les double directions des couloirs
+** modifier les BFS pour qu'il prennent en comptes les doubles directions
 ** double disjoint a faire
 ** merge des chemins avec suurbal
 ** normer
@@ -361,36 +363,94 @@ int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 	return (elem);
 }
 
-void 	ft_solve_path(t_lem *lem)
+void 	ft_bfs(t_lem *lem, t_solve *s, int way)
 {
 	int elem;
-	t_solve		s;
 	t_ptr_couloir *tmp;
 
-	ft_bzero(&s, sizeof(s));
-	s.p = -1;
-	ft_init_queue(lem, &s);
-	lem->paths = (t_path**)ft_memalloc(sizeof(t_path*) * (s.start > s.end ? s.start : s.end));
-	while (++s.p < lem->nbr_salles)
+	while (++s->p < lem->nbr_salles)
 	{
-		if (s.rooms[s.p] != -1)
+		if (s->rooms[s->p] != -1)
 		{
-			tmp = lem->salles[s.rooms[s.p]]->couloirs;
+			tmp = lem->salles[s->rooms[s->p]]->couloirs;
 			elem = 0;
-			while (lem->salles[s.rooms[s.p]]->couloirs && tmp)
+			while (lem->salles[s->rooms[s->p]]->couloirs && tmp)
 			{
-				elem = visit_rooms(lem, &s, tmp, elem);
-				if (lem->salles[s.rooms[s.p]]->end)
+				elem = visit_rooms(lem, s, tmp, elem);
+				if (lem->salles[s->rooms[s->p]]->end)
 				{
-					crea_path(lem, s.rooms[s.p], 0);
-					break ;
+					crea_path(lem, s->rooms[s->p], 0);
+					return ;
 				}
 				tmp = tmp->next;
 			}
-			s.size_q += elem;
-			lem->salles[s.rooms[s.p]]->visited++;
+			s->size_q += elem;
+			lem->salles[s->rooms[s->p]]->visited++;
 		}
 	}
+}
+
+int		ft_calcul_etapes(t_lem *lem, int chemins)
+{
+	int		i;
+	int		len_path;
+	double	calcul;
+
+	i = -1;
+	len_path = 0;
+	calcul = 0.0;
+	while (++i < chemins)
+	{
+		len_path += (lem->paths[i]->size - 1);
+	}
+	calcul = (double)((lem->fourmis + len_path) / chemins) - 1;
+	calcul > (int)calcul ? calcul++ : 0;
+	if (!lem->nbr_etapes)
+		lem->nbr_etapes = calcul;
+	else if (lem->nbr_etapes > calcul)
+		lem->nbr_etapes = calcul;
+	if (lem->nbr_etapes < calcul)
+		return (1);
+	// printf("lem->nbr_etapes = %d\n", lem->nbr_etapes);
+	// printf("check = %f\n", calcul);
+	return (0);
+}
+
+void		ft_reset_rooms(t_lem *lem, t_solve *s)
+{
+	int i;
+
+	i = -1;
+	while (++i < lem->nbr_salles)
+	{
+		lem->salles[i]->visited = 0;
+		lem->salles[i]->papa = 0;
+	}
+	s->p = -1;
+}
+
+void	ft_solve_path(t_lem *lem)
+{
+	t_solve		s;
+	int 		i;
+	int			stop;
+	int 		max_way;
+
+	ft_bzero(&s, sizeof(s));
+	s.p = -1;
+	i = -1;
+	ft_init_queue(lem, &s);
+	max_way = (s.start > s.end) ? s.start : s.end;
+	lem->paths = (t_path**)ft_memalloc(sizeof(t_path*) * (max_way));
+	while (++i < max_way)
+	{
+		ft_bfs(lem, &s, i);
+		stop = ft_calcul_etapes(lem, i + 1);
+		if (stop)
+			return ;
+		ft_reset_rooms(lem, &s);
+	}
+
 	// for (it = 0; it < lem->nbr_salles; it++)
 	// {
 	// 	printf("valeur dans le room = %d  ", rooms[it]);
