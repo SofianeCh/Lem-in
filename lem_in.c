@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/27 20:19:14 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/28 23:08:22 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -416,6 +416,48 @@ int		ft_calcul_etapes(t_lem *lem, int chemins)
 	return (0);
 }
 
+void		ft_modify_directions(t_lem *lem, int way)
+{
+	int i;
+	int room1;
+	int room2;
+	t_ptr_couloir *tmp;
+
+	i = -1;
+	while (++i < lem->paths[way]->size - 1)
+	{
+		room1 = lem->paths[way]->path[i];
+		room2 = lem->paths[way]->path[i + 1];
+		printf("le room 2 = %s\n", lem->salles[room2]->name);
+		tmp = lem->salles[lem->paths[way]->path[i]]->couloirs;
+		while (tmp->element->salle_1 == room2 || tmp->element->salle_2 == room2)
+			tmp = tmp->next;
+		printf("salle 1 = %s salle 2 = %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
+		if (tmp->element->salle_1 == room2)
+		{
+			tmp->element->dir_salle1 = 1;
+			printf("prem condition\n");
+		}
+		if (tmp->element->salle_2 == room2)
+		{
+			tmp->element->dir_salle2 = 1;
+			printf("deux condition\n");
+
+		}
+	}
+	for (int k = 0; k < lem->nbr_salles; k++)
+	{
+		tmp = lem->salles[k]->couloirs;
+		printf("%s\n", lem->salles[k]->name);
+		while (tmp)
+		{
+			printf("dir 1 = %d dir 2 = %d\n", tmp->element->dir_salle1, tmp->element->dir_salle2);
+			tmp = tmp->next;
+		}
+	}
+
+}
+
 void		ft_reset_rooms(t_lem *lem, t_solve *s)
 {
 	int i;
@@ -442,13 +484,14 @@ void	ft_solve_path(t_lem *lem)
 	ft_init_queue(lem, &s);
 	max_way = (s.start > s.end) ? s.start : s.end;
 	lem->paths = (t_path**)ft_memalloc(sizeof(t_path*) * (max_way));
-	while (++i < max_way)
+	while (++i < max_way - 1)
 	{
 		ft_bfs(lem, &s, i);
 		stop = ft_calcul_etapes(lem, i + 1);
 		if (stop)
 			return ;
 		ft_reset_rooms(lem, &s);
+		ft_modify_directions(lem, i);
 	}
 
 	// for (it = 0; it < lem->nbr_salles; it++)
