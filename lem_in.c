@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/28 23:08:22 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/29 23:45:51 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 ** Proteger les malloc.
 ** erreurs quand map ne termine pas part \n, (ft-link_couloirs)
 ** gestoin d'erreur dans le parsins
+** lire a partir de la sortie standart pas d'un first
 ** gerer les double directions des couloirs
 ** modifier les BFS pour qu'il prennent en comptes les doubles directions
 ** double disjoint a faire
@@ -299,6 +300,18 @@ void		ft_link_couloir(t_lem *lem)
 		index_c += len + 1;
 		// printf("%d\n", index_c);
 	}
+	// t_ptr_couloir *tmp;
+	// for (int k = 0; k <lem->nbr_salles; k++)
+	// {
+	// 	tmp = lem->salles[k]->couloirs;
+	// 	printf("%s\n\n", lem->salles[k]->name);
+	// 	while (tmp)
+	// 	{
+	// 		printf("%s, %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
+	// 		tmp = tmp->next;
+	// 	}
+	// }
+	// printf("----------------------Parse-------------------\n");
 }
 
 void	crea_path(t_lem *lem, int p, int way)
@@ -316,7 +329,7 @@ void	crea_path(t_lem *lem, int p, int way)
 	while (--len)
 	{
 		lem->paths[way]->path[len] = lem->salles[tmp]->index_s;
-		printf("remplis = %s et le len = %d\n", lem->salles[lem->salles[tmp]->index_s]->name, len);
+		// printf("remplis = %s et le len = %d\n", lem->salles[lem->salles[tmp]->index_s]->name, len);
 		tmp = lem->salles[tmp]->papa;
 	}
 	lem->paths[way]->path[len] = lem->salles[tmp]->index_s;
@@ -346,16 +359,24 @@ void	ft_init_queue(t_lem *lem, t_solve *s)
 
 int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 {
-	if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != s->rooms[s->p])
+
+	// printf("%s\n", tmp->element->);
+	printf("av room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
+	if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != s->rooms[s->p] && !tmp->element->dir_salle2)
 	{
 		elem++;
+		printf("room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
+
+		// printf("1ste while - - - - %s\n", lem->salles[tmp->element->salle_2]->name);
 		s->rooms[0 + elem + s->size_q] = tmp->element->salle_2;
 		lem->salles[tmp->element->salle_2]->papa = s->rooms[s->p];
 		lem->salles[tmp->element->salle_2]->visited++;
 	}
-	else if (tmp->element->salle_2 == s->rooms[s->p] && !lem->salles[tmp->element->salle_1]->visited)
+	else if (tmp->element->salle_2 == s->rooms[s->p] && !lem->salles[tmp->element->salle_1]->visited && !tmp->element->dir_salle1)
 	{
 		elem++;
+		printf("room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
+				// printf("2de while - - - - %s\n", lem->salles[tmp->element->salle_1]->name);
 		s->rooms[0 + elem + s->size_q] = tmp->element->salle_1;
 		lem->salles[tmp->element->salle_1]->visited++;
 		lem->salles[tmp->element->salle_1]->papa = s->rooms[s->p];
@@ -379,7 +400,7 @@ void 	ft_bfs(t_lem *lem, t_solve *s, int way)
 				elem = visit_rooms(lem, s, tmp, elem);
 				if (lem->salles[s->rooms[s->p]]->end)
 				{
-					crea_path(lem, s->rooms[s->p], 0);
+					crea_path(lem, s->rooms[s->p], way);
 					return ;
 				}
 				tmp = tmp->next;
@@ -399,8 +420,10 @@ int		ft_calcul_etapes(t_lem *lem, int chemins)
 	i = -1;
 	len_path = 0;
 	calcul = 0.0;
+	printf("			calcul nbr_etapes\n");
 	while (++i < chemins)
 	{
+		printf("%d\n", chemins);
 		len_path += (lem->paths[i]->size - 1);
 	}
 	calcul = (double)((lem->fourmis + len_path) / chemins) - 1;
@@ -424,15 +447,19 @@ void		ft_modify_directions(t_lem *lem, int way)
 	t_ptr_couloir *tmp;
 
 	i = -1;
+	printf("- - - je rentre dans modify direction - - -\n");
 	while (++i < lem->paths[way]->size - 1)
 	{
 		room1 = lem->paths[way]->path[i];
 		room2 = lem->paths[way]->path[i + 1];
 		printf("le room 2 = %s\n", lem->salles[room2]->name);
 		tmp = lem->salles[lem->paths[way]->path[i]]->couloirs;
-		while (tmp->element->salle_1 == room2 || tmp->element->salle_2 == room2)
+		while (tmp && ((tmp->element->salle_1 != room2 && tmp->element->salle_2 == room1 ) || (tmp->element->salle_2 != room2 && tmp->element->salle_1 == room1)))
+		{
+			printf(" mod - = %s   = %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
 			tmp = tmp->next;
-		printf("salle 1 = %s salle 2 = %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
+		}
+		printf(" = %s    = %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
 		if (tmp->element->salle_1 == room2)
 		{
 			tmp->element->dir_salle1 = 1;
@@ -442,19 +469,18 @@ void		ft_modify_directions(t_lem *lem, int way)
 		{
 			tmp->element->dir_salle2 = 1;
 			printf("deux condition\n");
-
 		}
 	}
-	for (int k = 0; k < lem->nbr_salles; k++)
-	{
-		tmp = lem->salles[k]->couloirs;
-		printf("%s\n", lem->salles[k]->name);
-		while (tmp)
-		{
-			printf("dir 1 = %d dir 2 = %d\n", tmp->element->dir_salle1, tmp->element->dir_salle2);
-			tmp = tmp->next;
-		}
-	}
+	// for (int k = 0; k < lem->nbr_salles; k++)
+	// {
+	// 	tmp = lem->salles[k]->couloirs;
+	// 	printf("%s\n", lem->salles[k]->name);
+	// 	while (tmp)
+	// 	{
+	// 		printf("dir 1 = %d dir 2 = %d\n", tmp->element->dir_salle1, tmp->element->dir_salle2);
+	// 		tmp = tmp->next;
+	// 	}
+	// }
 
 }
 
@@ -463,6 +489,7 @@ void		ft_reset_rooms(t_lem *lem, t_solve *s)
 	int i;
 
 	i = -1;
+	printf("reset rooms\n");
 	while (++i < lem->nbr_salles)
 	{
 		lem->salles[i]->visited = 0;
@@ -484,7 +511,7 @@ void	ft_solve_path(t_lem *lem)
 	ft_init_queue(lem, &s);
 	max_way = (s.start > s.end) ? s.start : s.end;
 	lem->paths = (t_path**)ft_memalloc(sizeof(t_path*) * (max_way));
-	while (++i < max_way - 1)
+	while (++i < max_way)
 	{
 		ft_bfs(lem, &s, i);
 		stop = ft_calcul_etapes(lem, i + 1);
