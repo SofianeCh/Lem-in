@@ -6,16 +6,16 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/29 23:45:51 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/04/30 14:53:40 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** Proteger les malloc.
 ** erreurs quand map ne termine pas part \n, (ft-link_couloirs)
-** gestoin d'erreur dans le parsins
+** gestoin d'erreur map valid dans le parsins
+** gestoin d'erreur map unvalid dans le parsins (0/38)
 ** lire a partir de la sortie standart pas d'un first
-** gerer les double directions des couloirs
 ** modifier les BFS pour qu'il prennent en comptes les doubles directions
 ** double disjoint a faire
 ** merge des chemins avec suurbal
@@ -366,11 +366,13 @@ int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 	{
 		elem++;
 		printf("room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
-
+		printf("size q = %d\n", s->size_q);
 		// printf("1ste while - - - - %s\n", lem->salles[tmp->element->salle_2]->name);
 		s->rooms[0 + elem + s->size_q] = tmp->element->salle_2;
 		lem->salles[tmp->element->salle_2]->papa = s->rooms[s->p];
 		lem->salles[tmp->element->salle_2]->visited++;
+		printf("queue = %d %s\n", 0 + elem + s->size_q, lem->salles[s->rooms[0 + elem + s->size_q]]->name);
+
 	}
 	else if (tmp->element->salle_2 == s->rooms[s->p] && !lem->salles[tmp->element->salle_1]->visited && !tmp->element->dir_salle1)
 	{
@@ -389,8 +391,16 @@ void 	ft_bfs(t_lem *lem, t_solve *s, int way)
 	int elem;
 	t_ptr_couloir *tmp;
 
+	for (int l = 0; l<lem->nbr_salles;l++)
+	{
+		// printf("yop \n");
+		printf("%s ", s->rooms[l] != -1 ? lem->salles[s->rooms[l]]->name : "-1");
+	}
+	printf("\n");
+
 	while (++s->p < lem->nbr_salles)
 	{
+		printf("queue = %d %s\n", s->p, lem->salles[s->rooms[s->p]]->name);
 		if (s->rooms[s->p] != -1)
 		{
 			tmp = lem->salles[s->rooms[s->p]]->couloirs;
@@ -460,12 +470,12 @@ void		ft_modify_directions(t_lem *lem, int way)
 			tmp = tmp->next;
 		}
 		printf(" = %s    = %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
-		if (tmp->element->salle_1 == room2)
+		if (tmp && tmp->element->salle_1 == room2)
 		{
 			tmp->element->dir_salle1 = 1;
 			printf("prem condition\n");
 		}
-		if (tmp->element->salle_2 == room2)
+		if (tmp && tmp->element->salle_2 == room2)
 		{
 			tmp->element->dir_salle2 = 1;
 			printf("deux condition\n");
@@ -494,7 +504,9 @@ void		ft_reset_rooms(t_lem *lem, t_solve *s)
 	{
 		lem->salles[i]->visited = 0;
 		lem->salles[i]->papa = 0;
+		i ? s->rooms[i] = -1 : 0;
 	}
+	s->size_q = 0;
 	s->p = -1;
 }
 
