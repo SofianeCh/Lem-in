@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/04/28 22:28:36 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/02 19:00:32 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct		s_lem
 	int				comm;
 	int				len;
 	int				probleme;
+	int				stop;
 	int				fd;
 	int				ret;
 	int				fourmis;
