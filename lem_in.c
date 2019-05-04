@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/02 19:08:34 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/02 23:58:36 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -472,14 +472,16 @@ int		ft_calcul_etapes(t_lem *lem, int chemins)
 	return (0);
 }
 
-void		ft_modify_directions(t_lem *lem, int way)
+int		ft_modify_directions(t_lem *lem, int way)
 {
 	int i;
+	int merge;
 	int room1;
 	int room2;
 	t_ptr_couloir *tmp;
 
 	i = -1;
+	merge = 0;
 	printf("- - - je rentre dans modify direction - - -\n");
 	while (++i < lem->paths[way]->size - 1)
 	{
@@ -503,17 +505,23 @@ void		ft_modify_directions(t_lem *lem, int way)
 			tmp->element->dir_salle2 = 1;
 			// printf("deux condition\n");
 		}
+		if (!merge && tmp->element->dir_salle1 && tmp->element->dir_salle2)
+		{
+			merge++;
+			lem->merge = tmp->element;
+		}
 	}
-	// for (int k = 0; k < lem->nbr_salles; k++)
-	// {
-	// 	tmp = lem->salles[k]->couloirs;
-	// 	printf("%s\n", lem->salles[k]->name);
-	// 	while (tmp)
-	// 	{
-	// 		printf("dir 1 = %d dir 2 = %d\n", tmp->element->dir_salle1, tmp->element->dir_salle2);
-	// 		tmp = tmp->next;
-	// 	}
-	// }
+	for (int k = 0; k < lem->nbr_salles; k++)
+	{
+		tmp = lem->salles[k]->couloirs;
+		printf("%s\n", lem->salles[k]->name);
+		while (tmp)
+		{
+			printf("dir 1 = %d dir 2 = %d\n", tmp->element->dir_salle1, tmp->element->dir_salle2);
+			tmp = tmp->next;
+		}
+	}
+	return (merge);
 
 }
 
@@ -533,11 +541,28 @@ void		ft_reset_rooms(t_lem *lem, t_solve *s)
 	s->p = -1;
 }
 
+void 	ft_merge(t_lem *lem, int way)
+{
+	printf("way1 %d\n", way);
+	for (int i = 0;i < lem->paths[way]->size; i++)
+	{
+		printf("%s ", lem->salles[lem->paths[way]->path[i]]->name);
+	}
+	printf("\n way 2\n");
+	for (int i = 0;i < lem->paths[way - 1]->size; i++)
+	{
+		printf("%s ", lem->salles[lem->paths[way - 1]->path[i]]->name);
+	}
+	printf("\n");
+
+}
+
 void	ft_solve_path(t_lem *lem)
 {
 	t_solve		s;
 	int 		i;
-	int 		fstop;
+	int 		merge;
+	// int 		fstop;
 	int			stop;
 	int 		max_way;
 
@@ -556,7 +581,10 @@ void	ft_solve_path(t_lem *lem)
 		if (stop)
 			return ;
 		ft_reset_rooms(lem, &s);
-		ft_modify_directions(lem, i);
+		merge = ft_modify_directions(lem, i);
+		printf("merge needed %d\n", merge);
+		merge ? printf("%s %s %d %d \n", lem->salles[lem->merge->salle_1]->name, lem->salles[lem->merge->salle_2]->name, lem->merge->dir_salle1, lem->merge->dir_salle2) :0;
+		merge ? ft_merge(lem, i) : 0;
 	}
 
 	// for (it = 0; it < lem->nbr_salles; it++)
