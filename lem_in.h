@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/02 23:47:56 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/04 21:28:44 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ typedef struct			s_ptr_couloir
 
 typedef struct 		s_path
 {
-	int 			size;
-	int* 			path;
+	int				size;
+	int				f_size;
+	int*			path;
 	int				f_path[50000];
 }					t_path;
 
@@ -64,6 +65,7 @@ typedef struct 		s_solve
 	int				size_q;
 	int				start;
 	int				end;
+	int				count;
 }					t_solve;
 
 typedef struct		s_lem
