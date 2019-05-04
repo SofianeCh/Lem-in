@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/04 23:17:53 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/04 23:21:31 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -728,12 +728,12 @@ void 		go_fourmis(t_lem *lem, int chemin)
 			lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis = lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis;
 			lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis = 0;
 		}
-		// if (len_chemin == lem->paths[chemin]->size - 1 && lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis == lem->salles[lem->paths[chemin]->path[0]]->fourmis && lem->salles[lem->paths[chemin]->path[len_chemin]]->end)
-		// {
-		// 	lem->last_ant = 1;
-		// 	// printf("je rentre last ant\n");
-		// 	// printf("%d\n", lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis);
-		// }
+		if (len_chemin == lem->paths[chemin]->size - 1 && lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis == lem->salles[lem->paths[chemin]->path[0]]->fourmis && lem->salles[lem->paths[chemin]->path[len_chemin]]->end)
+		{
+			lem->last_ant = 1;
+			// printf("je rentre last ant\n");
+			// printf("%d\n", lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis);
+		}
 
 	}
 	if (lem->fourmis)
@@ -800,7 +800,7 @@ int			main(int argc, char **argv)
 			i = -1;
 			while (++i < chemin)
 			{
-				go_fourmis(&lem, i);
+				!lem.last_ant ? go_fourmis(&lem, i): 0;
 			}
 			ft_printf("\n");
 
