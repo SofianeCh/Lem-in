@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/06 19:31:06 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/07 19:56:04 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char			*ft_strdup2(const char *s, t_lem *lem)
 	}
 	min = i;
 	lem->fourmis = ft_atoi(s + i);
-	// printf("strdup %d\n", lem->fourmis);
+	// ft_printf("%d\n", lem->fourmis);
 	// while (s[i])
 	// 	i++;
 	i = ft_strlen(s);
@@ -149,7 +149,7 @@ void			ft_read_map(t_lem *lem)
 	}
 	lem->tmp = lem->line;
 	lem->line = ft_strdup2(lem->line, lem);
-	// printf("%c\n", lem->line[0]);
+	// ft_printf("%s\n", lem->line + 1);
 	ft_cln(&lem->tmp, &lem->buff, NULL);
 }
 
@@ -367,12 +367,18 @@ void	ft_init_queue(t_lem *lem, t_solve *s)
 	}
 }
 
+int 	croissement(t_lem *lem, t_solve *s)
+{
+	printf("le count = %d\n", s->count);
+	return (1);
+}
+
 int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 {
 
 	// printf("%s\n", tmp->element->);
 	// printf("av room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
-	if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != s->rooms[s->p] && !tmp->element->dir_salle2)
+	if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != s->rooms[s->p] && !tmp->element->dir_salle2 && croissement(lem, s))
 	{
 		elem++;
 		// printf("room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
@@ -384,7 +390,7 @@ int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 		// printf("queue = %d %s\n", 0 + elem + s->size_q, lem->salles[s->rooms[0 + elem + s->size_q]]->name);
 
 	}
-	else if (tmp->element->salle_2 == s->rooms[s->p] && !lem->salles[tmp->element->salle_1]->visited && !tmp->element->dir_salle1)
+	else if (tmp->element->salle_2 == s->rooms[s->p] && !lem->salles[tmp->element->salle_1]->visited && !tmp->element->dir_salle1 && croissement(lem, s))
 	{
 		elem++;
 		// printf("room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
@@ -502,7 +508,7 @@ int		ft_modify_directions(t_lem *lem, int way)
 		room2 = lem->paths[way]->path[i + 1];
 		// printf("le room 2 = %s\n", lem->salles[room2]->name);
 		tmp = lem->salles[lem->paths[way]->path[i]]->couloirs;
-		while (tmp && ((tmp->element->salle_1 != room2 && tmp->element->salle_2 == room1 ) || (tmp->element->salle_2 != room2 && tmp->element->salle_1 == room1)))
+		while (tmp && ((tmp->element->salle_1 != room2 && tmp->element->salle_2 == room1) || (tmp->element->salle_2 != room2 && tmp->element->salle_1 == room1)))
 		{
 			// printf(" mod - = %s   = %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
 			tmp = tmp->next;
@@ -510,16 +516,21 @@ int		ft_modify_directions(t_lem *lem, int way)
 		if (tmp && tmp->element->salle_1 == room2)
 		{
 			tmp->element->dir_salle1 = 1;
+			// if (!merge && tmp->element->dir_salle1 && tmp->element->dir_salle2)
+			// {
+			// 	merge++;
+			// 	lem->merge = tmp->element;
+			// }
 		}
 		if (tmp && tmp->element->salle_2 == room2)
 		{
 			tmp->element->dir_salle2 = 1;
 		}
-		if (!merge && tmp->element->dir_salle1 && tmp->element->dir_salle2)
-		{
-			merge++;
-			lem->merge = tmp->element;
-		}
+	}
+	if (!merge && tmp->element->dir_salle1 && tmp->element->dir_salle2)
+	{
+		merge++;
+		lem->merge = tmp->element;
 	}
 	// for (int k = 0; k < lem->nbr_salles; k++)
 	// {
