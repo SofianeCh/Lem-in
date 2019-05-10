@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/10 18:28:08 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/10 18:54:39 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -384,14 +384,20 @@ int 	croissement(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int num)
 		printf("Name room = %s\n", lem->salles[s->rooms[s->p]]->name);
 		printf("Room = %d\n", s->rooms[s->p]);
 		s->p > 0 ? printf("la room precedente = %d\n", s->rooms[s->p - 1]) : 0;
+		s->p > 0 ? printf("name room precedente = %s\n", lem->salles[s->rooms[s->p - 1]]->name) : 0;
+		for (int r = 0; r < s->p; r++)
+		{
+			printf("%s ", lem->salles[s->rooms[r]]->name);
+		}
+
 		for (int p = 1; p < lem->paths[i - 1]->size; p++)
 		{
 			// printf("la room donne = %d\n", s->rooms[s->p]);
-			if (s->p > 0 && s->rooms[s->p - 1] == lem->paths[i - 1]->path[p])
-			{
-				printf("je bloque ici %s\n", lem->salles[lem->paths[i - 1]->path[p]]->name);
-				return (0);
-			}
+			// if (s->p > 0 && s->rooms[s->p - 1] == lem->paths[i - 1]->path[p])
+			// {
+			// 	printf("je bloque ici %s\n", lem->salles[lem->paths[i - 1]->path[p]]->name);
+			// 	return (0);
+			// }
 			// printf("%s ", lem->salles[lem->paths[i]->path[p]]->name);
 		}
 		// printf("\n");
