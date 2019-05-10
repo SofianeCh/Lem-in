@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/07 19:56:04 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/10 18:28:08 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 ** gestoin d'erreur map valid dans le parsins (0/15)
 ** gestoin d'erreur map unvalid dans le parsins (0/38)
 ** normer
+** croissement
 ** Gerer le cas compliqué macfreek` -> double pere
 ** fuites memoires
 ** hash plus opti avec modulo
@@ -367,9 +368,34 @@ void	ft_init_queue(t_lem *lem, t_solve *s)
 	}
 }
 
-int 	croissement(t_lem *lem, t_solve *s)
+int 	croissement(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int num)
 {
-	printf("le count = %d\n", s->count);
+	int i;
+
+	i = 0;
+	// printf("le count = %d\n", s->count);
+	// printf("~~~~  %d et %s\n", s->rooms[s->p], lem->salles[s->rooms[s->p]]->name);
+	if (lem->salles[tmp->element->salle_2]->papa && !num)
+		return (0);
+	if (lem->salles[tmp->element->salle_1]->papa && num)
+		return (0);
+	while (++i <= s->count)
+	{
+		printf("Name room = %s\n", lem->salles[s->rooms[s->p]]->name);
+		printf("Room = %d\n", s->rooms[s->p]);
+		s->p > 0 ? printf("la room precedente = %d\n", s->rooms[s->p - 1]) : 0;
+		for (int p = 1; p < lem->paths[i - 1]->size; p++)
+		{
+			// printf("la room donne = %d\n", s->rooms[s->p]);
+			if (s->p > 0 && s->rooms[s->p - 1] == lem->paths[i - 1]->path[p])
+			{
+				printf("je bloque ici %s\n", lem->salles[lem->paths[i - 1]->path[p]]->name);
+				return (0);
+			}
+			// printf("%s ", lem->salles[lem->paths[i]->path[p]]->name);
+		}
+		// printf("\n");
+	}
 	return (1);
 }
 
@@ -378,7 +404,7 @@ int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 
 	// printf("%s\n", tmp->element->);
 	// printf("av room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
-	if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != s->rooms[s->p] && !tmp->element->dir_salle2 && croissement(lem, s))
+	if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != s->rooms[s->p] && !tmp->element->dir_salle2 && croissement(lem, s, tmp, 0))
 	{
 		elem++;
 		// printf("room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
@@ -388,13 +414,12 @@ int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 		lem->salles[tmp->element->salle_2]->papa = s->rooms[s->p];
 		lem->salles[tmp->element->salle_2]->visited++;
 		// printf("queue = %d %s\n", 0 + elem + s->size_q, lem->salles[s->rooms[0 + elem + s->size_q]]->name);
-
 	}
-	else if (tmp->element->salle_2 == s->rooms[s->p] && !lem->salles[tmp->element->salle_1]->visited && !tmp->element->dir_salle1 && croissement(lem, s))
+	else if (tmp->element->salle_2 == s->rooms[s->p] && !lem->salles[tmp->element->salle_1]->visited && !tmp->element->dir_salle1 && croissement(lem, s, tmp, 1))
 	{
 		elem++;
 		// printf("room = %s  %s %s       %d %d\n", lem->salles[s->rooms[s->p]]->name, lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name, tmp->element->dir_salle1, tmp->element->dir_salle2);
-				// printf("2de while - - - - %s\n", lem->salles[tmp->element->salle_1]->name);
+		// printf("2de while - - - - %s\n", lem->salles[tmp->element->salle_1]->name);
 		s->rooms[0 + elem + s->size_q] = tmp->element->salle_1;
 		lem->salles[tmp->element->salle_1]->visited++;
 		lem->salles[tmp->element->salle_1]->papa = s->rooms[s->p];
@@ -427,7 +452,11 @@ void 	ft_bfs(t_lem *lem, t_solve *s, int way)
 				if (lem->salles[s->rooms[s->p]]->end)
 				{
 					crea_path(lem, s->rooms[s->p], way);
-					// printf("j'ai mon prem chemin\n");
+					// for (int l = 0; l < lem->paths[way]->size;l++)
+					// {
+					// 	printf("%s ", lem->salles[lem->paths[way]->path[l]]->name);
+					// }
+					// printf(" == j'ai mon chemin\n");
 					return ;
 				}
 				tmp = tmp->next;
@@ -463,8 +492,8 @@ void 	finilize_merge(t_lem *lem, int way1, int way2)
 		lem->paths[way2]->path[i] = lem->paths[way2]->f_path[i];
 		lem->paths[way2]->f_path[i] = '\0';
 	}
-	lem->merge->dir_salle1 = 0;
-	lem->merge->dir_salle2 = 0;
+	// lem->merge->dir_salle1 = 0;
+	// lem->merge->dir_salle2 = 0;
 }
 
 int		ft_calcul_etapes(t_lem *lem, int chemins)
@@ -526,11 +555,11 @@ int		ft_modify_directions(t_lem *lem, int way)
 		{
 			tmp->element->dir_salle2 = 1;
 		}
-	}
-	if (!merge && tmp->element->dir_salle1 && tmp->element->dir_salle2)
-	{
-		merge++;
-		lem->merge = tmp->element;
+		if (!merge && tmp->element->dir_salle1 && tmp->element->dir_salle2)
+		{
+			merge++;
+			lem->merge = tmp->element;
+		}
 	}
 	// for (int k = 0; k < lem->nbr_salles; k++)
 	// {
@@ -710,7 +739,7 @@ int		ft_solve_path(t_lem *lem)
 		ft_reset_rooms(lem, &s);
 		merge = ft_modify_directions(lem, i);
 		// printf("merge needed %d\n", merge);
-		// merge ? printf("%s %s %d %d \n", lem->salles[lem->merge->salle_1]->name, lem->salles[lem->merge->salle_2]->name, lem->merge->dir_salle1, lem->merge->dir_salle2) :0;
+		// !merge ? printf("%s %s %d %d \n", lem->salles[lem->merge->salle_1]->name, lem->salles[lem->merge->salle_2]->name, lem->merge->dir_salle1, lem->merge->dir_salle2) :0;
 		if (merge)
 			ft_merge(lem, i);
 			s.count++;
@@ -803,6 +832,12 @@ int			main(int argc, char **argv)
 		unsigned long check;
 		check = 0;
 		chemin = ft_solve_path(&lem);
+		for(int k = 0; k < chemin; k++)
+		// {
+		// 	for (int l = 0; l < lem.paths[k]->size; l++)
+		// 		printf("%s", lem.salles[lem.paths[k]->path[l]]->name);
+		// 	printf("\n");
+		// }
 		while (!lem.last_ant)
 		{
 			i = -1;
