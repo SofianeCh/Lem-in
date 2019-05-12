@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/04 22:56:36 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/12 16:36:46 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_salle t_salle;
 
 typedef struct			s_couloir
 {
+	int					visited;
 	int					salle_1;
 	int					salle_2;
 	t_salle				*salle_origine;

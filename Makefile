@@ -6,7 +6,7 @@
 #    By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/14 20:56:30 by sofchami          #+#    #+#              #
-#    Updated: 2019/05/07 17:30:32 by sofchami         ###   ########.fr        #
+#    Updated: 2019/05/12 20:05:09 by sofchami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJ = $(subst .c,.o,$(SRC))
 
 $(NAME): $(OBJ)
 	@make re -C libft
-	@gcc -c $(SRC)
+	@gcc -c -O3 $(SRC)
 	@gcc -o $(NAME) $(OBJ) $(INC)
 	@echo "${Green}Compilation Succesfull${NC} "
 
