@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/18 18:16:00 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/21 19:48:44 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -347,6 +347,16 @@ void	crea_path(t_lem *lem, int p, int way)
 	{
 		len++;
 	}
+	if (way < 3)
+	{
+		for (int i = 1; i < lem->paths[way]->size; i++)
+		{
+			if (way == 0 && i == 1)
+			printf("- - %d - - \n", lem->paths[way]->path[i]);
+			printf("%s ", lem->salles[lem->paths[way]->path[i]]->name);
+		}
+		printf("\n");
+	}
 }
 
 void	ft_init_queue(t_lem *lem, t_solve *s)
@@ -444,6 +454,16 @@ int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 	// s->count > 0 ? printf("avant %s    %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name):0;
 	if (lem->salles[tmp->element->salle_2]->visited || lem->salles[tmp->element->salle_1]->visited)
 	{
+		for (int m = 0; m <= elem; m++)
+		{
+			if (s->rooms[(s->p - m)] == 3428 && s->count == 2)
+			{
+				printf("le bug = %s   ", lem->salles[s->rooms[(s->p - m)]]->name);
+				printf("chemin = %d = %d\n", s->count, s->p - m);
+				printf("%s   %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
+			}
+
+		}
 		s->rooms[s->p] == tmp->element->salle_2 ? check_cross(lem, s, tmp, tmp->element->salle_1) : check_cross(lem, s, tmp, tmp->element->salle_2);
 	}
 	if (!lem->salles[tmp->element->salle_2]->visited && tmp->element->salle_2 != s->rooms[s->p] && !tmp->element->dir_salle2 && croissement(lem, s, tmp, 0))
@@ -544,25 +564,50 @@ void 	finilize_merge(t_lem *lem, int way1, int way2)
 
 int		ft_calcul_etapes(t_lem *lem, int chemins)
 {
-	int		i;
-	int		len_path;
-	double	calcul;
+	// int		i;
+	// int		len_path;
+	// double	calcul;
+	//
+	// i = -1;
+	// len_path = 0;
+	// calcul = 0.0;
+	// while (++i < chemins)
+	// {
+	// 	len_path += (lem->paths[i]->size - 1);
+	// }
+	// calcul = (double)((lem->fourmis + len_path) / chemins) - 1;
+	// calcul > (int)calcul ? calcul++ : 0;
+	// // printf("apres = %d\n", (int)calcul);
+	// if (!lem->nbr_etapes)
+	// 	lem->nbr_etapes = calcul;
+	// else if (lem->nbr_etapes > calcul)
+	// 	lem->nbr_etapes = calcul;
+	// if (lem->nbr_etapes < calcul)
+	// 	return (1);
+	// return (0);
 
-	i = -1;
-	len_path = 0;
-	calcul = 0.0;
-	while (++i < chemins)
-	{
-		len_path += (lem->paths[i]->size - 1);
-	}
-	calcul = (double)((lem->fourmis + len_path) / chemins) - 1;
-	calcul > (int)calcul ? calcul++ : 0;
-	// printf("apres = %d\n", (int)calcul);
+	int i;
+    int sum;
+    int nb_ants;
+	int nb_turn;
+
+    sum = 0;
+    i = -1;
+    while (++i < chemins)
+        sum += lem->paths[i]->size - 1;
+    nb_ants = lem->fourmis - i;
+    while (sum % i)
+    {
+        sum++;
+        if (--nb_ants == 0)
+            break ;
+    }
+    nb_turn =  sum / i + nb_ants / i + !!(nb_ants % i);
 	if (!lem->nbr_etapes)
-		lem->nbr_etapes = calcul;
-	else if (lem->nbr_etapes > calcul)
-		lem->nbr_etapes = calcul;
-	if (lem->nbr_etapes < calcul)
+		lem->nbr_etapes = nb_turn;
+	else if (lem->nbr_etapes > nb_turn)
+		lem->nbr_etapes = nb_turn;
+	if (lem->nbr_etapes < nb_turn)
 		return (1);
 	return (0);
 }
@@ -677,6 +722,9 @@ void		ft_calcul_merge(t_lem *lem, int chemins, int alt)
 	int		i;
 	int		len_path;
 	double	calcul;
+	int nb_turn;
+	int nb_ants;
+
 
 	i = -1;
 	len_path = 0;
@@ -689,17 +737,28 @@ void		ft_calcul_merge(t_lem *lem, int chemins, int alt)
 			// printf("f_size = %d\n", lem->paths[i]->f_size);
 		}
 		else
-			len_path += lem->paths[i]->size;
+			len_path += lem->paths[i]->size - 1;
 	}
+	nb_ants = lem->fourmis - i;
+	while (len_path % i)
+	{
+		len_path++;
+		if (--nb_ants == 0)
+			break ;
+	}
+	nb_turn =  len_path / i + nb_ants / i + !!(nb_ants % i);
+
 	// printf("len path = %d\n", len_path);
-	calcul = (double)((lem->fourmis + len_path) / chemins) - 1;
-	calcul > (int)calcul ? calcul++ : 0;
+	// calcul = (double)((lem->fourmis + len_path) / chemins) - 1;
+	// calcul > (int)calcul ? calcul++ : 0;
 	// printf("nombre d'etapes apres merge %f\n", calcul);
-	if (lem->nbr_etapes >= calcul)
+	if (lem->nbr_etapes >= nb_turn)
 	{
 		finilize_merge(lem, chemins - 1, alt);
-		lem->nbr_etapes = calcul;
+		lem->nbr_etapes = nb_turn;
 	}
+
+
 }
 
 int		way_for_merge(t_lem *lem, int way)
@@ -799,27 +858,6 @@ void 	ft_merge(t_lem *lem, int way, int tomerge)
 			if (lem->paths[way]->path[i] == r1 || lem->paths[way]->path[i] == r2)
 			{
 				ft_merge_way(lem, way, way2, i);
-				// for (int i = 0;i < lem->paths[way]->size; i++)
-				// {
-				// 	printf("%s ", lem->salles[lem->paths[way]->path[i]]->name);
-				// }
-				// printf("\n");
-				// for (int i = 0;i < lem->paths[way2]->size; i++)
-				// {
-				// 	printf("%s ", lem->salles[lem->paths[way2]->path[i]]->name);
-				// }
-				// printf("\n");
-				// printf("\n way 2\n");
-				// for (int i = 0;i < lem->paths[way]->f_size; i++)
-				// {
-				// 	printf("%s ", lem->salles[lem->paths[way]->f_path[i]]->name);
-				// }
-				// printf("\n");
-				// for (int i = 0;i < lem->paths[way2]->f_size; i++)
-				// {
-				// 	printf("%s ", lem->salles[lem->paths[way2]->f_path[i]]->name);
-				// }
-				// printf("\n");
 				break ;
 			}
 		}
@@ -830,27 +868,6 @@ void 	ft_merge(t_lem *lem, int way, int tomerge)
 			if (lem->paths[way2]->path[i] == r1 || lem->paths[way2]->path[i] == r2)
 			{
 				ft_merge_way(lem, way2, way, i);
-				// for (int i = 0;i < lem->paths[way]->size; i++)
-				// {
-				// 	printf("%s ", lem->salles[lem->paths[way]->path[i]]->name);
-				// }
-				// printf("\n");
-				// for (int i = 0;i < lem->paths[way2]->size; i++)
-				// {
-				// 	printf("%s ", lem->salles[lem->paths[way2]->path[i]]->name);
-				// }
-				// printf("\n");
-				// printf("\n way 2\n");
-				// for (int i = 0;i < lem->paths[way]->f_size; i++)
-				// {
-				// 	printf("%s ", lem->salles[lem->paths[way]->f_path[i]]->name);
-				// }
-				// printf("\n");
-				// for (int i = 0;i < lem->paths[way2]->f_size; i++)
-				// {
-				// 	printf("%s ", lem->salles[lem->paths[way2]->f_path[i]]->name);
-				// }
-				// printf("\n");
 				break ;
 			}
 		}
@@ -917,11 +934,14 @@ int		ft_solve_path(t_lem *lem)
 			break ;
 		ft_reset_rooms(lem, &s);
 		merge = ft_modify_directions(lem, i);
-		// printf("merge needed %d\n", merge);
-		// merge ? printf("%s %s %d %d \n", lem->salles[lem->merge->salle_1]->name, lem->salles[lem->merge->salle_2]->name, lem->merge->dir_salle1, lem->merge->dir_salle2) :0;
+		if (i == 2)
+		{
+			printf("merge needed %d\n", merge);
+			merge ? printf("%s %s %d %d \n", lem->salles[lem->merge->salle_1]->name, lem->salles[lem->merge->salle_2]->name, lem->merge->dir_salle1, lem->merge->dir_salle2) :0;
+		}
 		if (merge)
 		{
-			// printf("nbr de merge %d\n", ft_nbr_merge(lem)/2);
+			printf("nbr de merge %d\n", ft_nbr_merge(lem)/2);
 			ft_merge(lem, i, ft_nbr_merge(lem)/2);
 		}
 		s.count++;
@@ -948,8 +968,6 @@ void 		go_fourmis(t_lem *lem, int chemin)
 	len_chemin = lem->paths[chemin]->size;
 	while (--len_chemin)
 	{
-		// printf("%d\n", len_chemin);
-		// printf("print %s\n", lem->salles[lem->paths[chemin]->path[lem->paths[chemin]->size - 1]]->name);
 		if (len_chemin > 1 && lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis)
 		{
 			lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis = lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis;
@@ -966,6 +984,7 @@ void 		go_fourmis(t_lem *lem, int chemin)
 	if (lem->fourmis)
 	{
 		lem->salles[lem->paths[chemin]->path[len_chemin + 1]]->fourmis = lem->ant;
+		// printf("\nset = %d   %d\n", lem->ant, len_chemin);
 		lem->ant++;
 		lem->fourmis--;
 		// printf("juste pour etre sur = %d\n", lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis);
@@ -976,7 +995,7 @@ void 		go_fourmis(t_lem *lem, int chemin)
 		// printf("%d\n", lem->salles[lem->paths[chemin]->path[i]]->fourmis);
 		if (lem->salles[lem->paths[chemin]->path[i]]->fourmis)
 		{
-			printf("L%d-%s ",lem->salles[lem->paths[chemin]->path[i]]->fourmis, lem->salles[lem->paths[chemin]->path[i]]->name);
+			printf("L%d-%s chemin=%d, salles=%d    ",lem->salles[lem->paths[chemin]->path[i]]->fourmis, lem->salles[lem->paths[chemin]->path[i]]->name, chemin, i);
 			// printf("je ne rentre pas\n");
 		}
 		i++;
@@ -999,6 +1018,16 @@ int			main(int argc, char **argv)
 		ft_read_map(&lem);
 		ft_crea_salles(&lem);
 		ft_link_couloir(&lem);
+		int nbr_coul = 0;
+		tmp = lem.salles[3428]->couloirs;
+		while (tmp)
+		{
+			nbr_coul++;
+			printf("%s  - - - ", tmp->element->salle_1 != 3428 ? lem.salles[tmp->element->salle_1]->name : lem.salles[tmp->element->salle_2]->name);
+			tmp = tmp->next;
+
+		}
+		printf("nbr de couloir = %d\n", nbr_coul);
 		for (int k = 0; k < lem.nbr_salles ; k ++)
 		{
 			// printf("nom de la salles %s et le nombre de connection = %d\n", lem.salles[k]->name, lem.salles[k]->nbr_voisin);
@@ -1013,7 +1042,10 @@ int			main(int argc, char **argv)
 		// int check = 0;
 		chemin = ft_solve_path(&lem);
 		int check = 0;
-		while (!lem.last_ant)
+		int b = 1;
+		int p = -1;
+		// printf("= %d - - - - - - - - - - - - len_chemin = %d\n", lem.salles[lem.paths[chemin]->path[8]]->fourmis, 8);
+		while (/*!lem.last_ant */b--)
 		{
 			i = -1;
 			while (++i < chemin)
@@ -1024,23 +1056,31 @@ int			main(int argc, char **argv)
 			check++;
 		}
 		//
-		// printf("- - - - - - - - - - - - - - - - \n\n");
-		// printf("le fameux check = %d\n", check);
-		// printf("chemin = %d\n", chemin);
-		// // // close(lem.fd);
-		for(int k = 0; k < chemin; k++)
-		{
-			for (int l = 1; l < lem.paths[k]->size; l++)
-			{
-				printf("%s ", lem.salles[lem.paths[k]->path[l]]->name);
-				// for (int z = 1; z < lem.paths[k]->size - 1; z++)
-				// 	if (l != z && lem.paths[k]->path[l] == lem.paths[k]->path[z])
-				// 		printf("croisement\n");
-
-			}
-			printf("\n");
-		}
-		printf("got = %d\n", lem.nbr_etapes);
+		// printf("\n\n- - - - - - - - - - - - - - - - \n\n");
+		// // printf("le fameux check = %d\n", check);
+		// // printf("chemin = %d\n", chemin);
+		// for(int k = 0; k < chemin; k++)
+		// {
+		// 	for (int l = 1; l < lem.paths[k]->size-1; l++)
+		// 	{
+		// 		ft_putstr(lem.salles[lem.paths[k]->path[l]]->name);
+		// 		write (1, " ", 1);
+		// 		for (int h = k; h < chemin ; h++)
+		// 		{
+		// 			for (int z = 1; z < lem.paths[k]->size - 1; z++)
+		// 			{
+		// 				if ((l != z && k != h) && lem.paths[k]->path[l] == lem.paths[h]->path[z])
+		// 					printf("--- CROISEMENT --- %s ways = %d<-->%d pl %d<-->%d",lem.salles[lem.paths[k]->path[l]]->name, k , h, l, z);
+		// 					// printf("CROISEMENT");
+		// 			}
+		//
+		// 		}
+		//
+		// 	}
+		// 	// printf(" -- %d", lem.paths[k]->size);
+		// 	printf("\n");
+		// }
+		printf("nb_turn %d\n", lem.nbr_etapes);
 	return (0);
 }
 //

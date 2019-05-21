@@ -1,0 +1,1157 @@
+max_way => 25 
+
+nb_node => 2860
+nb_edge => 2907
+nb_edge_f => 2795
+max_way => 25
+ 
+
+START ITERATION => 0
+
+cost => 7
+make way ok
+len => 7
+dv 1 Vkn8   T_p2 -- Vkn8   / w  1 -- -1  / dir  2 
+dv 1 Yix5   Vkn8 -- Yix5   / w  1 -- -1  / dir  2 
+dv 1 Zty3   Yix5 -- Zty3   / w  1 -- -1  / dir  2 
+dv 1 Mwh0   Zty3 -- Mwh0   / w  1 -- -1  / dir  2 
+dv 1 Dhk8   Mwh0 -- Dhk8   / w  1 -- -1  / dir  2 
+dv 1 Pst7   Dhk8 -- Pst7   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Pst7 -- Abc1   / w  1 -- -1  / dir  2 
+print before ok
+merge ok
+len => 7
+len => 7
+dv 1 Vkn8   T_p2 -- Vkn8   / w  1 -- -1  / dir  2 
+dv 1 Yix5   Vkn8 -- Yix5   / w  1 -- -1  / dir  2 
+dv 1 Zty3   Yix5 -- Zty3   / w  1 -- -1  / dir  2 
+dv 1 Mwh0   Zty3 -- Mwh0   / w  1 -- -1  / dir  2 
+dv 1 Dhk8   Mwh0 -- Dhk8   / w  1 -- -1  / dir  2 
+dv 1 Pst7   Dhk8 -- Pst7   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Pst7 -- Abc1   / w  1 -- -1  / dir  2 
+turn best vs current  |800|-|166| v2
+
+END ITERATION => 0 
+ici 1
+ 
+
+START ITERATION => 1
+
+cost => 41
+make way ok
+len => 41
+dv 1 Tvk2   T_p2 -- Tvk2   / w  1 -- -1  / dir  2 
+dv 1 Uun1   Tvk2 -- Uun1   / w  1 -- -1  / dir  2 
+dv 1 Coq6   Uun1 -- Coq6   / w  1 -- -1  / dir  2 
+dv 1 Sul4   Coq6 -- Sul4   / w  1 -- -1  / dir  2 
+dv 1 Kjr9   Sul4 -- Kjr9   / w  1 -- -1  / dir  2 
+dv 1 Dko4   Kjr9 -- Dko4   / w  1 -- -1  / dir  2 
+dv 1 O_z4   Dko4 -- O_z4   / w  1 -- -1  / dir  2 
+dv 1 Adg9   O_z4 -- Adg9   / w  1 -- -1  / dir  2 
+dv 1 Jkf8   Adg9 -- Jkf8   / w  1 -- -1  / dir  2 
+dv 1 Esd8   Jkf8 -- Esd8   / w  1 -- -1  / dir  2 
+dv 1 Ctd0   Ctd0 -- Esd8   / w  -1 -- 1  / dir  1 
+dv 1 Zyu9   Zyu9 -- Ctd0   / w  -1 -- 1  / dir  1 
+dv 1 Mse1   Zyu9 -- Mse1   / w  1 -- -1  / dir  2 
+dv 1 Ny_2   Mse1 -- Ny_2   / w  1 -- -1  / dir  2 
+dv 1 Bsj6   Ny_2 -- Bsj6   / w  1 -- -1  / dir  2 
+dv 1 Qze8   Bsj6 -- Qze8   / w  1 -- -1  / dir  2 
+dv 1 Jpn0   Qze8 -- Jpn0   / w  1 -- -1  / dir  2 
+dv 1 Kcd4   Jpn0 -- Kcd4   / w  1 -- -1  / dir  2 
+dv 1 Ysu6   Kcd4 -- Ysu6   / w  1 -- -1  / dir  2 
+dv 1 Ufz6   Ysu6 -- Ufz6   / w  1 -- -1  / dir  2 
+dv 1 Tvp8   Ufz6 -- Tvp8   / w  1 -- -1  / dir  2 
+dv 1 Tsn8   Tvp8 -- Tsn8   / w  1 -- -1  / dir  2 
+dv 1 H_x8   Tsn8 -- H_x8   / w  1 -- -1  / dir  2 
+dv 1 Z_t0   H_x8 -- Z_t0   / w  1 -- -1  / dir  2 
+dv 1 Ezh8   Z_t0 -- Ezh8   / w  1 -- -1  / dir  2 
+dv 1 I_x2   Ezh8 -- I_x2   / w  1 -- -1  / dir  2 
+dv 1 Tdw8   I_x2 -- Tdw8   / w  1 -- -1  / dir  2 
+dv 1 Fix0   Tdw8 -- Fix0   / w  1 -- -1  / dir  2 
+dv 1 Eqj8   Fix0 -- Eqj8   / w  1 -- -1  / dir  2 
+dv 1 Rdo4   Eqj8 -- Rdo4   / w  1 -- -1  / dir  2 
+dv 1 Pap5   Rdo4 -- Pap5   / w  1 -- -1  / dir  2 
+dv 1 Nwj3   Pap5 -- Nwj3   / w  1 -- -1  / dir  2 
+dv 1 Hpz4   Nwj3 -- Hpz4   / w  1 -- -1  / dir  2 
+dv 1 W_b9   Hpz4 -- W_b9   / w  1 -- -1  / dir  2 
+dv 1 Fob8   W_b9 -- Fob8   / w  1 -- -1  / dir  2 
+dv 1 Y_c2   Fob8 -- Y_c2   / w  1 -- -1  / dir  2 
+dv 1 Sxa9   Y_c2 -- Sxa9   / w  1 -- -1  / dir  2 
+dv 1 Yck2   Sxa9 -- Yck2   / w  1 -- -1  / dir  2 
+dv 1 Fp_3   Yck2 -- Fp_3   / w  1 -- -1  / dir  2 
+dv 1 Uw_0   Fp_3 -- Uw_0   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Uw_0 -- Abc1   / w  1 -- -1  / dir  2 
+print before ok
+merge ok
+len => 41
+len => 41
+dv 1 Tvk2   T_p2 -- Tvk2   / w  1 -- -1  / dir  2 
+dv 1 Uun1   Tvk2 -- Uun1   / w  1 -- -1  / dir  2 
+dv 1 Coq6   Uun1 -- Coq6   / w  1 -- -1  / dir  2 
+dv 1 Sul4   Coq6 -- Sul4   / w  1 -- -1  / dir  2 
+dv 1 Kjr9   Sul4 -- Kjr9   / w  1 -- -1  / dir  2 
+dv 1 Dko4   Kjr9 -- Dko4   / w  1 -- -1  / dir  2 
+dv 1 O_z4   Dko4 -- O_z4   / w  1 -- -1  / dir  2 
+dv 1 Adg9   O_z4 -- Adg9   / w  1 -- -1  / dir  2 
+dv 1 Jkf8   Adg9 -- Jkf8   / w  1 -- -1  / dir  2 
+dv 1 Esd8   Jkf8 -- Esd8   / w  1 -- -1  / dir  2 
+dv 1 Ctd0   Ctd0 -- Esd8   / w  -1 -- 1  / dir  1 
+dv 1 Zyu9   Zyu9 -- Ctd0   / w  -1 -- 1  / dir  1 
+dv 1 Mse1   Zyu9 -- Mse1   / w  1 -- -1  / dir  2 
+dv 1 Ny_2   Mse1 -- Ny_2   / w  1 -- -1  / dir  2 
+dv 1 Bsj6   Ny_2 -- Bsj6   / w  1 -- -1  / dir  2 
+dv 1 Qze8   Bsj6 -- Qze8   / w  1 -- -1  / dir  2 
+dv 1 Jpn0   Qze8 -- Jpn0   / w  1 -- -1  / dir  2 
+dv 1 Kcd4   Jpn0 -- Kcd4   / w  1 -- -1  / dir  2 
+dv 1 Ysu6   Kcd4 -- Ysu6   / w  1 -- -1  / dir  2 
+dv 1 Ufz6   Ysu6 -- Ufz6   / w  1 -- -1  / dir  2 
+dv 1 Tvp8   Ufz6 -- Tvp8   / w  1 -- -1  / dir  2 
+dv 1 Tsn8   Tvp8 -- Tsn8   / w  1 -- -1  / dir  2 
+dv 1 H_x8   Tsn8 -- H_x8   / w  1 -- -1  / dir  2 
+dv 1 Z_t0   H_x8 -- Z_t0   / w  1 -- -1  / dir  2 
+dv 1 Ezh8   Z_t0 -- Ezh8   / w  1 -- -1  / dir  2 
+dv 1 I_x2   Ezh8 -- I_x2   / w  1 -- -1  / dir  2 
+dv 1 Tdw8   I_x2 -- Tdw8   / w  1 -- -1  / dir  2 
+dv 1 Fix0   Tdw8 -- Fix0   / w  1 -- -1  / dir  2 
+dv 1 Eqj8   Fix0 -- Eqj8   / w  1 -- -1  / dir  2 
+dv 1 Rdo4   Eqj8 -- Rdo4   / w  1 -- -1  / dir  2 
+dv 1 Pap5   Rdo4 -- Pap5   / w  1 -- -1  / dir  2 
+dv 1 Nwj3   Pap5 -- Nwj3   / w  1 -- -1  / dir  2 
+dv 1 Hpz4   Nwj3 -- Hpz4   / w  1 -- -1  / dir  2 
+dv 1 W_b9   Hpz4 -- W_b9   / w  1 -- -1  / dir  2 
+dv 1 Fob8   W_b9 -- Fob8   / w  1 -- -1  / dir  2 
+dv 1 Y_c2   Fob8 -- Y_c2   / w  1 -- -1  / dir  2 
+dv 1 Sxa9   Y_c2 -- Sxa9   / w  1 -- -1  / dir  2 
+dv 1 Yck2   Sxa9 -- Yck2   / w  1 -- -1  / dir  2 
+dv 1 Fp_3   Yck2 -- Fp_3   / w  1 -- -1  / dir  2 
+dv 1 Uw_0   Fp_3 -- Uw_0   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Uw_0 -- Abc1   / w  1 -- -1  / dir  2 
+turn best vs current  |166|-|103| v2
+
+END ITERATION => 1 
+ici 2
+ 
+
+START ITERATION => 2
+
+cost => 45
+make way ok
+len => 45
+dv 1 Scm8   T_p2 -- Scm8   / w  1 -- -1  / dir  2 
+dv 1 Rjc1   Scm8 -- Rjc1   / w  1 -- -1  / dir  2 
+dv 1 S_z7   Rjc1 -- S_z7   / w  1 -- -1  / dir  2 
+dv 1 Jqp6   S_z7 -- Jqp6   / w  1 -- -1  / dir  2 
+dv 1 Whi1   Jqp6 -- Whi1   / w  1 -- -1  / dir  2 
+dv 1 Vkq0   Whi1 -- Vkq0   / w  1 -- -1  / dir  2 
+dv 1 Zts6   Vkq0 -- Zts6   / w  1 -- -1  / dir  2 
+dv 1 Ekw5   Zts6 -- Ekw5   / w  1 -- -1  / dir  2 
+dv 1 Otp3   Ekw5 -- Otp3   / w  1 -- -1  / dir  2 
+dv 1 Kps8   Otp3 -- Kps8   / w  1 -- -1  / dir  2 
+dv 1 Arq3   Kps8 -- Arq3   / w  1 -- -1  / dir  2 
+dv 1 Tl_4   Arq3 -- Tl_4   / w  1 -- -1  / dir  2 
+dv 1 Kt_5   Tl_4 -- Kt_5   / w  1 -- -1  / dir  2 
+dv 1 Gxh2   Kt_5 -- Gxh2   / w  1 -- -1  / dir  2 
+dv 1 Gia6   Gxh2 -- Gia6   / w  1 -- -1  / dir  2 
+dv 1 K_y6   Gia6 -- K_y6   / w  1 -- -1  / dir  2 
+dv 1 Ajr7   K_y6 -- Ajr7   / w  1 -- -1  / dir  2 
+dv 1 Api0   Ajr7 -- Api0   / w  1 -- -1  / dir  2 
+dv 1 Ucz8   Api0 -- Ucz8   / w  1 -- -1  / dir  2 
+dv 1 Hdl7   Ucz8 -- Hdl7   / w  1 -- -1  / dir  2 
+dv 1 Cjv6   Hdl7 -- Cjv6   / w  1 -- -1  / dir  2 
+dv 1 I_o4   Cjv6 -- I_o4   / w  1 -- -1  / dir  2 
+dv 1 Amh8   I_o4 -- Amh8   / w  1 -- -1  / dir  2 
+dv 1 Ijx1   Amh8 -- Ijx1   / w  1 -- -1  / dir  2 
+dv 1 Wwl2   Ijx1 -- Wwl2   / w  1 -- -1  / dir  2 
+dv 1 Rte2   Wwl2 -- Rte2   / w  1 -- -1  / dir  2 
+dv 1 Ifz2   Rte2 -- Ifz2   / w  1 -- -1  / dir  2 
+dv 1 Eh_7   Ifz2 -- Eh_7   / w  1 -- -1  / dir  2 
+dv 1 Kpj0   Eh_7 -- Kpj0   / w  1 -- -1  / dir  2 
+dv 1 Kfm5   Kpj0 -- Kfm5   / w  1 -- -1  / dir  2 
+dv 1 G_w1   Kfm5 -- G_w1   / w  1 -- -1  / dir  2 
+dv 1 Sug7   G_w1 -- Sug7   / w  1 -- -1  / dir  2 
+dv 1 Ibj2   Sug7 -- Ibj2   / w  1 -- -1  / dir  2 
+dv 1 Nsu2   Ibj2 -- Nsu2   / w  1 -- -1  / dir  2 
+dv 1 Sbc6   Nsu2 -- Sbc6   / w  1 -- -1  / dir  2 
+dv 1 Iuu1   Sbc6 -- Iuu1   / w  1 -- -1  / dir  2 
+dv 1 Ocj5   Iuu1 -- Ocj5   / w  1 -- -1  / dir  2 
+dv 1 Q_j0   Ocj5 -- Q_j0   / w  1 -- -1  / dir  2 
+dv 1 Cap8   Q_j0 -- Cap8   / w  1 -- -1  / dir  2 
+dv 1 Ibd3   Cap8 -- Ibd3   / w  1 -- -1  / dir  2 
+dv 1 Fpf2   Ibd3 -- Fpf2   / w  1 -- -1  / dir  2 
+dv 1 Akp5   Fpf2 -- Akp5   / w  1 -- -1  / dir  2 
+dv 1 Cdc5   Akp5 -- Cdc5   / w  1 -- -1  / dir  2 
+dv 1 Gkv4   Cdc5 -- Gkv4   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Gkv4 -- Abc1   / w  1 -- -1  / dir  2 
+print before ok
+merge ok
+len => 45
+len => 45
+dv 1 Scm8   T_p2 -- Scm8   / w  1 -- -1  / dir  2 
+dv 1 Rjc1   Scm8 -- Rjc1   / w  1 -- -1  / dir  2 
+dv 1 S_z7   Rjc1 -- S_z7   / w  1 -- -1  / dir  2 
+dv 1 Jqp6   S_z7 -- Jqp6   / w  1 -- -1  / dir  2 
+dv 1 Whi1   Jqp6 -- Whi1   / w  1 -- -1  / dir  2 
+dv 1 Vkq0   Whi1 -- Vkq0   / w  1 -- -1  / dir  2 
+dv 1 Zts6   Vkq0 -- Zts6   / w  1 -- -1  / dir  2 
+dv 1 Ekw5   Zts6 -- Ekw5   / w  1 -- -1  / dir  2 
+dv 1 Otp3   Ekw5 -- Otp3   / w  1 -- -1  / dir  2 
+dv 1 Kps8   Otp3 -- Kps8   / w  1 -- -1  / dir  2 
+dv 1 Arq3   Kps8 -- Arq3   / w  1 -- -1  / dir  2 
+dv 1 Tl_4   Arq3 -- Tl_4   / w  1 -- -1  / dir  2 
+dv 1 Kt_5   Tl_4 -- Kt_5   / w  1 -- -1  / dir  2 
+dv 1 Gxh2   Kt_5 -- Gxh2   / w  1 -- -1  / dir  2 
+dv 1 Gia6   Gxh2 -- Gia6   / w  1 -- -1  / dir  2 
+dv 1 K_y6   Gia6 -- K_y6   / w  1 -- -1  / dir  2 
+dv 1 Ajr7   K_y6 -- Ajr7   / w  1 -- -1  / dir  2 
+dv 1 Api0   Ajr7 -- Api0   / w  1 -- -1  / dir  2 
+dv 1 Ucz8   Api0 -- Ucz8   / w  1 -- -1  / dir  2 
+dv 1 Hdl7   Ucz8 -- Hdl7   / w  1 -- -1  / dir  2 
+dv 1 Cjv6   Hdl7 -- Cjv6   / w  1 -- -1  / dir  2 
+dv 1 I_o4   Cjv6 -- I_o4   / w  1 -- -1  / dir  2 
+dv 1 Amh8   I_o4 -- Amh8   / w  1 -- -1  / dir  2 
+dv 1 Ijx1   Amh8 -- Ijx1   / w  1 -- -1  / dir  2 
+dv 1 Wwl2   Ijx1 -- Wwl2   / w  1 -- -1  / dir  2 
+dv 1 Rte2   Wwl2 -- Rte2   / w  1 -- -1  / dir  2 
+dv 1 Ifz2   Rte2 -- Ifz2   / w  1 -- -1  / dir  2 
+dv 1 Eh_7   Ifz2 -- Eh_7   / w  1 -- -1  / dir  2 
+dv 1 Kpj0   Eh_7 -- Kpj0   / w  1 -- -1  / dir  2 
+dv 1 Kfm5   Kpj0 -- Kfm5   / w  1 -- -1  / dir  2 
+dv 1 G_w1   Kfm5 -- G_w1   / w  1 -- -1  / dir  2 
+dv 1 Sug7   G_w1 -- Sug7   / w  1 -- -1  / dir  2 
+dv 1 Ibj2   Sug7 -- Ibj2   / w  1 -- -1  / dir  2 
+dv 1 Nsu2   Ibj2 -- Nsu2   / w  1 -- -1  / dir  2 
+dv 1 Sbc6   Nsu2 -- Sbc6   / w  1 -- -1  / dir  2 
+dv 1 Iuu1   Sbc6 -- Iuu1   / w  1 -- -1  / dir  2 
+dv 1 Ocj5   Iuu1 -- Ocj5   / w  1 -- -1  / dir  2 
+dv 1 Q_j0   Ocj5 -- Q_j0   / w  1 -- -1  / dir  2 
+dv 1 Cap8   Q_j0 -- Cap8   / w  1 -- -1  / dir  2 
+dv 1 Ibd3   Cap8 -- Ibd3   / w  1 -- -1  / dir  2 
+dv 1 Fpf2   Ibd3 -- Fpf2   / w  1 -- -1  / dir  2 
+dv 1 Akp5   Fpf2 -- Akp5   / w  1 -- -1  / dir  2 
+dv 1 Cdc5   Akp5 -- Cdc5   / w  1 -- -1  / dir  2 
+dv 1 Gkv4   Cdc5 -- Gkv4   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Gkv4 -- Abc1   / w  1 -- -1  / dir  2 
+turn best vs current  |103|-|84| v2
+
+END ITERATION => 2 
+ici 3
+ 
+
+START ITERATION => 3
+
+cost => 49
+make way ok
+len => 49
+dv 1 Ivu7   T_p2 -- Ivu7   / w  1 -- -1  / dir  2 
+dv 1 Fwe6   Ivu7 -- Fwe6   / w  1 -- -1  / dir  2 
+dv 1 I__8   Fwe6 -- I__8   / w  1 -- -1  / dir  2 
+dv 1 Cod9   I__8 -- Cod9   / w  1 -- -1  / dir  2 
+dv 1 C_g5   Cod9 -- C_g5   / w  1 -- -1  / dir  2 
+dv 1 Szu9   C_g5 -- Szu9   / w  1 -- -1  / dir  2 
+dv 1 Xwd1   Szu9 -- Xwd1   / w  1 -- -1  / dir  2 
+dv 1 Gyw0   Xwd1 -- Gyw0   / w  1 -- -1  / dir  2 
+dv 1 M_x4   Gyw0 -- M_x4   / w  1 -- -1  / dir  2 
+dv 1 Cgw9   M_x4 -- Cgw9   / w  1 -- -1  / dir  2 
+dv 1 Oss1   Cgw9 -- Oss1   / w  1 -- -1  / dir  2 
+dv 1 Bog6   Oss1 -- Bog6   / w  1 -- -1  / dir  2 
+dv 1 Y_r0   Bog6 -- Y_r0   / w  1 -- -1  / dir  2 
+dv 1 Rto1   Y_r0 -- Rto1   / w  1 -- -1  / dir  2 
+dv 1 Q_a1   Rto1 -- Q_a1   / w  1 -- -1  / dir  2 
+dv 1 Yzy8   Q_a1 -- Yzy8   / w  1 -- -1  / dir  2 
+dv 1 Fis9   Yzy8 -- Fis9   / w  1 -- -1  / dir  2 
+dv 1 B_w9   Fis9 -- B_w9   / w  1 -- -1  / dir  2 
+dv 1 Trx8   B_w9 -- Trx8   / w  1 -- -1  / dir  2 
+dv 1 Slg2   Trx8 -- Slg2   / w  1 -- -1  / dir  2 
+dv 1 Ycb5   Slg2 -- Ycb5   / w  1 -- -1  / dir  2 
+dv 1 Ajs1   Ycb5 -- Ajs1   / w  1 -- -1  / dir  2 
+dv 1 Cuz0   Ajs1 -- Cuz0   / w  1 -- -1  / dir  2 
+dv 1 Zus4   Cuz0 -- Zus4   / w  1 -- -1  / dir  2 
+dv 1 Txd0   Zus4 -- Txd0   / w  1 -- -1  / dir  2 
+dv 1 Tvk4   Txd0 -- Tvk4   / w  1 -- -1  / dir  2 
+dv 1 Qwy2   Tvk4 -- Qwy2   / w  1 -- -1  / dir  2 
+dv 1 Htt2   Qwy2 -- Htt2   / w  1 -- -1  / dir  2 
+dv 1 Xdn0   Htt2 -- Xdn0   / w  1 -- -1  / dir  2 
+dv 1 Ire0   Xdn0 -- Ire0   / w  1 -- -1  / dir  2 
+dv 1 Moo8   Ire0 -- Moo8   / w  1 -- -1  / dir  2 
+dv 1 Eqw5   Moo8 -- Eqw5   / w  1 -- -1  / dir  2 
+dv 1 Spm2   Eqw5 -- Spm2   / w  1 -- -1  / dir  2 
+dv 1 Uxv0   Spm2 -- Uxv0   / w  1 -- -1  / dir  2 
+dv 1 Toh6   Uxv0 -- Toh6   / w  1 -- -1  / dir  2 
+dv 1 Slv6   Toh6 -- Slv6   / w  1 -- -1  / dir  2 
+dv 1 Nyp1   Slv6 -- Nyp1   / w  1 -- -1  / dir  2 
+dv 1 Pvg4   Nyp1 -- Pvg4   / w  1 -- -1  / dir  2 
+dv 1 Ogb5   Pvg4 -- Ogb5   / w  1 -- -1  / dir  2 
+dv 1 Dol2   Ogb5 -- Dol2   / w  1 -- -1  / dir  2 
+dv 1 N__0   Dol2 -- N__0   / w  1 -- -1  / dir  2 
+dv 1 Ady3   N__0 -- Ady3   / w  1 -- -1  / dir  2 
+dv 1 Wrx8   Ady3 -- Wrx8   / w  1 -- -1  / dir  2 
+dv 1 J_q8   Wrx8 -- J_q8   / w  1 -- -1  / dir  2 
+dv 1 Qkh7   J_q8 -- Qkh7   / w  1 -- -1  / dir  2 
+dv 1 Tsh5   Qkh7 -- Tsh5   / w  1 -- -1  / dir  2 
+dv 1 Swc5   Tsh5 -- Swc5   / w  1 -- -1  / dir  2 
+dv 1 Sgm3   Swc5 -- Sgm3   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Sgm3 -- Abc1   / w  1 -- -1  / dir  2 
+print before ok
+merge ok
+len => 49
+len => 49
+dv 1 Ivu7   T_p2 -- Ivu7   / w  1 -- -1  / dir  2 
+dv 1 Fwe6   Ivu7 -- Fwe6   / w  1 -- -1  / dir  2 
+dv 1 I__8   Fwe6 -- I__8   / w  1 -- -1  / dir  2 
+dv 1 Cod9   I__8 -- Cod9   / w  1 -- -1  / dir  2 
+dv 1 C_g5   Cod9 -- C_g5   / w  1 -- -1  / dir  2 
+dv 1 Szu9   C_g5 -- Szu9   / w  1 -- -1  / dir  2 
+dv 1 Xwd1   Szu9 -- Xwd1   / w  1 -- -1  / dir  2 
+dv 1 Gyw0   Xwd1 -- Gyw0   / w  1 -- -1  / dir  2 
+dv 1 M_x4   Gyw0 -- M_x4   / w  1 -- -1  / dir  2 
+dv 1 Cgw9   M_x4 -- Cgw9   / w  1 -- -1  / dir  2 
+dv 1 Oss1   Cgw9 -- Oss1   / w  1 -- -1  / dir  2 
+dv 1 Bog6   Oss1 -- Bog6   / w  1 -- -1  / dir  2 
+dv 1 Y_r0   Bog6 -- Y_r0   / w  1 -- -1  / dir  2 
+dv 1 Rto1   Y_r0 -- Rto1   / w  1 -- -1  / dir  2 
+dv 1 Q_a1   Rto1 -- Q_a1   / w  1 -- -1  / dir  2 
+dv 1 Yzy8   Q_a1 -- Yzy8   / w  1 -- -1  / dir  2 
+dv 1 Fis9   Yzy8 -- Fis9   / w  1 -- -1  / dir  2 
+dv 1 B_w9   Fis9 -- B_w9   / w  1 -- -1  / dir  2 
+dv 1 Trx8   B_w9 -- Trx8   / w  1 -- -1  / dir  2 
+dv 1 Slg2   Trx8 -- Slg2   / w  1 -- -1  / dir  2 
+dv 1 Ycb5   Slg2 -- Ycb5   / w  1 -- -1  / dir  2 
+dv 1 Ajs1   Ycb5 -- Ajs1   / w  1 -- -1  / dir  2 
+dv 1 Cuz0   Ajs1 -- Cuz0   / w  1 -- -1  / dir  2 
+dv 1 Zus4   Cuz0 -- Zus4   / w  1 -- -1  / dir  2 
+dv 1 Txd0   Zus4 -- Txd0   / w  1 -- -1  / dir  2 
+dv 1 Tvk4   Txd0 -- Tvk4   / w  1 -- -1  / dir  2 
+dv 1 Qwy2   Tvk4 -- Qwy2   / w  1 -- -1  / dir  2 
+dv 1 Htt2   Qwy2 -- Htt2   / w  1 -- -1  / dir  2 
+dv 1 Xdn0   Htt2 -- Xdn0   / w  1 -- -1  / dir  2 
+dv 1 Ire0   Xdn0 -- Ire0   / w  1 -- -1  / dir  2 
+dv 1 Moo8   Ire0 -- Moo8   / w  1 -- -1  / dir  2 
+dv 1 Eqw5   Moo8 -- Eqw5   / w  1 -- -1  / dir  2 
+dv 1 Spm2   Eqw5 -- Spm2   / w  1 -- -1  / dir  2 
+dv 1 Uxv0   Spm2 -- Uxv0   / w  1 -- -1  / dir  2 
+dv 1 Toh6   Uxv0 -- Toh6   / w  1 -- -1  / dir  2 
+dv 1 Slv6   Toh6 -- Slv6   / w  1 -- -1  / dir  2 
+dv 1 Nyp1   Slv6 -- Nyp1   / w  1 -- -1  / dir  2 
+dv 1 Pvg4   Nyp1 -- Pvg4   / w  1 -- -1  / dir  2 
+dv 1 Ogb5   Pvg4 -- Ogb5   / w  1 -- -1  / dir  2 
+dv 1 Dol2   Ogb5 -- Dol2   / w  1 -- -1  / dir  2 
+dv 1 N__0   Dol2 -- N__0   / w  1 -- -1  / dir  2 
+dv 1 Ady3   N__0 -- Ady3   / w  1 -- -1  / dir  2 
+dv 1 Wrx8   Ady3 -- Wrx8   / w  1 -- -1  / dir  2 
+dv 1 J_q8   Wrx8 -- J_q8   / w  1 -- -1  / dir  2 
+dv 1 Qkh7   J_q8 -- Qkh7   / w  1 -- -1  / dir  2 
+dv 1 Tsh5   Qkh7 -- Tsh5   / w  1 -- -1  / dir  2 
+dv 1 Swc5   Tsh5 -- Swc5   / w  1 -- -1  / dir  2 
+dv 1 Sgm3   Swc5 -- Sgm3   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Sgm3 -- Abc1   / w  1 -- -1  / dir  2 
+turn best vs current  |84|-|75| v2
+
+END ITERATION => 3 
+ici 4
+ 
+
+START ITERATION => 4
+
+cost => 67
+make way ok
+len => 71
+dv 1 E_w3   T_p2 -- E_w3   / w  1 -- -1  / dir  2 
+dv 1 Kwc1   E_w3 -- Kwc1   / w  1 -- -1  / dir  2 
+dv 1 Tri1   Kwc1 -- Tri1   / w  1 -- -1  / dir  2 
+dv 1 Tju2   Tri1 -- Tju2   / w  1 -- -1  / dir  2 
+dv 1 Qty6   Tju2 -- Qty6   / w  1 -- -1  / dir  2 
+dv 1 Pry4   Qty6 -- Pry4   / w  1 -- -1  / dir  2 
+dv 1 Upt6   Pry4 -- Upt6   / w  1 -- -1  / dir  2 
+dv 1 Smm0   Upt6 -- Smm0   / w  1 -- -1  / dir  2 
+dv 1 H_o8   Smm0 -- H_o8   / w  1 -- -1  / dir  2 
+dv 1 Owy8   H_o8 -- Owy8   / w  1 -- -1  / dir  2 
+dv 1 Yzm0   Owy8 -- Yzm0   / w  1 -- -1  / dir  2 
+dv 1 Hot0   Yzm0 -- Hot0   / w  1 -- -1  / dir  2 
+dv 1 Ofn4   Hot0 -- Ofn4   / w  1 -- -1  / dir  2 
+dv 1 Xtj7   Ofn4 -- Xtj7   / w  1 -- -1  / dir  2 
+dv 1 Aba6   Xtj7 -- Aba6   / w  1 -- -1  / dir  2 
+dv 1 Ymj9   Aba6 -- Ymj9   / w  1 -- -1  / dir  2 
+dv 1 Ddr3   Ymj9 -- Ddr3   / w  1 -- -1  / dir  2 
+dv 1 Ur_2   Ddr3 -- Ur_2   / w  1 -- -1  / dir  2 
+dv 1 Kfv4   Ur_2 -- Kfv4   / w  1 -- -1  / dir  2 
+dv 1 Etk2   Kfv4 -- Etk2   / w  1 -- -1  / dir  2 
+dv 1 Tuz3   Etk2 -- Tuz3   / w  1 -- -1  / dir  2 
+dv 1 Eqg1   Tuz3 -- Eqg1   / w  1 -- -1  / dir  2 
+dv 1 Eag3   Eqg1 -- Eag3   / w  1 -- -1  / dir  2 
+dv 1 Xpy2   Eag3 -- Xpy2   / w  1 -- -1  / dir  2 
+dv 1 Jxp1   Xpy2 -- Jxp1   / w  1 -- -1  / dir  2 
+dv 1 Jbl4   Jxp1 -- Jbl4   / w  1 -- -1  / dir  2 
+dv 1 Ynu5   Jbl4 -- Ynu5   / w  1 -- -1  / dir  2 
+dv 1 Blq4   Ynu5 -- Blq4   / w  1 -- -1  / dir  2 
+dv 1 Ghy0   Blq4 -- Ghy0   / w  1 -- -1  / dir  2 
+dv 1 Ygq7   Ghy0 -- Ygq7   / w  1 -- -1  / dir  2 
+dv 1 Equ6   Ygq7 -- Equ6   / w  1 -- -1  / dir  2 
+dv 1 Rhr3   Equ6 -- Rhr3   / w  1 -- -1  / dir  2 
+dv 1 Muf1   Rhr3 -- Muf1   / w  1 -- -1  / dir  2 
+dv 1 F_e8   F_e8 -- Muf1   / w  -1 -- 1  / dir  1 
+dv 1 Iqv9   Iqv9 -- F_e8   / w  -1 -- 1  / dir  1 
+dv 1 Or_0   Or_0 -- Iqv9   / w  -1 -- 1  / dir  1 
+dv 1 Oqi0   Oqi0 -- Or_0   / w  -1 -- 1  / dir  1 
+dv 1 Sq_0   Sq_0 -- Oqi0   / w  -1 -- 1  / dir  1 
+dv 2 Api0   Api0 -- Sq_0   / w  -1 -- 1  / dir  1 
+dv 2 Ajr7   Ajr7 -- Api0   / w  1 -- -1  / dir  0 
+dv 2 K_y6   K_y6 -- Ajr7   / w  1 -- -1  / dir  0 
+dv 1 Xya8   K_y6 -- Xya8   / w  1 -- -1  / dir  2 
+dv 1 K_l0   Xya8 -- K_l0   / w  1 -- -1  / dir  2 
+dv 1 Ndm9   K_l0 -- Ndm9   / w  1 -- -1  / dir  2 
+dv 1 E_y4   Ndm9 -- E_y4   / w  1 -- -1  / dir  2 
+dv 1 Tee4   E_y4 -- Tee4   / w  1 -- -1  / dir  2 
+dv 1 Nce7   Tee4 -- Nce7   / w  1 -- -1  / dir  2 
+dv 1 Itl3   Nce7 -- Itl3   / w  1 -- -1  / dir  2 
+dv 1 Kuv1   Itl3 -- Kuv1   / w  1 -- -1  / dir  2 
+dv 1 Vf_9   Kuv1 -- Vf_9   / w  1 -- -1  / dir  2 
+dv 1 Mmh2   Vf_9 -- Mmh2   / w  1 -- -1  / dir  2 
+dv 1 Dno1   Mmh2 -- Dno1   / w  1 -- -1  / dir  2 
+dv 1 M_w8   Dno1 -- M_w8   / w  1 -- -1  / dir  2 
+dv 1 Bgd9   M_w8 -- Bgd9   / w  1 -- -1  / dir  2 
+dv 1 Cai3   Bgd9 -- Cai3   / w  1 -- -1  / dir  2 
+dv 1 Nbj6   Cai3 -- Nbj6   / w  1 -- -1  / dir  2 
+dv 1 N_p1   Nbj6 -- N_p1   / w  1 -- -1  / dir  2 
+dv 1 A_t2   N_p1 -- A_t2   / w  1 -- -1  / dir  2 
+dv 1 Kqo3   A_t2 -- Kqo3   / w  1 -- -1  / dir  2 
+dv 1 Mek2   Kqo3 -- Mek2   / w  1 -- -1  / dir  2 
+dv 1 Gsr5   Mek2 -- Gsr5   / w  1 -- -1  / dir  2 
+dv 1 Hny0   Gsr5 -- Hny0   / w  1 -- -1  / dir  2 
+dv 1 Ml_3   Hny0 -- Ml_3   / w  1 -- -1  / dir  2 
+dv 1 Vgv5   Ml_3 -- Vgv5   / w  1 -- -1  / dir  2 
+dv 1 Iji9   Vgv5 -- Iji9   / w  1 -- -1  / dir  2 
+dv 1 Vab4   Iji9 -- Vab4   / w  1 -- -1  / dir  2 
+dv 1 Rig8   Vab4 -- Rig8   / w  1 -- -1  / dir  2 
+dv 1 Ke_6   Rig8 -- Ke_6   / w  1 -- -1  / dir  2 
+dv 1 Rgd2   Ke_6 -- Rgd2   / w  1 -- -1  / dir  2 
+dv 1 Xep0   Rgd2 -- Xep0   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Xep0 -- Abc1   / w  1 -- -1  / dir  2 
+print before ok
+merge ok
+len => 66
+len => 66
+dv 1 E_w3   T_p2 -- E_w3   / w  1 -- -1  / dir  2 
+dv 1 Kwc1   E_w3 -- Kwc1   / w  1 -- -1  / dir  2 
+dv 1 Tri1   Kwc1 -- Tri1   / w  1 -- -1  / dir  2 
+dv 1 Tju2   Tri1 -- Tju2   / w  1 -- -1  / dir  2 
+dv 1 Qty6   Tju2 -- Qty6   / w  1 -- -1  / dir  2 
+dv 1 Pry4   Qty6 -- Pry4   / w  1 -- -1  / dir  2 
+dv 1 Upt6   Pry4 -- Upt6   / w  1 -- -1  / dir  2 
+dv 1 Smm0   Upt6 -- Smm0   / w  1 -- -1  / dir  2 
+dv 1 H_o8   Smm0 -- H_o8   / w  1 -- -1  / dir  2 
+dv 1 Owy8   H_o8 -- Owy8   / w  1 -- -1  / dir  2 
+dv 1 Yzm0   Owy8 -- Yzm0   / w  1 -- -1  / dir  2 
+dv 1 Hot0   Yzm0 -- Hot0   / w  1 -- -1  / dir  2 
+dv 1 Ofn4   Hot0 -- Ofn4   / w  1 -- -1  / dir  2 
+dv 1 Xtj7   Ofn4 -- Xtj7   / w  1 -- -1  / dir  2 
+dv 1 Aba6   Xtj7 -- Aba6   / w  1 -- -1  / dir  2 
+dv 1 Ymj9   Aba6 -- Ymj9   / w  1 -- -1  / dir  2 
+dv 1 Ddr3   Ymj9 -- Ddr3   / w  1 -- -1  / dir  2 
+dv 1 Ur_2   Ddr3 -- Ur_2   / w  1 -- -1  / dir  2 
+dv 1 Kfv4   Ur_2 -- Kfv4   / w  1 -- -1  / dir  2 
+dv 1 Etk2   Kfv4 -- Etk2   / w  1 -- -1  / dir  2 
+dv 1 Tuz3   Etk2 -- Tuz3   / w  1 -- -1  / dir  2 
+dv 1 Eqg1   Tuz3 -- Eqg1   / w  1 -- -1  / dir  2 
+dv 1 Eag3   Eqg1 -- Eag3   / w  1 -- -1  / dir  2 
+dv 1 Xpy2   Eag3 -- Xpy2   / w  1 -- -1  / dir  2 
+dv 1 Jxp1   Xpy2 -- Jxp1   / w  1 -- -1  / dir  2 
+dv 1 Jbl4   Jxp1 -- Jbl4   / w  1 -- -1  / dir  2 
+dv 1 Ynu5   Jbl4 -- Ynu5   / w  1 -- -1  / dir  2 
+dv 1 Blq4   Ynu5 -- Blq4   / w  1 -- -1  / dir  2 
+dv 1 Ghy0   Blq4 -- Ghy0   / w  1 -- -1  / dir  2 
+dv 1 Ygq7   Ghy0 -- Ygq7   / w  1 -- -1  / dir  2 
+dv 1 Equ6   Ygq7 -- Equ6   / w  1 -- -1  / dir  2 
+dv 1 Rhr3   Equ6 -- Rhr3   / w  1 -- -1  / dir  2 
+dv 1 Muf1   Rhr3 -- Muf1   / w  1 -- -1  / dir  2 
+dv 1 F_e8   F_e8 -- Muf1   / w  -1 -- 1  / dir  1 
+dv 1 Iqv9   Iqv9 -- F_e8   / w  -1 -- 1  / dir  1 
+dv 1 Or_0   Or_0 -- Iqv9   / w  -1 -- 1  / dir  1 
+dv 1 Oqi0   Oqi0 -- Or_0   / w  -1 -- 1  / dir  1 
+dv 1 Sq_0   Sq_0 -- Oqi0   / w  -1 -- 1  / dir  1 
+dv 2 Api0   Api0 -- Sq_0   / w  -1 -- 1  / dir  1 
+dv 1 Ucz8   Api0 -- Ucz8   / w  1 -- -1  / dir  2 
+dv 1 Hdl7   Ucz8 -- Hdl7   / w  1 -- -1  / dir  2 
+dv 1 Cjv6   Hdl7 -- Cjv6   / w  1 -- -1  / dir  2 
+dv 1 I_o4   Cjv6 -- I_o4   / w  1 -- -1  / dir  2 
+dv 1 Amh8   I_o4 -- Amh8   / w  1 -- -1  / dir  2 
+dv 1 Ijx1   Amh8 -- Ijx1   / w  1 -- -1  / dir  2 
+dv 1 Wwl2   Ijx1 -- Wwl2   / w  1 -- -1  / dir  2 
+dv 1 Rte2   Wwl2 -- Rte2   / w  1 -- -1  / dir  2 
+dv 1 Ifz2   Rte2 -- Ifz2   / w  1 -- -1  / dir  2 
+dv 1 Eh_7   Ifz2 -- Eh_7   / w  1 -- -1  / dir  2 
+dv 1 Kpj0   Eh_7 -- Kpj0   / w  1 -- -1  / dir  2 
+dv 1 Kfm5   Kpj0 -- Kfm5   / w  1 -- -1  / dir  2 
+dv 1 G_w1   Kfm5 -- G_w1   / w  1 -- -1  / dir  2 
+dv 1 Sug7   G_w1 -- Sug7   / w  1 -- -1  / dir  2 
+dv 1 Ibj2   Sug7 -- Ibj2   / w  1 -- -1  / dir  2 
+dv 1 Nsu2   Ibj2 -- Nsu2   / w  1 -- -1  / dir  2 
+dv 1 Sbc6   Nsu2 -- Sbc6   / w  1 -- -1  / dir  2 
+dv 1 Iuu1   Sbc6 -- Iuu1   / w  1 -- -1  / dir  2 
+dv 1 Ocj5   Iuu1 -- Ocj5   / w  1 -- -1  / dir  2 
+dv 1 Q_j0   Ocj5 -- Q_j0   / w  1 -- -1  / dir  2 
+dv 1 Cap8   Q_j0 -- Cap8   / w  1 -- -1  / dir  2 
+dv 1 Ibd3   Cap8 -- Ibd3   / w  1 -- -1  / dir  2 
+dv 1 Fpf2   Ibd3 -- Fpf2   / w  1 -- -1  / dir  2 
+dv 1 Akp5   Fpf2 -- Akp5   / w  1 -- -1  / dir  2 
+dv 1 Cdc5   Akp5 -- Cdc5   / w  1 -- -1  / dir  2 
+dv 1 Gkv4   Cdc5 -- Gkv4   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Gkv4 -- Abc1   / w  1 -- -1  / dir  2 
+turn best vs current  |75|-|73| v2
+
+END ITERATION => 4 
+ici 5
+ 
+
+START ITERATION => 5
+
+cost => 67
+make way ok
+len => 101
+dv 1 Jr_9   T_p2 -- Jr_9   / w  1 -- -1  / dir  2 
+dv 1 Qee6   Jr_9 -- Qee6   / w  1 -- -1  / dir  2 
+dv 1 Ahd8   Qee6 -- Ahd8   / w  1 -- -1  / dir  2 
+dv 1 Vuo3   Ahd8 -- Vuo3   / w  1 -- -1  / dir  2 
+dv 1 Xjo9   Vuo3 -- Xjo9   / w  1 -- -1  / dir  2 
+dv 1 Odf1   Xjo9 -- Odf1   / w  1 -- -1  / dir  2 
+dv 1 Yao9   Odf1 -- Yao9   / w  1 -- -1  / dir  2 
+dv 1 Xhe5   Yao9 -- Xhe5   / w  1 -- -1  / dir  2 
+dv 1 Ecb2   Xhe5 -- Ecb2   / w  1 -- -1  / dir  2 
+dv 1 Pey7   Ecb2 -- Pey7   / w  1 -- -1  / dir  2 
+dv 1 Rho5   Pey7 -- Rho5   / w  1 -- -1  / dir  2 
+dv 1 Vb_0   Rho5 -- Vb_0   / w  1 -- -1  / dir  2 
+dv 1 A_b0   Vb_0 -- A_b0   / w  1 -- -1  / dir  2 
+dv 1 T_e0   A_b0 -- T_e0   / w  1 -- -1  / dir  2 
+dv 1 Ifp6   T_e0 -- Ifp6   / w  1 -- -1  / dir  2 
+dv 1 Hvg2   Ifp6 -- Hvg2   / w  1 -- -1  / dir  2 
+dv 1 Rb_0   Hvg2 -- Rb_0   / w  1 -- -1  / dir  2 
+dv 1 Mrx9   Rb_0 -- Mrx9   / w  1 -- -1  / dir  2 
+dv 1 P_b4   Mrx9 -- P_b4   / w  1 -- -1  / dir  2 
+dv 1 Qmh4   P_b4 -- Qmh4   / w  1 -- -1  / dir  2 
+dv 1 Znt7   Qmh4 -- Znt7   / w  1 -- -1  / dir  2 
+dv 1 Tqr1   Znt7 -- Tqr1   / w  1 -- -1  / dir  2 
+dv 1 Atw8   Tqr1 -- Atw8   / w  1 -- -1  / dir  2 
+dv 1 Wgj7   Atw8 -- Wgj7   / w  1 -- -1  / dir  2 
+dv 1 Fxd3   Wgj7 -- Fxd3   / w  1 -- -1  / dir  2 
+dv 1 Umt2   Fxd3 -- Umt2   / w  1 -- -1  / dir  2 
+dv 1 Cxb0   Umt2 -- Cxb0   / w  1 -- -1  / dir  2 
+dv 1 Bzh3   Cxb0 -- Bzh3   / w  1 -- -1  / dir  2 
+dv 1 Yjf3   Bzh3 -- Yjf3   / w  1 -- -1  / dir  2 
+dv 1 Eqp7   Yjf3 -- Eqp7   / w  1 -- -1  / dir  2 
+dv 1 Zms6   Eqp7 -- Zms6   / w  1 -- -1  / dir  2 
+dv 1 Rjy2   Zms6 -- Rjy2   / w  1 -- -1  / dir  2 
+dv 1 Ogy7   Rjy2 -- Ogy7   / w  1 -- -1  / dir  2 
+dv 1 Fpz3   Ogy7 -- Fpz3   / w  1 -- -1  / dir  2 
+dv 1 Vds1   Fpz3 -- Vds1   / w  1 -- -1  / dir  2 
+dv 1 Jkg7   Vds1 -- Jkg7   / w  1 -- -1  / dir  2 
+dv 1 Usd0   Jkg7 -- Usd0   / w  1 -- -1  / dir  2 
+dv 1 Tju7   Usd0 -- Tju7   / w  1 -- -1  / dir  2 
+dv 1 Wqw1   Tju7 -- Wqw1   / w  1 -- -1  / dir  2 
+dv 1 Ga_9   Wqw1 -- Ga_9   / w  1 -- -1  / dir  2 
+dv 1 Qsw6   Ga_9 -- Qsw6   / w  1 -- -1  / dir  2 
+dv 1 Cgo1   Qsw6 -- Cgo1   / w  1 -- -1  / dir  2 
+dv 1 Rrn0   Cgo1 -- Rrn0   / w  1 -- -1  / dir  2 
+dv 1 Axt7   Rrn0 -- Axt7   / w  1 -- -1  / dir  2 
+dv 1 Qez4   Axt7 -- Qez4   / w  1 -- -1  / dir  2 
+dv 1 Puf4   Qez4 -- Puf4   / w  1 -- -1  / dir  2 
+dv 1 Rqh3   Puf4 -- Rqh3   / w  1 -- -1  / dir  2 
+dv 1 Tyf6   Rqh3 -- Tyf6   / w  1 -- -1  / dir  2 
+dv 1 Hyh0   Tyf6 -- Hyh0   / w  1 -- -1  / dir  2 
+dv 1 Tke6   Hyh0 -- Tke6   / w  1 -- -1  / dir  2 
+dv 1 Ix_3   Tke6 -- Ix_3   / w  1 -- -1  / dir  2 
+dv 1 Mrv8   Ix_3 -- Mrv8   / w  1 -- -1  / dir  2 
+dv 1 Rge9   Mrv8 -- Rge9   / w  1 -- -1  / dir  2 
+dv 1 Nnn6   Rge9 -- Nnn6   / w  1 -- -1  / dir  2 
+dv 1 Uos6   Nnn6 -- Uos6   / w  1 -- -1  / dir  2 
+dv 2 Tsh5   Uos6 -- Tsh5   / w  1 -- -1  / dir  2 
+dv 2 Qkh7   Qkh7 -- Tsh5   / w  1 -- -1  / dir  0 
+dv 2 J_q8   J_q8 -- Qkh7   / w  1 -- -1  / dir  0 
+dv 2 Wrx8   Wrx8 -- J_q8   / w  1 -- -1  / dir  0 
+dv 2 Ady3   Ady3 -- Wrx8   / w  1 -- -1  / dir  0 
+dv 2 N__0   N__0 -- Ady3   / w  1 -- -1  / dir  0 
+dv 2 Dol2   Dol2 -- N__0   / w  1 -- -1  / dir  0 
+dv 2 Ogb5   Ogb5 -- Dol2   / w  1 -- -1  / dir  0 
+dv 2 Pvg4   Pvg4 -- Ogb5   / w  1 -- -1  / dir  0 
+dv 2 Nyp1   Nyp1 -- Pvg4   / w  1 -- -1  / dir  0 
+dv 2 Slv6   Slv6 -- Nyp1   / w  1 -- -1  / dir  0 
+dv 2 Toh6   Toh6 -- Slv6   / w  1 -- -1  / dir  0 
+dv 2 Uxv0   Uxv0 -- Toh6   / w  1 -- -1  / dir  0 
+dv 2 Spm2   Spm2 -- Uxv0   / w  1 -- -1  / dir  0 
+dv 2 Eqw5   Eqw5 -- Spm2   / w  1 -- -1  / dir  0 
+dv 2 Moo8   Moo8 -- Eqw5   / w  1 -- -1  / dir  0 
+dv 2 Ire0   Ire0 -- Moo8   / w  1 -- -1  / dir  0 
+dv 2 Xdn0   Xdn0 -- Ire0   / w  1 -- -1  / dir  0 
+dv 1 Ujv6   Xdn0 -- Ujv6   / w  1 -- -1  / dir  2 
+dv 1 Ixv8   Ujv6 -- Ixv8   / w  1 -- -1  / dir  2 
+dv 1 Bvv6   Ixv8 -- Bvv6   / w  1 -- -1  / dir  2 
+dv 1 Wpa8   Bvv6 -- Wpa8   / w  1 -- -1  / dir  2 
+dv 1 Qwr9   Wpa8 -- Qwr9   / w  1 -- -1  / dir  2 
+dv 1 Euy7   Qwr9 -- Euy7   / w  1 -- -1  / dir  2 
+dv 1 J_q9   Euy7 -- J_q9   / w  1 -- -1  / dir  2 
+dv 1 Jx_1   J_q9 -- Jx_1   / w  1 -- -1  / dir  2 
+dv 1 Dfs7   Jx_1 -- Dfs7   / w  1 -- -1  / dir  2 
+dv 1 Ouu1   Dfs7 -- Ouu1   / w  1 -- -1  / dir  2 
+dv 1 Nmy0   Ouu1 -- Nmy0   / w  1 -- -1  / dir  2 
+dv 1 Y_s4   Nmy0 -- Y_s4   / w  1 -- -1  / dir  2 
+dv 1 Hoq3   Y_s4 -- Hoq3   / w  1 -- -1  / dir  2 
+dv 1 Qvy7   Hoq3 -- Qvy7   / w  1 -- -1  / dir  2 
+dv 1 Gg_9   Qvy7 -- Gg_9   / w  1 -- -1  / dir  2 
+dv 1 Oqq3   Gg_9 -- Oqq3   / w  1 -- -1  / dir  2 
+dv 1 Hg_1   Oqq3 -- Hg_1   / w  1 -- -1  / dir  2 
+dv 1 Qdf6   Hg_1 -- Qdf6   / w  1 -- -1  / dir  2 
+dv 1 Rku8   Qdf6 -- Rku8   / w  1 -- -1  / dir  2 
+dv 1 Iwr4   Rku8 -- Iwr4   / w  1 -- -1  / dir  2 
+dv 1 V_b3   Iwr4 -- V_b3   / w  1 -- -1  / dir  2 
+dv 1 Fzs3   V_b3 -- Fzs3   / w  1 -- -1  / dir  2 
+dv 1 Xpp4   Fzs3 -- Xpp4   / w  1 -- -1  / dir  2 
+dv 1 Ptn3   Xpp4 -- Ptn3   / w  1 -- -1  / dir  2 
+dv 1 Veh0   Ptn3 -- Veh0   / w  1 -- -1  / dir  2 
+dv 1 Ipd0   Veh0 -- Ipd0   / w  1 -- -1  / dir  2 
+dv 1 Yye0   Ipd0 -- Yye0   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Yye0 -- Abc1   / w  1 -- -1  / dir  2 
+print before ok
+merge ok
+len => 59
+len => 59
+dv 1 Jr_9   T_p2 -- Jr_9   / w  1 -- -1  / dir  2 
+dv 1 Qee6   Jr_9 -- Qee6   / w  1 -- -1  / dir  2 
+dv 1 Ahd8   Qee6 -- Ahd8   / w  1 -- -1  / dir  2 
+dv 1 Vuo3   Ahd8 -- Vuo3   / w  1 -- -1  / dir  2 
+dv 1 Xjo9   Vuo3 -- Xjo9   / w  1 -- -1  / dir  2 
+dv 1 Odf1   Xjo9 -- Odf1   / w  1 -- -1  / dir  2 
+dv 1 Yao9   Odf1 -- Yao9   / w  1 -- -1  / dir  2 
+dv 1 Xhe5   Yao9 -- Xhe5   / w  1 -- -1  / dir  2 
+dv 1 Ecb2   Xhe5 -- Ecb2   / w  1 -- -1  / dir  2 
+dv 1 Pey7   Ecb2 -- Pey7   / w  1 -- -1  / dir  2 
+dv 1 Rho5   Pey7 -- Rho5   / w  1 -- -1  / dir  2 
+dv 1 Vb_0   Rho5 -- Vb_0   / w  1 -- -1  / dir  2 
+dv 1 A_b0   Vb_0 -- A_b0   / w  1 -- -1  / dir  2 
+dv 1 T_e0   A_b0 -- T_e0   / w  1 -- -1  / dir  2 
+dv 1 Ifp6   T_e0 -- Ifp6   / w  1 -- -1  / dir  2 
+dv 1 Hvg2   Ifp6 -- Hvg2   / w  1 -- -1  / dir  2 
+dv 1 Rb_0   Hvg2 -- Rb_0   / w  1 -- -1  / dir  2 
+dv 1 Mrx9   Rb_0 -- Mrx9   / w  1 -- -1  / dir  2 
+dv 1 P_b4   Mrx9 -- P_b4   / w  1 -- -1  / dir  2 
+dv 1 Qmh4   P_b4 -- Qmh4   / w  1 -- -1  / dir  2 
+dv 1 Znt7   Qmh4 -- Znt7   / w  1 -- -1  / dir  2 
+dv 1 Tqr1   Znt7 -- Tqr1   / w  1 -- -1  / dir  2 
+dv 1 Atw8   Tqr1 -- Atw8   / w  1 -- -1  / dir  2 
+dv 1 Wgj7   Atw8 -- Wgj7   / w  1 -- -1  / dir  2 
+dv 1 Fxd3   Wgj7 -- Fxd3   / w  1 -- -1  / dir  2 
+dv 1 Umt2   Fxd3 -- Umt2   / w  1 -- -1  / dir  2 
+dv 1 Cxb0   Umt2 -- Cxb0   / w  1 -- -1  / dir  2 
+dv 1 Bzh3   Cxb0 -- Bzh3   / w  1 -- -1  / dir  2 
+dv 1 Yjf3   Bzh3 -- Yjf3   / w  1 -- -1  / dir  2 
+dv 1 Eqp7   Yjf3 -- Eqp7   / w  1 -- -1  / dir  2 
+dv 1 Zms6   Eqp7 -- Zms6   / w  1 -- -1  / dir  2 
+dv 1 Rjy2   Zms6 -- Rjy2   / w  1 -- -1  / dir  2 
+dv 1 Ogy7   Rjy2 -- Ogy7   / w  1 -- -1  / dir  2 
+dv 1 Fpz3   Ogy7 -- Fpz3   / w  1 -- -1  / dir  2 
+dv 1 Vds1   Fpz3 -- Vds1   / w  1 -- -1  / dir  2 
+dv 1 Jkg7   Vds1 -- Jkg7   / w  1 -- -1  / dir  2 
+dv 1 Usd0   Jkg7 -- Usd0   / w  1 -- -1  / dir  2 
+dv 1 Tju7   Usd0 -- Tju7   / w  1 -- -1  / dir  2 
+dv 1 Wqw1   Tju7 -- Wqw1   / w  1 -- -1  / dir  2 
+dv 1 Ga_9   Wqw1 -- Ga_9   / w  1 -- -1  / dir  2 
+dv 1 Qsw6   Ga_9 -- Qsw6   / w  1 -- -1  / dir  2 
+dv 1 Cgo1   Qsw6 -- Cgo1   / w  1 -- -1  / dir  2 
+dv 1 Rrn0   Cgo1 -- Rrn0   / w  1 -- -1  / dir  2 
+dv 1 Axt7   Rrn0 -- Axt7   / w  1 -- -1  / dir  2 
+dv 1 Qez4   Axt7 -- Qez4   / w  1 -- -1  / dir  2 
+dv 1 Puf4   Qez4 -- Puf4   / w  1 -- -1  / dir  2 
+dv 1 Rqh3   Puf4 -- Rqh3   / w  1 -- -1  / dir  2 
+dv 1 Tyf6   Rqh3 -- Tyf6   / w  1 -- -1  / dir  2 
+dv 1 Hyh0   Tyf6 -- Hyh0   / w  1 -- -1  / dir  2 
+dv 1 Tke6   Hyh0 -- Tke6   / w  1 -- -1  / dir  2 
+dv 1 Ix_3   Tke6 -- Ix_3   / w  1 -- -1  / dir  2 
+dv 1 Mrv8   Ix_3 -- Mrv8   / w  1 -- -1  / dir  2 
+dv 1 Rge9   Mrv8 -- Rge9   / w  1 -- -1  / dir  2 
+dv 1 Nnn6   Rge9 -- Nnn6   / w  1 -- -1  / dir  2 
+dv 1 Uos6   Nnn6 -- Uos6   / w  1 -- -1  / dir  2 
+dv 2 Tsh5   Uos6 -- Tsh5   / w  1 -- -1  / dir  2 
+dv 1 Swc5   Tsh5 -- Swc5   / w  1 -- -1  / dir  2 
+dv 1 Sgm3   Swc5 -- Sgm3   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Sgm3 -- Abc1   / w  1 -- -1  / dir  2 
+turn best vs current  |73|-|72| v2
+
+END ITERATION => 5 
+ici 6
+ 
+
+START ITERATION => 6
+
+cost => 84
+make way ok
+len => 88
+dv 1 Die8   T_p2 -- Die8   / w  1 -- -1  / dir  2 
+dv 1 Mdv5   Die8 -- Mdv5   / w  1 -- -1  / dir  2 
+dv 1 Kvr6   Mdv5 -- Kvr6   / w  1 -- -1  / dir  2 
+dv 1 Tcv3   Kvr6 -- Tcv3   / w  1 -- -1  / dir  2 
+dv 1 C__1   Tcv3 -- C__1   / w  1 -- -1  / dir  2 
+dv 1 Mbw7   C__1 -- Mbw7   / w  1 -- -1  / dir  2 
+dv 1 Xbh5   Mbw7 -- Xbh5   / w  1 -- -1  / dir  2 
+dv 1 Cub1   Xbh5 -- Cub1   / w  1 -- -1  / dir  2 
+dv 1 Tat3   Cub1 -- Tat3   / w  1 -- -1  / dir  2 
+dv 1 F__0   Tat3 -- F__0   / w  1 -- -1  / dir  2 
+dv 1 Xxk8   F__0 -- Xxk8   / w  1 -- -1  / dir  2 
+dv 1 Vhv4   Xxk8 -- Vhv4   / w  1 -- -1  / dir  2 
+dv 1 Uep7   Vhv4 -- Uep7   / w  1 -- -1  / dir  2 
+dv 1 Aa_3   Uep7 -- Aa_3   / w  1 -- -1  / dir  2 
+dv 1 Mxx3   Aa_3 -- Mxx3   / w  1 -- -1  / dir  2 
+dv 1 Br_2   Mxx3 -- Br_2   / w  1 -- -1  / dir  2 
+dv 1 Xyh5   Br_2 -- Xyh5   / w  1 -- -1  / dir  2 
+dv 1 Yip4   Xyh5 -- Yip4   / w  1 -- -1  / dir  2 
+dv 1 Yso0   Yip4 -- Yso0   / w  1 -- -1  / dir  2 
+dv 1 Ama7   Yso0 -- Ama7   / w  1 -- -1  / dir  2 
+dv 1 Ohi3   Ama7 -- Ohi3   / w  1 -- -1  / dir  2 
+dv 1 Zbc8   Ohi3 -- Zbc8   / w  1 -- -1  / dir  2 
+dv 1 Wfn9   Zbc8 -- Wfn9   / w  1 -- -1  / dir  2 
+dv 1 H_i2   Wfn9 -- H_i2   / w  1 -- -1  / dir  2 
+dv 1 Riw4   H_i2 -- Riw4   / w  1 -- -1  / dir  2 
+dv 1 Ham0   Riw4 -- Ham0   / w  1 -- -1  / dir  2 
+dv 1 Y_b0   Ham0 -- Y_b0   / w  1 -- -1  / dir  2 
+dv 1 Zpe6   Y_b0 -- Zpe6   / w  1 -- -1  / dir  2 
+dv 1 Eeo1   Zpe6 -- Eeo1   / w  1 -- -1  / dir  2 
+dv 1 Jxa8   Eeo1 -- Jxa8   / w  1 -- -1  / dir  2 
+dv 1 Jhn1   Jxa8 -- Jhn1   / w  1 -- -1  / dir  2 
+dv 1 Eqi0   Jhn1 -- Eqi0   / w  1 -- -1  / dir  2 
+dv 1 Cim7   Eqi0 -- Cim7   / w  1 -- -1  / dir  2 
+dv 1 Dgh7   Cim7 -- Dgh7   / w  1 -- -1  / dir  2 
+dv 2 Zyu9   Dgh7 -- Zyu9   / w  1 -- -1  / dir  2 
+dv 2 Ctd0   Zyu9 -- Ctd0   / w  -1 -- 1  / dir  0 
+dv 2 Esd8   Ctd0 -- Esd8   / w  -1 -- 1  / dir  0 
+dv 1 Rq_1   Esd8 -- Rq_1   / w  1 -- -1  / dir  2 
+dv 1 Ian4   Rq_1 -- Ian4   / w  1 -- -1  / dir  2 
+dv 1 Ske6   Ian4 -- Ske6   / w  1 -- -1  / dir  2 
+dv 1 Ycf5   Ske6 -- Ycf5   / w  1 -- -1  / dir  2 
+dv 1 Rby2   Ycf5 -- Rby2   / w  1 -- -1  / dir  2 
+dv 1 Ans7   Rby2 -- Ans7   / w  1 -- -1  / dir  2 
+dv 1 Ku_8   Ans7 -- Ku_8   / w  1 -- -1  / dir  2 
+dv 1 Cmj8   Ku_8 -- Cmj8   / w  1 -- -1  / dir  2 
+dv 1 Nfy1   Cmj8 -- Nfy1   / w  1 -- -1  / dir  2 
+dv 1 Wqn3   Nfy1 -- Wqn3   / w  1 -- -1  / dir  2 
+dv 1 E_v4   Wqn3 -- E_v4   / w  1 -- -1  / dir  2 
+dv 1 Cag1   E_v4 -- Cag1   / w  1 -- -1  / dir  2 
+dv 1 Pmf5   Cag1 -- Pmf5   / w  1 -- -1  / dir  2 
+dv 1 P_f4   Pmf5 -- P_f4   / w  1 -- -1  / dir  2 
+dv 1 Urh5   P_f4 -- Urh5   / w  1 -- -1  / dir  2 
+dv 1 Ezu9   Urh5 -- Ezu9   / w  1 -- -1  / dir  2 
+dv 1 Krv6   Ezu9 -- Krv6   / w  1 -- -1  / dir  2 
+dv 1 Cst2   Krv6 -- Cst2   / w  1 -- -1  / dir  2 
+dv 1 Ydu5   Cst2 -- Ydu5   / w  1 -- -1  / dir  2 
+dv 1 T_m9   Ydu5 -- T_m9   / w  1 -- -1  / dir  2 
+dv 1 Jwr8   T_m9 -- Jwr8   / w  1 -- -1  / dir  2 
+dv 1 Deg1   Jwr8 -- Deg1   / w  1 -- -1  / dir  2 
+dv 1 Uyd8   Deg1 -- Uyd8   / w  1 -- -1  / dir  2 
+dv 1 Dik7   Uyd8 -- Dik7   / w  1 -- -1  / dir  2 
+dv 1 Dcx0   Dik7 -- Dcx0   / w  1 -- -1  / dir  2 
+dv 1 Kqq7   Dcx0 -- Kqq7   / w  1 -- -1  / dir  2 
+dv 1 Xfj9   Kqq7 -- Xfj9   / w  1 -- -1  / dir  2 
+dv 1 Eiz8   Xfj9 -- Eiz8   / w  1 -- -1  / dir  2 
+dv 1 Uex0   Eiz8 -- Uex0   / w  1 -- -1  / dir  2 
+dv 1 Ppq7   Uex0 -- Ppq7   / w  1 -- -1  / dir  2 
+dv 1 Drw9   Ppq7 -- Drw9   / w  1 -- -1  / dir  2 
+dv 1 G_u1   Drw9 -- G_u1   / w  1 -- -1  / dir  2 
+dv 1 Miv0   G_u1 -- Miv0   / w  1 -- -1  / dir  2 
+dv 1 Ti_8   Miv0 -- Ti_8   / w  1 -- -1  / dir  2 
+dv 1 Nvk0   Ti_8 -- Nvk0   / w  1 -- -1  / dir  2 
+dv 1 K__1   Nvk0 -- K__1   / w  1 -- -1  / dir  2 
+dv 1 Jpm3   K__1 -- Jpm3   / w  1 -- -1  / dir  2 
+dv 1 Qqw5   Jpm3 -- Qqw5   / w  1 -- -1  / dir  2 
+dv 1 Anp9   Qqw5 -- Anp9   / w  1 -- -1  / dir  2 
+dv 1 Glu0   Anp9 -- Glu0   / w  1 -- -1  / dir  2 
+dv 1 Pvc9   Glu0 -- Pvc9   / w  1 -- -1  / dir  2 
+dv 1 Ezt6   Pvc9 -- Ezt6   / w  1 -- -1  / dir  2 
+dv 1 Hyo1   Ezt6 -- Hyo1   / w  1 -- -1  / dir  2 
+dv 1 Rcx5   Hyo1 -- Rcx5   / w  1 -- -1  / dir  2 
+dv 1 Gru4   Rcx5 -- Gru4   / w  1 -- -1  / dir  2 
+dv 1 Sfr1   Gru4 -- Sfr1   / w  1 -- -1  / dir  2 
+dv 1 Kbj6   Sfr1 -- Kbj6   / w  1 -- -1  / dir  2 
+dv 1 O_w7   Kbj6 -- O_w7   / w  1 -- -1  / dir  2 
+dv 1 Zba5   O_w7 -- Zba5   / w  1 -- -1  / dir  2 
+dv 1 Rmi5   Zba5 -- Rmi5   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Rmi5 -- Abc1   / w  1 -- -1  / dir  2 
+print before ok
+merge ok
+len => 64
+len => 64
+dv 1 Die8   T_p2 -- Die8   / w  1 -- -1  / dir  2 
+dv 1 Mdv5   Die8 -- Mdv5   / w  1 -- -1  / dir  2 
+dv 1 Kvr6   Mdv5 -- Kvr6   / w  1 -- -1  / dir  2 
+dv 1 Tcv3   Kvr6 -- Tcv3   / w  1 -- -1  / dir  2 
+dv 1 C__1   Tcv3 -- C__1   / w  1 -- -1  / dir  2 
+dv 1 Mbw7   C__1 -- Mbw7   / w  1 -- -1  / dir  2 
+dv 1 Xbh5   Mbw7 -- Xbh5   / w  1 -- -1  / dir  2 
+dv 1 Cub1   Xbh5 -- Cub1   / w  1 -- -1  / dir  2 
+dv 1 Tat3   Cub1 -- Tat3   / w  1 -- -1  / dir  2 
+dv 1 F__0   Tat3 -- F__0   / w  1 -- -1  / dir  2 
+dv 1 Xxk8   F__0 -- Xxk8   / w  1 -- -1  / dir  2 
+dv 1 Vhv4   Xxk8 -- Vhv4   / w  1 -- -1  / dir  2 
+dv 1 Uep7   Vhv4 -- Uep7   / w  1 -- -1  / dir  2 
+dv 1 Aa_3   Uep7 -- Aa_3   / w  1 -- -1  / dir  2 
+dv 1 Mxx3   Aa_3 -- Mxx3   / w  1 -- -1  / dir  2 
+dv 1 Br_2   Mxx3 -- Br_2   / w  1 -- -1  / dir  2 
+dv 1 Xyh5   Br_2 -- Xyh5   / w  1 -- -1  / dir  2 
+dv 1 Yip4   Xyh5 -- Yip4   / w  1 -- -1  / dir  2 
+dv 1 Yso0   Yip4 -- Yso0   / w  1 -- -1  / dir  2 
+dv 1 Ama7   Yso0 -- Ama7   / w  1 -- -1  / dir  2 
+dv 1 Ohi3   Ama7 -- Ohi3   / w  1 -- -1  / dir  2 
+dv 1 Zbc8   Ohi3 -- Zbc8   / w  1 -- -1  / dir  2 
+dv 1 Wfn9   Zbc8 -- Wfn9   / w  1 -- -1  / dir  2 
+dv 1 H_i2   Wfn9 -- H_i2   / w  1 -- -1  / dir  2 
+dv 1 Riw4   H_i2 -- Riw4   / w  1 -- -1  / dir  2 
+dv 1 Ham0   Riw4 -- Ham0   / w  1 -- -1  / dir  2 
+dv 1 Y_b0   Ham0 -- Y_b0   / w  1 -- -1  / dir  2 
+dv 1 Zpe6   Y_b0 -- Zpe6   / w  1 -- -1  / dir  2 
+dv 1 Eeo1   Zpe6 -- Eeo1   / w  1 -- -1  / dir  2 
+dv 1 Jxa8   Eeo1 -- Jxa8   / w  1 -- -1  / dir  2 
+dv 1 Jhn1   Jxa8 -- Jhn1   / w  1 -- -1  / dir  2 
+dv 1 Eqi0   Jhn1 -- Eqi0   / w  1 -- -1  / dir  2 
+dv 1 Cim7   Eqi0 -- Cim7   / w  1 -- -1  / dir  2 
+dv 1 Dgh7   Cim7 -- Dgh7   / w  1 -- -1  / dir  2 
+dv 2 Zyu9   Dgh7 -- Zyu9   / w  1 -- -1  / dir  2 
+dv 1 Mse1   Zyu9 -- Mse1   / w  1 -- -1  / dir  2 
+dv 1 Ny_2   Mse1 -- Ny_2   / w  1 -- -1  / dir  2 
+dv 1 Bsj6   Ny_2 -- Bsj6   / w  1 -- -1  / dir  2 
+dv 1 Qze8   Bsj6 -- Qze8   / w  1 -- -1  / dir  2 
+dv 1 Jpn0   Qze8 -- Jpn0   / w  1 -- -1  / dir  2 
+dv 1 Kcd4   Jpn0 -- Kcd4   / w  1 -- -1  / dir  2 
+dv 1 Ysu6   Kcd4 -- Ysu6   / w  1 -- -1  / dir  2 
+dv 1 Ufz6   Ysu6 -- Ufz6   / w  1 -- -1  / dir  2 
+dv 1 Tvp8   Ufz6 -- Tvp8   / w  1 -- -1  / dir  2 
+dv 1 Tsn8   Tvp8 -- Tsn8   / w  1 -- -1  / dir  2 
+dv 1 H_x8   Tsn8 -- H_x8   / w  1 -- -1  / dir  2 
+dv 1 Z_t0   H_x8 -- Z_t0   / w  1 -- -1  / dir  2 
+dv 1 Ezh8   Z_t0 -- Ezh8   / w  1 -- -1  / dir  2 
+dv 1 I_x2   Ezh8 -- I_x2   / w  1 -- -1  / dir  2 
+dv 1 Tdw8   I_x2 -- Tdw8   / w  1 -- -1  / dir  2 
+dv 1 Fix0   Tdw8 -- Fix0   / w  1 -- -1  / dir  2 
+dv 1 Eqj8   Fix0 -- Eqj8   / w  1 -- -1  / dir  2 
+dv 1 Rdo4   Eqj8 -- Rdo4   / w  1 -- -1  / dir  2 
+dv 1 Pap5   Rdo4 -- Pap5   / w  1 -- -1  / dir  2 
+dv 1 Nwj3   Pap5 -- Nwj3   / w  1 -- -1  / dir  2 
+dv 1 Hpz4   Nwj3 -- Hpz4   / w  1 -- -1  / dir  2 
+dv 1 W_b9   Hpz4 -- W_b9   / w  1 -- -1  / dir  2 
+dv 1 Fob8   W_b9 -- Fob8   / w  1 -- -1  / dir  2 
+dv 1 Y_c2   Fob8 -- Y_c2   / w  1 -- -1  / dir  2 
+dv 1 Sxa9   Y_c2 -- Sxa9   / w  1 -- -1  / dir  2 
+dv 1 Yck2   Sxa9 -- Yck2   / w  1 -- -1  / dir  2 
+dv 1 Fp_3   Yck2 -- Fp_3   / w  1 -- -1  / dir  2 
+dv 1 Uw_0   Fp_3 -- Uw_0   / w  1 -- -1  / dir  2 
+dv 0 Abc1   Uw_0 -- Abc1   / w  1 -- -1  / dir  2 
+turn best vs current  |72|-|74| v2
+
+END ITERATION => 6 
+
+
+end node name => |Abc1|
+nb way => |6|
+
+chemin 0
+0. |Vkn8| |T_p2|-|Vkn8|
+1. |Yix5| |Vkn8|-|Yix5|
+2. |Zty3| |Yix5|-|Zty3|
+3. |Mwh0| |Zty3|-|Mwh0|
+4. |Dhk8| |Mwh0|-|Dhk8|
+5. |Pst7| |Dhk8|-|Pst7|
+6. |Abc1| |Pst7|-|Abc1|
+
+chemin 1
+0. |Tvk2| |T_p2|-|Tvk2|
+1. |Uun1| |Tvk2|-|Uun1|
+2. |Coq6| |Uun1|-|Coq6|
+3. |Sul4| |Coq6|-|Sul4|
+4. |Kjr9| |Sul4|-|Kjr9|
+5. |Dko4| |Kjr9|-|Dko4|
+6. |O_z4| |Dko4|-|O_z4|
+7. |Adg9| |O_z4|-|Adg9|
+8. |Jkf8| |Adg9|-|Jkf8|
+9. |Esd8| |Jkf8|-|Esd8|
+10. |Rq_1| |Esd8|-|Rq_1|
+11. |Ian4| |Rq_1|-|Ian4|
+12. |Ske6| |Ian4|-|Ske6|
+13. |Ycf5| |Ske6|-|Ycf5|
+14. |Rby2| |Ycf5|-|Rby2|
+15. |Ans7| |Rby2|-|Ans7|
+16. |Ku_8| |Ans7|-|Ku_8|
+17. |Cmj8| |Ku_8|-|Cmj8|
+18. |Nfy1| |Cmj8|-|Nfy1|
+19. |Wqn3| |Nfy1|-|Wqn3|
+20. |E_v4| |Wqn3|-|E_v4|
+21. |Cag1| |E_v4|-|Cag1|
+22. |Pmf5| |Cag1|-|Pmf5|
+23. |P_f4| |Pmf5|-|P_f4|
+24. |Urh5| |P_f4|-|Urh5|
+25. |Ezu9| |Urh5|-|Ezu9|
+26. |Krv6| |Ezu9|-|Krv6|
+27. |Cst2| |Krv6|-|Cst2|
+28. |Ydu5| |Cst2|-|Ydu5|
+29. |T_m9| |Ydu5|-|T_m9|
+30. |Jwr8| |T_m9|-|Jwr8|
+31. |Deg1| |Jwr8|-|Deg1|
+32. |Uyd8| |Deg1|-|Uyd8|
+33. |Dik7| |Uyd8|-|Dik7|
+34. |Dcx0| |Dik7|-|Dcx0|
+35. |Kqq7| |Dcx0|-|Kqq7|
+36. |Xfj9| |Kqq7|-|Xfj9|
+37. |Eiz8| |Xfj9|-|Eiz8|
+38. |Uex0| |Eiz8|-|Uex0|
+39. |Ppq7| |Uex0|-|Ppq7|
+40. |Drw9| |Ppq7|-|Drw9|
+41. |G_u1| |Drw9|-|G_u1|
+42. |Miv0| |G_u1|-|Miv0|
+43. |Ti_8| |Miv0|-|Ti_8|
+44. |Nvk0| |Ti_8|-|Nvk0|
+45. |K__1| |Nvk0|-|K__1|
+46. |Jpm3| |K__1|-|Jpm3|
+47. |Qqw5| |Jpm3|-|Qqw5|
+48. |Anp9| |Qqw5|-|Anp9|
+49. |Glu0| |Anp9|-|Glu0|
+50. |Pvc9| |Glu0|-|Pvc9|
+51. |Ezt6| |Pvc9|-|Ezt6|
+52. |Hyo1| |Ezt6|-|Hyo1|
+53. |Rcx5| |Hyo1|-|Rcx5|
+54. |Gru4| |Rcx5|-|Gru4|
+55. |Sfr1| |Gru4|-|Sfr1|
+56. |Kbj6| |Sfr1|-|Kbj6|
+57. |O_w7| |Kbj6|-|O_w7|
+58. |Zba5| |O_w7|-|Zba5|
+59. |Rmi5| |Zba5|-|Rmi5|
+60. |Abc1| |Rmi5|-|Abc1|
+
+chemin 2
+0. |Scm8| |T_p2|-|Scm8|
+1. |Rjc1| |Scm8|-|Rjc1|
+2. |S_z7| |Rjc1|-|S_z7|
+3. |Jqp6| |S_z7|-|Jqp6|
+4. |Whi1| |Jqp6|-|Whi1|
+5. |Vkq0| |Whi1|-|Vkq0|
+6. |Zts6| |Vkq0|-|Zts6|
+7. |Ekw5| |Zts6|-|Ekw5|
+8. |Otp3| |Ekw5|-|Otp3|
+9. |Kps8| |Otp3|-|Kps8|
+10. |Arq3| |Kps8|-|Arq3|
+11. |Tl_4| |Arq3|-|Tl_4|
+12. |Kt_5| |Tl_4|-|Kt_5|
+13. |Gxh2| |Kt_5|-|Gxh2|
+14. |Gia6| |Gxh2|-|Gia6|
+15. |K_y6| |Gia6|-|K_y6|
+16. |Xya8| |K_y6|-|Xya8|
+17. |K_l0| |Xya8|-|K_l0|
+18. |Ndm9| |K_l0|-|Ndm9|
+19. |E_y4| |Ndm9|-|E_y4|
+20. |Tee4| |E_y4|-|Tee4|
+21. |Nce7| |Tee4|-|Nce7|
+22. |Itl3| |Nce7|-|Itl3|
+23. |Kuv1| |Itl3|-|Kuv1|
+24. |Vf_9| |Kuv1|-|Vf_9|
+25. |Mmh2| |Vf_9|-|Mmh2|
+26. |Dno1| |Mmh2|-|Dno1|
+27. |M_w8| |Dno1|-|M_w8|
+28. |Bgd9| |M_w8|-|Bgd9|
+29. |Cai3| |Bgd9|-|Cai3|
+30. |Nbj6| |Cai3|-|Nbj6|
+31. |N_p1| |Nbj6|-|N_p1|
+32. |A_t2| |N_p1|-|A_t2|
+33. |Kqo3| |A_t2|-|Kqo3|
+34. |Mek2| |Kqo3|-|Mek2|
+35. |Gsr5| |Mek2|-|Gsr5|
+36. |Hny0| |Gsr5|-|Hny0|
+37. |Ml_3| |Hny0|-|Ml_3|
+38. |Vgv5| |Ml_3|-|Vgv5|
+39. |Iji9| |Vgv5|-|Iji9|
+40. |Vab4| |Iji9|-|Vab4|
+41. |Rig8| |Vab4|-|Rig8|
+42. |Ke_6| |Rig8|-|Ke_6|
+43. |Rgd2| |Ke_6|-|Rgd2|
+44. |Xep0| |Rgd2|-|Xep0|
+45. |Abc1| |Xep0|-|Abc1|
+
+chemin 3
+0. |Ivu7| |T_p2|-|Ivu7|
+1. |Fwe6| |Ivu7|-|Fwe6|
+2. |I__8| |Fwe6|-|I__8|
+3. |Cod9| |I__8|-|Cod9|
+4. |C_g5| |Cod9|-|C_g5|
+5. |Szu9| |C_g5|-|Szu9|
+6. |Xwd1| |Szu9|-|Xwd1|
+7. |Gyw0| |Xwd1|-|Gyw0|
+8. |M_x4| |Gyw0|-|M_x4|
+9. |Cgw9| |M_x4|-|Cgw9|
+10. |Oss1| |Cgw9|-|Oss1|
+11. |Bog6| |Oss1|-|Bog6|
+12. |Y_r0| |Bog6|-|Y_r0|
+13. |Rto1| |Y_r0|-|Rto1|
+14. |Q_a1| |Rto1|-|Q_a1|
+15. |Yzy8| |Q_a1|-|Yzy8|
+16. |Fis9| |Yzy8|-|Fis9|
+17. |B_w9| |Fis9|-|B_w9|
+18. |Trx8| |B_w9|-|Trx8|
+19. |Slg2| |Trx8|-|Slg2|
+20. |Ycb5| |Slg2|-|Ycb5|
+21. |Ajs1| |Ycb5|-|Ajs1|
+22. |Cuz0| |Ajs1|-|Cuz0|
+23. |Zus4| |Cuz0|-|Zus4|
+24. |Txd0| |Zus4|-|Txd0|
+25. |Tvk4| |Txd0|-|Tvk4|
+26. |Qwy2| |Tvk4|-|Qwy2|
+27. |Htt2| |Qwy2|-|Htt2|
+28. |Xdn0| |Htt2|-|Xdn0|
+29. |Ujv6| |Xdn0|-|Ujv6|
+30. |Ixv8| |Ujv6|-|Ixv8|
+31. |Bvv6| |Ixv8|-|Bvv6|
+32. |Wpa8| |Bvv6|-|Wpa8|
+33. |Qwr9| |Wpa8|-|Qwr9|
+34. |Euy7| |Qwr9|-|Euy7|
+35. |J_q9| |Euy7|-|J_q9|
+36. |Jx_1| |J_q9|-|Jx_1|
+37. |Dfs7| |Jx_1|-|Dfs7|
+38. |Ouu1| |Dfs7|-|Ouu1|
+39. |Nmy0| |Ouu1|-|Nmy0|
+40. |Y_s4| |Nmy0|-|Y_s4|
+41. |Hoq3| |Y_s4|-|Hoq3|
+42. |Qvy7| |Hoq3|-|Qvy7|
+43. |Gg_9| |Qvy7|-|Gg_9|
+44. |Oqq3| |Gg_9|-|Oqq3|
+45. |Hg_1| |Oqq3|-|Hg_1|
+46. |Qdf6| |Hg_1|-|Qdf6|
+47. |Rku8| |Qdf6|-|Rku8|
+48. |Iwr4| |Rku8|-|Iwr4|
+49. |V_b3| |Iwr4|-|V_b3|
+50. |Fzs3| |V_b3|-|Fzs3|
+51. |Xpp4| |Fzs3|-|Xpp4|
+52. |Ptn3| |Xpp4|-|Ptn3|
+53. |Veh0| |Ptn3|-|Veh0|
+54. |Ipd0| |Veh0|-|Ipd0|
+55. |Yye0| |Ipd0|-|Yye0|
+56. |Abc1| |Yye0|-|Abc1|
+
+chemin 4
+0. |E_w3| |T_p2|-|E_w3|
+1. |Kwc1| |E_w3|-|Kwc1|
+2. |Tri1| |Kwc1|-|Tri1|
+3. |Tju2| |Tri1|-|Tju2|
+4. |Qty6| |Tju2|-|Qty6|
+5. |Pry4| |Qty6|-|Pry4|
+6. |Upt6| |Pry4|-|Upt6|
+7. |Smm0| |Upt6|-|Smm0|
+8. |H_o8| |Smm0|-|H_o8|
+9. |Owy8| |H_o8|-|Owy8|
+10. |Yzm0| |Owy8|-|Yzm0|
+11. |Hot0| |Yzm0|-|Hot0|
+12. |Ofn4| |Hot0|-|Ofn4|
+13. |Xtj7| |Ofn4|-|Xtj7|
+14. |Aba6| |Xtj7|-|Aba6|
+15. |Ymj9| |Aba6|-|Ymj9|
+16. |Ddr3| |Ymj9|-|Ddr3|
+17. |Ur_2| |Ddr3|-|Ur_2|
+18. |Kfv4| |Ur_2|-|Kfv4|
+19. |Etk2| |Kfv4|-|Etk2|
+20. |Tuz3| |Etk2|-|Tuz3|
+21. |Eqg1| |Tuz3|-|Eqg1|
+22. |Eag3| |Eqg1|-|Eag3|
+23. |Xpy2| |Eag3|-|Xpy2|
+24. |Jxp1| |Xpy2|-|Jxp1|
+25. |Jbl4| |Jxp1|-|Jbl4|
+26. |Ynu5| |Jbl4|-|Ynu5|
+27. |Blq4| |Ynu5|-|Blq4|
+28. |Ghy0| |Blq4|-|Ghy0|
+29. |Ygq7| |Ghy0|-|Ygq7|
+30. |Equ6| |Ygq7|-|Equ6|
+31. |Rhr3| |Equ6|-|Rhr3|
+32. |Muf1| |Rhr3|-|Muf1|
+33. |F_e8| |F_e8|-|Muf1|
+34. |Iqv9| |Iqv9|-|F_e8|
+35. |Or_0| |Or_0|-|Iqv9|
+36. |Oqi0| |Oqi0|-|Or_0|
+37. |Sq_0| |Sq_0|-|Oqi0|
+38. |Api0| |Api0|-|Sq_0|
+39. |Ucz8| |Api0|-|Ucz8|
+40. |Hdl7| |Ucz8|-|Hdl7|
+41. |Cjv6| |Hdl7|-|Cjv6|
+42. |I_o4| |Cjv6|-|I_o4|
+43. |Amh8| |I_o4|-|Amh8|
+44. |Ijx1| |Amh8|-|Ijx1|
+45. |Wwl2| |Ijx1|-|Wwl2|
+46. |Rte2| |Wwl2|-|Rte2|
+47. |Ifz2| |Rte2|-|Ifz2|
+48. |Eh_7| |Ifz2|-|Eh_7|
+49. |Kpj0| |Eh_7|-|Kpj0|
+50. |Kfm5| |Kpj0|-|Kfm5|
+51. |G_w1| |Kfm5|-|G_w1|
+52. |Sug7| |G_w1|-|Sug7|
+53. |Ibj2| |Sug7|-|Ibj2|
+54. |Nsu2| |Ibj2|-|Nsu2|
+55. |Sbc6| |Nsu2|-|Sbc6|
+56. |Iuu1| |Sbc6|-|Iuu1|
+57. |Ocj5| |Iuu1|-|Ocj5|
+58. |Q_j0| |Ocj5|-|Q_j0|
+59. |Cap8| |Q_j0|-|Cap8|
+60. |Ibd3| |Cap8|-|Ibd3|
+61. |Fpf2| |Ibd3|-|Fpf2|
+62. |Akp5| |Fpf2|-|Akp5|
+63. |Cdc5| |Akp5|-|Cdc5|
+64. |Gkv4| |Cdc5|-|Gkv4|
+65. |Abc1| |Gkv4|-|Abc1|
+
+chemin 5
+0. |Jr_9| |T_p2|-|Jr_9|
+1. |Qee6| |Jr_9|-|Qee6|
+2. |Ahd8| |Qee6|-|Ahd8|
+3. |Vuo3| |Ahd8|-|Vuo3|
+4. |Xjo9| |Vuo3|-|Xjo9|
+5. |Odf1| |Xjo9|-|Odf1|
+6. |Yao9| |Odf1|-|Yao9|
+7. |Xhe5| |Yao9|-|Xhe5|
+8. |Ecb2| |Xhe5|-|Ecb2|
+9. |Pey7| |Ecb2|-|Pey7|
+10. |Rho5| |Pey7|-|Rho5|
+11. |Vb_0| |Rho5|-|Vb_0|
+12. |A_b0| |Vb_0|-|A_b0|
+13. |T_e0| |A_b0|-|T_e0|
+14. |Ifp6| |T_e0|-|Ifp6|
+15. |Hvg2| |Ifp6|-|Hvg2|
+16. |Rb_0| |Hvg2|-|Rb_0|
+17. |Mrx9| |Rb_0|-|Mrx9|
+18. |P_b4| |Mrx9|-|P_b4|
+19. |Qmh4| |P_b4|-|Qmh4|
+20. |Znt7| |Qmh4|-|Znt7|
+21. |Tqr1| |Znt7|-|Tqr1|
+22. |Atw8| |Tqr1|-|Atw8|
+23. |Wgj7| |Atw8|-|Wgj7|
+24. |Fxd3| |Wgj7|-|Fxd3|
+25. |Umt2| |Fxd3|-|Umt2|
+26. |Cxb0| |Umt2|-|Cxb0|
+27. |Bzh3| |Cxb0|-|Bzh3|
+28. |Yjf3| |Bzh3|-|Yjf3|
+29. |Eqp7| |Yjf3|-|Eqp7|
+30. |Zms6| |Eqp7|-|Zms6|
+31. |Rjy2| |Zms6|-|Rjy2|
+32. |Ogy7| |Rjy2|-|Ogy7|
+33. |Fpz3| |Ogy7|-|Fpz3|
+34. |Vds1| |Fpz3|-|Vds1|
+35. |Jkg7| |Vds1|-|Jkg7|
+36. |Usd0| |Jkg7|-|Usd0|
+37. |Tju7| |Usd0|-|Tju7|
+38. |Wqw1| |Tju7|-|Wqw1|
+39. |Ga_9| |Wqw1|-|Ga_9|
+40. |Qsw6| |Ga_9|-|Qsw6|
+41. |Cgo1| |Qsw6|-|Cgo1|
+42. |Rrn0| |Cgo1|-|Rrn0|
+43. |Axt7| |Rrn0|-|Axt7|
+44. |Qez4| |Axt7|-|Qez4|
+45. |Puf4| |Qez4|-|Puf4|
+46. |Rqh3| |Puf4|-|Rqh3|
+47. |Tyf6| |Rqh3|-|Tyf6|
+48. |Hyh0| |Tyf6|-|Hyh0|
+49. |Tke6| |Hyh0|-|Tke6|
+50. |Ix_3| |Tke6|-|Ix_3|
+51. |Mrv8| |Ix_3|-|Mrv8|
+52. |Rge9| |Mrv8|-|Rge9|
+53. |Nnn6| |Rge9|-|Nnn6|
+54. |Uos6| |Nnn6|-|Uos6|
+55. |Tsh5| |Uos6|-|Tsh5|
+56. |Swc5| |Tsh5|-|Swc5|
+57. |Sgm3| |Swc5|-|Sgm3|
+58. |Abc1| |Sgm3|-|Abc1|
+
+nb_turn 72
