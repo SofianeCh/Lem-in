@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/21 19:48:44 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/22 09:42:19 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -347,16 +347,16 @@ void	crea_path(t_lem *lem, int p, int way)
 	{
 		len++;
 	}
-	if (way < 3)
-	{
-		for (int i = 1; i < lem->paths[way]->size; i++)
-		{
-			if (way == 0 && i == 1)
-			printf("- - %d - - \n", lem->paths[way]->path[i]);
-			printf("%s ", lem->salles[lem->paths[way]->path[i]]->name);
-		}
-		printf("\n");
-	}
+	// if (way < 3)
+	// {
+	// 	for (int i = 1; i < lem->paths[way]->size; i++)
+	// 	{
+	// 		if (way == 0 && i == 1)
+	// 		printf("- - %d - - \n", lem->paths[way]->path[i]);
+	// 		printf("%s ", lem->salles[lem->paths[way]->path[i]]->name);
+	// 	}
+	// 	printf("\n");
+	// }
 }
 
 void	ft_init_queue(t_lem *lem, t_solve *s)
@@ -456,12 +456,12 @@ int		visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem)
 	{
 		for (int m = 0; m <= elem; m++)
 		{
-			if (s->rooms[(s->p - m)] == 3428 && s->count == 2)
-			{
-				printf("le bug = %s   ", lem->salles[s->rooms[(s->p - m)]]->name);
-				printf("chemin = %d = %d\n", s->count, s->p - m);
-				printf("%s   %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
-			}
+			// if (s->rooms[(s->p - m)] == 3428 && s->count == 2)
+			// {
+			// 	printf("le bug = %s   ", lem->salles[s->rooms[(s->p - m)]]->name);
+			// 	printf("chemin = %d = %d\n", s->count, s->p - m);
+			// 	printf("%s   %s\n", lem->salles[tmp->element->salle_1]->name, lem->salles[tmp->element->salle_2]->name);
+			// }
 
 		}
 		s->rooms[s->p] == tmp->element->salle_2 ? check_cross(lem, s, tmp, tmp->element->salle_1) : check_cross(lem, s, tmp, tmp->element->salle_2);
@@ -1019,15 +1019,15 @@ int			main(int argc, char **argv)
 		ft_crea_salles(&lem);
 		ft_link_couloir(&lem);
 		int nbr_coul = 0;
-		tmp = lem.salles[3428]->couloirs;
-		while (tmp)
-		{
-			nbr_coul++;
-			printf("%s  - - - ", tmp->element->salle_1 != 3428 ? lem.salles[tmp->element->salle_1]->name : lem.salles[tmp->element->salle_2]->name);
-			tmp = tmp->next;
-
-		}
-		printf("nbr de couloir = %d\n", nbr_coul);
+		// tmp = lem.salles[3428]->couloirs;
+		// while (tmp)
+		// {
+		// 	nbr_coul++;
+		// 	printf("%s  - - - ", tmp->element->salle_1 != 3428 ? lem.salles[tmp->element->salle_1]->name : lem.salles[tmp->element->salle_2]->name);
+		// 	tmp = tmp->next;
+		//
+		// }
+		// printf("nbr de couloir = %d\n", nbr_coul);
 		for (int k = 0; k < lem.nbr_salles ; k ++)
 		{
 			// printf("nom de la salles %s et le nombre de connection = %d\n", lem.salles[k]->name, lem.salles[k]->nbr_voisin);
