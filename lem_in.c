@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/22 09:42:19 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/05/22 19:00:10 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1077,10 +1077,10 @@ int			main(int argc, char **argv)
 		// 		}
 		//
 		// 	}
-		// 	// printf(" -- %d", lem.paths[k]->size);
+		// // 	// printf(" -- %d", lem.paths[k]->size);
 		// 	printf("\n");
 		// }
-		printf("nb_turn %d\n", lem.nbr_etapes);
+		// printf("nb_turn %d\n", lem.nbr_etapes);
 	return (0);
 }
 //
