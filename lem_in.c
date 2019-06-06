@@ -6,7 +6,11 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2019/05/22 19:00:10 by sofchami         ###   ########.fr       */
+=======
+/*   Updated: 2019/06/03 19:54:56 by sofchami         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1027,7 +1031,11 @@ int			main(int argc, char **argv)
 		// 	tmp = tmp->next;
 		//
 		// }
+<<<<<<< Updated upstream
 		// printf("nbr de couloir = %d\n", nbr_coul);
+=======
+		printf("nbr de couloir = %d\n", nbr_coul);
+>>>>>>> Stashed changes
 		for (int k = 0; k < lem.nbr_salles ; k ++)
 		{
 			// printf("nom de la salles %s et le nombre de connection = %d\n", lem.salles[k]->name, lem.salles[k]->nbr_voisin);
