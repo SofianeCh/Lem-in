@@ -6,7 +6,7 @@
 #    By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/14 20:56:30 by sofchami          #+#    #+#              #
-#    Updated: 2019/05/12 20:05:09 by sofchami         ###   ########.fr        #
+#    Updated: 2019/05/28 15:28:35 by sofchami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = lem-in
 CFLGS = -Wall -Werror -Wextra
 SRC = lem_in.c
 INC = libft/libft.a
-Green=\033[0;32m
-NC=\033[0m
-
+Green = \033[0;32m
+NC = \033[0m
+CC = gcc
 # SRCD = $(addprefix src/,$(SRC))
 OBJ = $(subst .c,.o,$(SRC))
 
