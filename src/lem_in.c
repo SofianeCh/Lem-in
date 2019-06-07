@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 16:47:30 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/07 20:39:02 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,47 @@ int		doublecon(t_lem *lem, int way, int alt)
 	return (0);
 }
 
+void		big_clean(t_lem *lem, int chemin)
+{
+	int i;
+	t_ptr_couloir *tmp;
+	t_ptr_couloir *next;
+	t_couloir *next_s;
+	t_couloir *tmp_s;
+
+	i = -1;
+	while (++i <= chemin)
+		free(lem->paths[i]->path);
+	free(lem->paths);
+	free(lem->line);
+	free(lem->buff);
+	free(lem->tmp);
+	i = -1;
+	while (++i < lem->nbr_salles)
+	{
+		tmp = lem->salles[i]->couloirs;
+		while (tmp)
+		{
+			next = tmp->next;
+			tmp_s = tmp->element;
+			// while (tmp_s)
+			// {
+			// 	// next_s = tmp_s->next;
+			// 	// free(tmp_s);
+			// 	tmp_s = next_s;
+			// }
+			if (tmp_s)
+				free(tmp_s);
+			// free(tmp);
+			tmp = next;
+		}
+		if (lem->salles[i]->couloirs)
+			free(lem->salles[i]->couloirs);
+		printf("pas direct %d  %d\n", i, lem->nbr_salles);
+	}
+
+}
+
 int			main(int argc, char **argv)
 {
 	t_lem			lem;
@@ -285,5 +326,6 @@ int			main(int argc, char **argv)
 		ft_printf("\n");
 	}
 	printf("nb_turn %d\n", lem.nbr_etapes);
+	big_clean(&lem, chemin);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 15:15:41 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 16:48:14 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/07 19:43:08 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int				ft_solve_path(t_lem *lem)
 	i = -1;
 	ft_init_queue(lem, &s);
 	max_way = (s.start > s.end) ? s.start : s.end;
-	lem->paths = (t_path**)ft_memalloc(sizeof(t_path*) * (max_way));
+	if (!(lem->paths = (t_path**)ft_memalloc(sizeof(t_path*) * (max_way))))
+		exit(0);
 	while (++i < max_way && i < lem->fourmis)
 	{
 		ft_bfs(lem, &s, i);
@@ -95,7 +96,6 @@ void				go_fourmis(t_lem *lem, int chemin)
 		{
 			// printf("L%d-%s chemin=%d, salles=%d    ",lem->salles[lem->paths[chemin]->path[i]]->fourmis, lem->salles[lem->paths[chemin]->path[i]]->name, chemin, i);
 			printf("L%d-%s ",lem->salles[lem->paths[chemin]->path[i]]->fourmis, lem->salles[lem->paths[chemin]->path[i]]->name);
-			// printf("je ne rentre pas\n");
 		}
 		i++;
 	}
