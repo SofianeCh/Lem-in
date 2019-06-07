@@ -6,15 +6,15 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/05/12 16:36:46 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/06 15:19:39 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# include "libft/libft.h"
-# include "libft/ft_printf.h"
+# include "../libft/libft.h"
+# include "../libft/ft_printf.h"
 # include <fcntl.h>
 
 typedef struct s_salle t_salle;
@@ -98,4 +98,41 @@ typedef struct		s_lem
 	unsigned long	hash[50000];
 	int				b_size;
 }					t_lem;
+
+unsigned long		hash(unsigned char *str);
+int					ft_index(t_lem *lem, unsigned long hash);
+int					ft_verif(t_ptr_couloir *list, int prem, int deux, t_lem *lem);
+int					ft_check_names(char *line, char *name);
+char				*ft_strjoin2(char const *s1, char const *s2);
+char				*ft_strdup2(const char *s, t_lem *lem);
+void				ft_read_map(t_lem *lem);
+void				ft_cln(char **line, char **line2, char **line3);
+void				ft_crea_salles(t_lem *lem);
+int					ft_index(t_lem *lem, unsigned long hash);
+t_couloir			*ft_list(t_lem *lem, int prem, int deux);
+void				ft_link_couloir(t_lem *lem);
+void				crea_path(t_lem *lem, int p, int way);
+char				*ft_name(char *str);
+int					ft_verif(t_ptr_couloir *list, int prem, int deux, t_lem *lem);
+int					ft_index(t_lem *lem, unsigned long hash);
+unsigned long		hash(unsigned char *str);
+void 				ft_bfs(t_lem *lem, t_solve *s, int way);
+int					visit_rooms(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int elem);
+int 				croissement(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int num);
+void				ft_init_queue(t_lem *lem, t_solve *s);
+int					check_cross(t_lem *lem, t_solve *s, t_ptr_couloir *tmp, int room, int elem);
+int					ft_modify_directions(t_lem *lem, int way);
+int					ft_calcul_etapes(t_lem *lem, int chemins);
+void 				ft_merge_way(t_lem *lem, int way, int alt, int i);
+void 				ft_merge(t_lem *lem, int way, int tomerge);
+int 				node_to_megre(t_lem *lem, int way, int alt);
+void 				finilize_merge(t_lem *lem, int way1, int way2);
+int					way_for_merge(t_lem *lem, int way);
+void				ft_calcul_merge(t_lem *lem, int chemins, int alt);
+void 				go_fourmis(t_lem *lem, int chemin);
+int					ft_solve_path(t_lem *lem);
+int 				ft_nbr_merge(t_lem *lem);
+void				ft_reset_rooms(t_lem *lem, t_solve *s);
+
+
 #endif

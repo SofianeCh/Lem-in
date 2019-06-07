@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofchami <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 19:01:06 by sofchami          #+#    #+#             */
-/*   Updated: 2018/11/20 23:43:44 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/06 17:50:22 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int		ft_clean(char **line, char **line2, int ret, int fd)
 {
 	ft_strdel(&line[fd]);
-	ft_strdel(&(*line2));
+	ft_strdel(line2);
 	return (ret);
 }
 
@@ -42,5 +42,5 @@ int				get_next_line(int const fd, char **line)
 	else
 		ft_strlen(gnl.rest[fd]) > 0 ? (ft_strcpy(gnl.rest[fd],
 			ft_strchr(gnl.rest[fd], '\0'))) : (ft_strdel(&gnl.rest[fd]));
-	return (gnl.rest[fd] ? 1 : ft_clean(&gnl.rest[fd], &(*line), 0, 0));
+	return (gnl.rest[fd] ? 1 : ft_clean(&gnl.rest[fd], line, 0, 0));
 }
