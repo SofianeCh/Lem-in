@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 20:39:02 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/07 21:00:19 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,8 +252,8 @@ void		big_clean(t_lem *lem, int chemin)
 			// 	// free(tmp_s);
 			// 	tmp_s = next_s;
 			// }
-			if (tmp_s)
-				free(tmp_s);
+			// if (tmp_s)
+			// 	free(tmp_s);
 			// free(tmp);
 			tmp = next;
 		}
@@ -326,6 +326,6 @@ int			main(int argc, char **argv)
 		ft_printf("\n");
 	}
 	printf("nb_turn %d\n", lem.nbr_etapes);
-	big_clean(&lem, chemin);
-	return (0);
+	// big_clean(&lem, chemin);
+	exit (0);
 }
