@@ -6,19 +6,19 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 15:04:56 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/06 16:59:34 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/07 18:27:39 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void 	ft_merge(t_lem *lem, int way, int tomerge)
+void	ft_merge(t_lem *lem, int way, int tomerge)
 {
-	int		way2;
-	int		i;
-	int		ok;
-	int		r1;
-	int		r2;
+	int	way2;
+	int	i;
+	int	ok;
+	int	r1;
+	int	r2;
 
 	ok = 0;
 	i = -1;
@@ -27,10 +27,6 @@ void 	ft_merge(t_lem *lem, int way, int tomerge)
 		way2 = way_for_merge(lem, way);
 		r1 = node_to_megre(lem, way, way2);
 		r2 = node_to_megre(lem, way2, way);
-		// if (tomerge)
-		// {
-		// 	tomerge -= doublecon(lem, way, way2);
-		// }
 		while (++i < lem->paths[way]->size)
 		{
 			lem->paths[way]->f_path[i] = lem->paths[way]->path[i];
@@ -54,7 +50,7 @@ void 	ft_merge(t_lem *lem, int way, int tomerge)
 	ft_calcul_merge(lem, way + 1, way2);
 }
 
-int 	node_to_megre(t_lem *lem, int way, int alt)
+int		node_to_megre(t_lem *lem, int way, int alt)
 {
 	int k;
 	int z;
@@ -87,7 +83,9 @@ int		way_for_merge(t_lem *lem, int way)
 		k = 0;
 		while (++k < lem->paths[i]->size)
 		{
-			if ((lem->paths[i]->path[k] == room1 && lem->paths[i]->path[k - 1] == room2) || (k <= lem->paths[i]->size && lem->paths[i]->path[k] == room1 && lem->paths[i]->path[k+1] == room2))
+			if ((lem->paths[i]->path[k] == room1 && lem->paths[i]->path[k - 1]
+				== room2) || (k <= lem->paths[i]->size && lem->paths[i]->path[k]
+					== room1 && lem->paths[i]->path[k + 1] == room2))
 				return (i);
 		}
 	}
@@ -105,8 +103,9 @@ void	finilize_merge(t_lem *lem, int way1, int way2)
 	lem->paths[way2]->f_size = 0;
 	free(lem->paths[way1]->path);
 	free(lem->paths[way2]->path);
-	lem->paths[way1]->path = malloc(sizeof(int) * lem->paths[way1]->size);
-	lem->paths[way2]->path = malloc(sizeof(int) * lem->paths[way2]->size);
+	if (!(lem->paths[way1]->path = malloc(sizeof(int) * lem->paths[way1]->size))
+	|| !(lem->paths[way2]->path = malloc(sizeof(int) * lem->paths[way2]->size)))
+		exit(0);
 	while (++i < lem->paths[way1]->size)
 	{
 		lem->paths[way1]->path[i] = lem->paths[way1]->f_path[i];

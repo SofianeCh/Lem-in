@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 14:47:10 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/06 14:49:42 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/07 17:36:39 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char			*ft_name(char *str)
 	while (str[++i] && str[i] != ' ')
 		;
 	if ((s = (char*)malloc(sizeof(*s) * i + 1)) == 0)
-		return (NULL);
+		exit(0);
 	i = -1;
 	while (str[++i] && str[i] != ' ')
 		s[i] = str[i];
