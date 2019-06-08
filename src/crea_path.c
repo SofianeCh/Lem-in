@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 14:55:54 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 18:17:04 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/08 15:38:18 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ void				crea_path(t_lem *lem, int p, int way)
 	lem->paths[way]->path[len] = lem->salles[tmp]->index_s;
 	while (len < lem->paths[way]->size)
 		len++;
-	// for (int i = 0; i < lem->paths[way]->size; i++)
-	// {
-	// 	lem->paths[way]->path[i] > -1 ? ft_printf("%s ", lem->salles[lem->paths[way]->path[i]]->name) : ft_printf("%d ", lem->paths[way]->path[i]);
-	// }
-	// ft_printf("\n");
 }
 
 int				directions(t_lem *lem, t_ptr_couloir **tmp,

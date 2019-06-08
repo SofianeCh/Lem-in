@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 14:36:04 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 20:26:26 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/08 18:27:06 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_couloir			*ft_list(t_lem *lem, int prem, int deux)
 	ft_bzero(new, sizeof(*new));
 	new->salle_1 = prem;
 	new->salle_2 = deux;
-	// new->next = NULL;
+	new->next = NULL;
 	return (new);
 }
 

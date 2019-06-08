@@ -6,14 +6,12 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 21:00:19 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/08 21:49:08 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
- ** Proteger les mallocs.
- ** gestoin d'erreur map valid dans le parsins (14/15)
- ** gestoin d'erreur map unvalid dans le parsins (0/38)
+ ** gestoin d'erreur map unvalid dans le parsins (25/38)
  ** normer
  ** fuites memoires
  */
@@ -259,9 +257,15 @@ void		big_clean(t_lem *lem, int chemin)
 		}
 		if (lem->salles[i]->couloirs)
 			free(lem->salles[i]->couloirs);
-		printf("pas direct %d  %d\n", i, lem->nbr_salles);
+		ft_printf("pas direct %d  %d\n", i, lem->nbr_salles);
 	}
+}
 
+void probleme(int p)
+{
+	if (!p)
+		ft_putstr("Error\n");
+	exit(1);
 }
 
 int			main(int argc, char **argv)
@@ -293,19 +297,17 @@ int			main(int argc, char **argv)
 	int p = -1;
 	// printf("= %d - - - - - - - - - - - - len_chemin = %d\n", lem.salles[lem.paths[chemin]->path[8]]->fourmis, 8);
 	// while (b--)
-	// while (!lem.last_ant)
-	// {
-	// 	i = -1;
-	// 	while (++i < chemin)
-	// 	{
-	// 		!lem.last_ant ? go_fourmis(&lem, i) : 0;
-	// 	}
-	// 	printf("\n");
-	// 	check++;
-	// }
+	while (!lem.last_ant)
+	{
+		i = -1;
+		while (++i < chemin)
+		{
+			!lem.last_ant ? go_fourmis(&lem, i) : 0;
+		}
+		printf("\n");
+		check++;
+	}
 	ft_printf("\n\n- - - - - - - - - - - - - - - - \n\n");
-	// printf("le fameux check = %d\n", check);
-	// printf("chemin = %d\n", chemin);
 	for (int k = 0; k < chemin; k++)
 	{
 		for (int l = 1; l < lem.paths[k]->size-1; l++)
@@ -318,7 +320,6 @@ int			main(int argc, char **argv)
 				{
 					if ((l != z && k != h) && lem.paths[k]->path[l] == lem.paths[h]->path[z])
 						ft_printf("|| --- CROISEMENT --- ==> %s ways = %d<-->%d pl %d<-->%d ||",lem.salles[lem.paths[k]->path[l]]->name, k , h, l, z);
-					// printf("CROISEMENT");
 				}
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 20:31:02 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/08 15:52:38 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,5 +133,6 @@ void 						ft_merge(t_lem *lem, int way, int tomerge);
 void 						finilize_merge(t_lem *lem, int way1, int way2);
 void 						go_fourmis(t_lem *lem, int chemin);
 void						ft_reset_rooms(t_lem *lem, t_solve *s);
+void						probleme(int p);
 
 #endif

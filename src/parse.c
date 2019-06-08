@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 13:00:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 17:37:51 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/08 21:44:06 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void			checker(t_lem *lem, const char *s, int i, int min)
 		if (s[i + 1] && s[i + 1] == '#' && s[i + 2])
 		{
 			if (ft_check_names((char*)(s + i + 2), "start"))
-				!lem->pos_start ? lem->pos_start++ : lem->probleme++;
+				!lem->pos_start ? lem->pos_start++ : probleme(0);
 			if (ft_check_names((char*)(s + i + 2), "end"))
-				!lem->pos_end ? lem->pos_end++ : lem->probleme++;
+				!lem->pos_end ? lem->pos_end++ : probleme(0);
 			lem->dieze++;
 		}
 		else if (!lem->dieze)
@@ -84,17 +84,53 @@ void			checker(t_lem *lem, const char *s, int i, int min)
 	}
 }
 
+void			map_checker(t_lem *lem, const char *s)
+{
+	int i;
+	int ok;
+
+	i = -1;
+	ok = 0;
+	if (!lem->pos_start || !lem->pos_end || !lem->ant)
+		probleme(0);
+	while (s[++i])
+	{
+		if ((s[i] == '\n' && s[i + 1] == '\n') || (s[i] == '\n' && s[i + 1] == 'L'))
+			probleme(0);
+		if (s[i] == '-')
+			ok++;
+		// if (s[i + 1] && s[i + 2] && s[i + 3] && s[i + 4] && s[i] == '-' && s[i + 1] == 'e' && s[i + 2] == 'n' && s[i + 3] == 'd' && s[i + 4] == '\n')
+		// 	ok++;
+	}
+	if (!ok)
+		probleme(0);
+	// if (!ft_check_names(lem->line + lem->pos_start, lem->line + lem->pos_end))
+	// {
+	// 	ft_printf("--------- %s\n", lem->line + lem->pos_start);
+	// 	ft_printf("- - - - - %s\n", lem->line + lem->pos_end);
+	//
+	// 	probleme(0);
+	// }
+	// ft_printf(" checker start === %s\n", lem->line + lem->pos_start);
+}
+
 char			*ft_strdup2(const char *s, t_lem *lem)
 {
 	int			i;
 	int			min;
+	int			len;
 	char		*str;
 
 	i = -1;
+	len = ft_strlen(s);
 	while (!ft_isdigit((int)s[++i]))
 	{
 		while (s[i] != '\n')
+		{
 			i++;
+			if (i > len)
+			probleme(0);
+		}
 	}
 	min = i;
 	lem->fourmis = ft_atoi(s + i);
@@ -110,6 +146,8 @@ char			*ft_strdup2(const char *s, t_lem *lem)
 	}
 	lem->nbr_salles = lem->lignes - 3 - lem->comm;
 	str[i] = '\0';
+	map_checker(lem, s);
+	ft_putendl(str + (min + ft_intlen(lem->fourmis) + 1));
 	return (str);
 }
 
@@ -117,10 +155,10 @@ void			ft_read_map(t_lem *lem)
 {
 	lem->b_size = 5000000;
 	if (!(lem->buff = ft_strnew(lem->b_size - 1)))
-		exit(0);
+		exit(1);
 	while ((lem->ret = read(0, lem->buff, lem->b_size)) > 0)
 	{
-		ft_putendl(lem->buff);
+		// ft_putendl(lem->buff);
 		lem->len += lem->ret;
 		lem->b_size *= 2;
 		lem->tmp = lem->line;
@@ -129,6 +167,7 @@ void			ft_read_map(t_lem *lem)
 		ft_cln(&lem->tmp, &lem->buff, NULL);
 		lem->buff = ft_strnew(lem->b_size - 1);
 	}
+	!lem->line ? probleme(0) : 0;
 	lem->tmp = lem->line;
 	lem->line = ft_strdup2(lem->line, lem);
 	ft_cln(&lem->tmp, &lem->buff, NULL);
