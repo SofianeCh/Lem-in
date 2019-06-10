@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 13:00:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/08 21:44:06 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/10 17:26:24 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,30 +88,27 @@ void			map_checker(t_lem *lem, const char *s)
 {
 	int i;
 	int ok;
+	int ants;
 
 	i = -1;
 	ok = 0;
+	ants = 0;
 	if (!lem->pos_start || !lem->pos_end || !lem->ant)
+		probleme(0);
+	if (s[lem->pos_start] == '#'|| s[lem->pos_end] == '#')
 		probleme(0);
 	while (s[++i])
 	{
+		if (lem->fourmis && s[i - 1] && s[i - 1] == '\n')
+			if (ft_isdigit((int)s[i]) && s[i + ft_intlen(ft_atoi(s + i))] == '\n')
+				ants++;
 		if ((s[i] == '\n' && s[i + 1] == '\n') || (s[i] == '\n' && s[i + 1] == 'L'))
 			probleme(0);
 		if (s[i] == '-')
 			ok++;
-		// if (s[i + 1] && s[i + 2] && s[i + 3] && s[i + 4] && s[i] == '-' && s[i + 1] == 'e' && s[i + 2] == 'n' && s[i + 3] == 'd' && s[i + 4] == '\n')
-		// 	ok++;
 	}
-	if (!ok)
+	if (!ok || ants != 1)
 		probleme(0);
-	// if (!ft_check_names(lem->line + lem->pos_start, lem->line + lem->pos_end))
-	// {
-	// 	ft_printf("--------- %s\n", lem->line + lem->pos_start);
-	// 	ft_printf("- - - - - %s\n", lem->line + lem->pos_end);
-	//
-	// 	probleme(0);
-	// }
-	// ft_printf(" checker start === %s\n", lem->line + lem->pos_start);
 }
 
 char			*ft_strdup2(const char *s, t_lem *lem)
@@ -125,6 +122,11 @@ char			*ft_strdup2(const char *s, t_lem *lem)
 	len = ft_strlen(s);
 	while (!ft_isdigit((int)s[++i]))
 	{
+		if (s[i] == '#' && s[i + 1] && s[i + 1] == '#' && s[i + 2])
+		{
+			if (ft_check_names((char*)(s + i + 2), "start"))
+				probleme(0);
+		}
 		while (s[i] != '\n')
 		{
 			i++;
@@ -147,7 +149,7 @@ char			*ft_strdup2(const char *s, t_lem *lem)
 	lem->nbr_salles = lem->lignes - 3 - lem->comm;
 	str[i] = '\0';
 	map_checker(lem, s);
-	ft_putendl(str + (min + ft_intlen(lem->fourmis) + 1));
+	lem->print = min + ft_intlen(lem->fourmis) + 1;
 	return (str);
 }
 

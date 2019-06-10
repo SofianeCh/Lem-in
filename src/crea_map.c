@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 14:36:04 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/08 18:27:06 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/10 16:32:01 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void			link_list(t_lem *lem, int ind_c, int len1)
 	{
 		prem = ft_index(lem, hash((unsigned char*)(lem->line + ind_c)));
 		deux = ft_index(lem, hash((unsigned char*)(lem->line + ind_c + len1)));
+		if (prem == deux)
+			probleme(0);
 		if (!ft_verif(lem->salles[prem]->couloirs, prem, deux, lem))
 			ft_list(lem, prem, deux);
 	}

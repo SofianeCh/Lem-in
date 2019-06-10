@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/08 15:52:38 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/10 14:51:38 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct				s_lem
 	int						lignes;
 	int						dieze;
 	int						ant;
+	int 					print;
 	int						last_ant;;
 	int						nbr_etapes;
 	int						pos_start;

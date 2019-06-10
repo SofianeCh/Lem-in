@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/08 21:49:08 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/10 17:26:52 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,6 +268,23 @@ void probleme(int p)
 	exit(1);
 }
 
+void	map_checker2(t_lem *lem)
+{
+	int i;
+
+	i = 0;
+	while (i < lem->nbr_salles)
+	{
+		if (lem->salles[i]->end)
+		{
+			if (!lem->salles[i]->nbr_voisin)
+				probleme(0);
+		}
+		i++;
+	}
+
+}
+
 int			main(int argc, char **argv)
 {
 	t_lem			lem;
@@ -281,6 +298,7 @@ int			main(int argc, char **argv)
 	ft_read_map(&lem);
 	ft_crea_salles(&lem);
 	ft_link_couloir(&lem);
+	map_checker2(&lem);
 	for (int k = 0; k < lem.nbr_salles ; k ++)
 	{
 		// printf("nom de la salles %s et le nombre de connection = %d\n", lem.salles[k]->name, lem.salles[k]->nbr_voisin);
@@ -296,7 +314,8 @@ int			main(int argc, char **argv)
 	int b = 1;
 	int p = -1;
 	// printf("= %d - - - - - - - - - - - - len_chemin = %d\n", lem.salles[lem.paths[chemin]->path[8]]->fourmis, 8);
-	// while (b--)
+	ft_printf("%d\n", lem.fourmis);
+	ft_putendl(lem.line + lem.print);
 	while (!lem.last_ant)
 	{
 		i = -1;
@@ -307,26 +326,26 @@ int			main(int argc, char **argv)
 		printf("\n");
 		check++;
 	}
-	ft_printf("\n\n- - - - - - - - - - - - - - - - \n\n");
-	for (int k = 0; k < chemin; k++)
-	{
-		for (int l = 1; l < lem.paths[k]->size-1; l++)
-		{
-			ft_putstr(lem.salles[lem.paths[k]->path[l]]->name);
-			write(1, " ", 1);
-			for (int h = 0; h < chemin ; h++)
-			{
-				for (int z = 1; z < lem.paths[h]->size - 1; z++)
-				{
-					if ((l != z && k != h) && lem.paths[k]->path[l] == lem.paths[h]->path[z])
-						ft_printf("|| --- CROISEMENT --- ==> %s ways = %d<-->%d pl %d<-->%d ||",lem.salles[lem.paths[k]->path[l]]->name, k , h, l, z);
-				}
-			}
-		}
-		ft_printf(" way = %d   SIZE == %d", k, lem.paths[k]->size);
-		ft_printf("\n");
-	}
-	printf("nb_turn %d\n", lem.nbr_etapes);
+	// ft_printf("\n\n- - - - - - - - - - - - - - - - \n\n");
+	// for (int k = 0; k < chemin; k++)
+	// {
+	// 	for (int l = 1; l < lem.paths[k]->size-1; l++)
+	// 	{
+	// 		ft_putstr(lem.salles[lem.paths[k]->path[l]]->name);
+	// 		write(1, " ", 1);
+	// 		for (int h = 0; h < chemin ; h++)
+	// 		{
+	// 			for (int z = 1; z < lem.paths[h]->size - 1; z++)
+	// 			{
+	// 				if ((l != z && k != h) && lem.paths[k]->path[l] == lem.paths[h]->path[z])
+	// 					ft_printf("|| --- CROISEMENT --- ==> %s ways = %d<-->%d pl %d<-->%d ||",lem.salles[lem.paths[k]->path[l]]->name, k , h, l, z);
+	// 			}
+	// 		}
+	// 	}
+	// 	ft_printf(" way = %d   SIZE == %d", k, lem.paths[k]->size);
+	// 	ft_printf("\n");
+	// }
+	// printf("nb_turn %d\n", lem.nbr_etapes);
 	// big_clean(&lem, chemin);
 	exit (0);
 }
