@@ -6,19 +6,18 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 15:15:41 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/10 15:41:26 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/11 17:42:16 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int				ft_solve_path(t_lem *lem)
+int					ft_solve_path(t_lem *lem)
 {
-	t_solve		s;
-	int			i;
-	int			merge;
-	int			stop;
-	int			max_way;
+	t_solve			s;
+	int				i;
+	int				stop;
+	int				max_way;
 
 	ft_bzero(&s, sizeof(s));
 	s.p = -1;
@@ -36,55 +35,66 @@ int				ft_solve_path(t_lem *lem)
 		if (stop)
 			break ;
 		ft_reset_rooms(lem, &s);
-		merge = ft_modify_directions(lem, i);
-		// ft_printf("merge needed = %d\n", merge);
-		if (merge)
-		{
-			// printf("nbr de merge %d\n", ft_nbr_merge(lem) / 2);
-			ft_merge(lem, i, ft_nbr_merge(lem) / 2);
-		}
+		ft_modify_directions(lem, i) ? ft_merge(lem, i, nbr_merge(lem) / 2) : 0;
 		s.count++;
 	}
 	return (s.count);
 }
 
-void				go_fourmis(t_lem *lem, int chemin)
+void				move_fourmis(t_lem *lem, int chemin)
 {
-	int 			len_chemin;
+	int				len_chemin;
 
 	len_chemin = lem->paths[chemin]->size;
 	while (--len_chemin)
 	{
-		if (len_chemin > 1 && lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis)
+		if (len_chemin > 1 &&
+			lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis)
 		{
-			lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis = lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis;
+			lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis =
+			lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis;
 			lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis = 0;
 		}
-		if (len_chemin == lem->paths[chemin]->size - 1 && lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis == lem->salles[lem->paths[chemin]->path[0]]->fourmis && lem->salles[lem->paths[chemin]->path[len_chemin]]->end)
+		if (len_chemin == lem->paths[chemin]->size - 1 &&
+			lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis ==
+			lem->salles[lem->paths[chemin]->path[0]]->fourmis &&
+			lem->salles[lem->paths[chemin]->path[len_chemin]]->end)
 		{
 			lem->last_ant = 1;
 		}
 	}
+}
+
+void				go_fourmis(t_lem *lem, int chemin)
+{
+	int				len_chemin;
+	int				i;
+
+	len_chemin = 0;
+	move_fourmis(lem, chemin);
 	if (lem->fourmis)
 	{
-		lem->salles[lem->paths[chemin]->path[len_chemin + 1]]->fourmis = lem->ant;
+		lem->salles[lem->paths[chemin]->path[len_chemin + 1]]->fourmis =
+		lem->ant;
 		lem->ant++;
 		lem->fourmis--;
 	}
-	int i = 1;
+	i = 1;
 	while (i < lem->paths[chemin]->size)
 	{
-		// printf("%d\n", lem->salles[lem->paths[chemin]->path[i]]->fourmis);
 		if (lem->salles[lem->paths[chemin]->path[i]]->fourmis)
 		{
-			// printf("L%d-%s chemin=%d, salles=%d    ",lem->salles[lem->paths[chemin]->path[i]]->fourmis, lem->salles[lem->paths[chemin]->path[i]]->name, chemin, i);
-			printf("L%d-%s ",lem->salles[lem->paths[chemin]->path[i]]->fourmis, lem->salles[lem->paths[chemin]->path[i]]->name);
+			write(1, "L", 1);
+			ft_putnbr(lem->salles[lem->paths[chemin]->path[i]]->fourmis);
+			write(1, "-", 1);
+			ft_putstr(lem->salles[lem->paths[chemin]->path[i]]->name);
+			write(1, " ", 1);
 		}
 		i++;
 	}
 }
 
-int					ft_nbr_merge(t_lem *lem)
+int					nbr_merge(t_lem *lem)
 {
 	int				i;
 	int				count;

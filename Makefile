@@ -6,13 +6,14 @@
 #    By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/14 20:56:30 by sofchami          #+#    #+#              #
-#    Updated: 2019/06/06 15:15:51 by sofchami         ###   ########.fr        #
+#    Updated: 2019/06/11 18:21:55 by sofchami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = lem-in
 CFLGS = -Wall -Werror -Wextra
-SRC = lem_in.c parse.c crea_map.c parse2.c bfs.c crea_path.c merge.c solve.c
+SRC = lem_in.c parse.c crea_map.c parse2.c bfs.c crea_path.c merge.c solve.c\
+	error_control.c
 INC = libft/libft.a
 Green = \033[0;32m
 NC = \033[0m
@@ -24,7 +25,7 @@ OBJ = $(subst .c,.o,$(SRCD))
 
 $(NAME): $(OBJ)
 	@make re -C libft
-	@gcc -c -O3 $(SRCD)
+	@gcc -c -O3 $(SRCD) $(CGLGS)
 	@gcc -o $(NAME) $(OBJ) $(INC)
 	@echo "${Green}Compilation Succesfull${NC} "
 

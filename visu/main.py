@@ -42,12 +42,12 @@ Data :
     from lem_path import show_all_path_node
     button(bind=show_all_path_node, text='SHOW PATHS')
     scene.append_to_caption('\n\n')
-        
+
 def key_handler(e):
     if e.key == 'q':
         if lg.time_one_move < 3:
            lg.time_one_move += 0.1
-    elif e.key == 'w': 
+    elif e.key == 'w':
         if lg.time_one_move > 0.19:
             lg.time_one_move -= 0.1
     elif e.key in "yhujikol":
@@ -81,9 +81,9 @@ def key_handler(e):
             if lg.radius_ring_node > 5:
                 lg.radius_ring_node -= 1
                 lg.radius_ring -= 1
-        
+
     elif e.key == 'p':
-        lg.paused = -lg.paused 
+        lg.paused = -lg.paused
     elif e.key == '1':
         lg.current_view = 1
     elif e.key == '2':
@@ -124,16 +124,16 @@ def draw_nodes(nodes_name, v, i):
             except:
                 # lg.all_nodes[node_name]["node"] = sphere(visible = True)
                 lg.all_nodes[node_name]["node"] = box(visible = True, size=vcube)
-                # lg.all_nodes[node_name]["text"] = text(visible = False, text=node_name, color=color.white)
+                lg.all_nodes[node_name]["text"] = text(visible = True, text=node_name, color=color.white)
 
-            
+
             if v == 1:
                 lg.all_nodes[node_name]["node"].pos = lg.dist * o_pos
             else :
                 lg.all_nodes[node_name]["node"].pos = o_pos
 
-            # lg.all_nodes[node_name]["text"].pos = lg.all_nodes[node_name]["node"].pos
-            # lg.all_nodes[node_name]["text"].pos.y += 1
+            lg.all_nodes[node_name]["text"].pos = lg.all_nodes[node_name]["node"].pos
+            lg.all_nodes[node_name]["text"].pos.y += 1
             lg.all_nodes[node_name]["node"].opacity = 0.5
             lg.all_nodes[node_name]["node"].color = lg.all_nodes[node_name]["color"]
             # lg.all_nodes[node_name]["node"].radius = 2
@@ -144,13 +144,13 @@ def draw_nodes(nodes_name, v, i):
 
 def draw_edges(edges_name, v, i):
     now = datetime.now()
-    try:   
+    try:
         for edge_name in edges_name:
             try:
                 lg.all_edges[edge_name]["edge"]
             except:
                 lg.all_edges[edge_name]["edge"] = cylinder(visible = True)
-        
+
 
             lg.all_edges[edge_name]["edge"].pos = lg.all_edges[edge_name]["node1"]["node"].pos
 
@@ -178,7 +178,7 @@ def generate_view(v):
         i += 1
         if i == max_thread:
             i = 0
-        
+
 
     max_thread = 20
 
@@ -264,8 +264,3 @@ def main():
 if __name__ == "__main__":
 
     main()
-    
-
-    
-
-

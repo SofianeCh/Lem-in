@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 14:55:54 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/08 15:38:18 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/11 18:08:18 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void				crea_path(t_lem *lem, int p, int way)
 		len++;
 }
 
-int				directions(t_lem *lem, t_ptr_couloir **tmp,
-	int merge, int room2)
+int					directions(t_lem *lem, t_ptr_couloir **tmp,
+		int merge, int room2)
 {
 	if (*tmp && (*tmp)->element->salle_1 == room2)
 	{
@@ -75,20 +75,20 @@ int					ft_modify_directions(t_lem *lem, int way)
 		room2 = lem->paths[way]->path[i + 1];
 		tmp = lem->salles[lem->paths[way]->path[i]]->couloirs;
 		while (tmp && ((tmp->element->salle_1 != room2 && tmp->element->salle_2
-			== room1) || (tmp->element->salle_2 != room2 &&
-				tmp->element->salle_1 == room1)))
+						== room1) || (tmp->element->salle_2 != room2 &&
+							tmp->element->salle_1 == room1)))
 			tmp = tmp->next;
 		merge = directions(lem, &tmp, merge, room2);
 	}
 	return (merge);
 }
 
-int		ft_calcul_etapes(t_lem *lem, int chemins)
+int					ft_calcul_etapes(t_lem *lem, int chemins)
 {
-	int i;
-	int sum;
-	int nb_ants;
-	int nb_turn;
+	int				i;
+	int				sum;
+	int				nb_ants;
+	int				nb_turn;
 
 	sum = 0;
 	i = -1;
@@ -111,10 +111,10 @@ int		ft_calcul_etapes(t_lem *lem, int chemins)
 	return (0);
 }
 
-void	ft_merge_way(t_lem *lem, int way, int alt, int i)
+void				ft_merge_way(t_lem *lem, int way, int alt, int i)
 {
-	int b;
-	int ok;
+	int				b;
+	int				ok;
 
 	b = -1;
 	ok = 0;

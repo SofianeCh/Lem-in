@@ -6,46 +6,52 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 15:04:56 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/07 18:27:39 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/11 16:45:15 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
+void	ft_merge2(t_lem *lem, int way, int way2, int r2)
+{
+	int i;
+	int r1;
+
+	i = -1;
+	r1 = node_to_megre(lem, way, way2);
+	while (++i < lem->paths[way]->size)
+	{
+		lem->paths[way]->f_path[i] = lem->paths[way]->path[i];
+		if (lem->paths[way]->path[i] == r1 || lem->paths[way]->path[i] == r2)
+		{
+			ft_merge_way(lem, way, way2, i);
+			break ;
+		}
+	}
+	i = -1;
+	while (++i < lem->paths[way2]->size)
+	{
+		lem->paths[way2]->f_path[i] = lem->paths[way2]->path[i];
+		if (lem->paths[way2]->path[i] == r1 || lem->paths[way2]->path[i] == r2)
+		{
+			ft_merge_way(lem, way2, way, i);
+			break ;
+		}
+	}
+}
+
 void	ft_merge(t_lem *lem, int way, int tomerge)
 {
 	int	way2;
-	int	i;
 	int	ok;
-	int	r1;
 	int	r2;
 
 	ok = 0;
-	i = -1;
 	while (tomerge--)
 	{
 		way2 = way_for_merge(lem, way);
-		r1 = node_to_megre(lem, way, way2);
 		r2 = node_to_megre(lem, way2, way);
-		while (++i < lem->paths[way]->size)
-		{
-			lem->paths[way]->f_path[i] = lem->paths[way]->path[i];
-			if (lem->paths[way]->path[i] == r1 || lem->paths[way]->path[i] == r2)
-			{
-				ft_merge_way(lem, way, way2, i);
-				break ;
-			}
-		}
-		i = -1;
-		while (++i < lem->paths[way2]->size)
-		{
-			lem->paths[way2]->f_path[i] = lem->paths[way2]->path[i];
-			if (lem->paths[way2]->path[i] == r1 || lem->paths[way2]->path[i] == r2)
-			{
-				ft_merge_way(lem, way2, way, i);
-				break ;
-			}
-		}
+		ft_merge2(lem, way, way2, r2);
 	}
 	ft_calcul_merge(lem, way + 1, way2);
 }

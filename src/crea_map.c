@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 14:36:04 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/10 16:32:01 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/11 18:06:50 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ t_couloir			*ft_list(t_lem *lem, int prem, int deux)
 	t_ptr_couloir	*s2;
 
 	if (!(new = (t_couloir*)malloc(sizeof(*new))) ||
-		!(s1 = (t_ptr_couloir*)malloc(sizeof(t_ptr_couloir))) ||
-		!(s2 = (t_ptr_couloir*)malloc(sizeof(t_ptr_couloir))))
+			!(s1 = (t_ptr_couloir*)malloc(sizeof(t_ptr_couloir))) ||
+			!(s2 = (t_ptr_couloir*)malloc(sizeof(t_ptr_couloir))))
 		exit(0);
 	lem->salles[prem]->nbr_voisin++;
 	lem->salles[deux]->nbr_voisin++;
@@ -66,10 +66,10 @@ t_couloir			*ft_list(t_lem *lem, int prem, int deux)
 	return (new);
 }
 
-void			link_list(t_lem *lem, int ind_c, int len1)
+void				link_list(t_lem *lem, int ind_c, int len1)
 {
-	int			prem;
-	int			deux;
+	int				prem;
+	int				deux;
 
 	if (lem->line[ind_c] != '#')
 	{
@@ -82,13 +82,13 @@ void			link_list(t_lem *lem, int ind_c, int len1)
 	}
 }
 
-void			ft_link_couloir(t_lem *lem)
+void				ft_link_couloir(t_lem *lem)
 {
-	int			ind_c;
-	int			index_s;
-	int			len;
-	int			len1;
-	int			check;
+	int				ind_c;
+	int				index_s;
+	int				len;
+	int				len1;
+	int				check;
 
 	ind_c = lem->index[lem->lignes - 1];
 	while (lem->line[ind_c])
