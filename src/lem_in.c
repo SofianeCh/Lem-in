@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:49 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/11 17:46:24 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/14 15:03:01 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void				ft_init_queue(t_lem *lem, t_solve *s)
 {
 	s->it = -1;
-	s->rooms = malloc(sizeof(s->rooms) * lem->nbr_salles);
+	if (!(s->rooms = malloc(sizeof(s->rooms) * lem->nbr_salles)))
+		probleme(0);
 	while (++s->it < lem->nbr_salles)
 	{
 		s->rooms[s->it] = -1;
@@ -58,34 +59,6 @@ void				ft_calcul_merge(t_lem *lem, int chemins, int alt)
 	}
 }
 
-void				big_clean(t_lem *lem, int chemin)
-{
-	int				i;
-	t_ptr_couloir	*tmp;
-	t_ptr_couloir	*next;
-	t_couloir		*next_s;
-	t_couloir		*tmp_s;
-
-	i = -1;
-	while (++i <= chemin)
-		free(lem->paths[i]->path);
-	free(lem->paths);
-	ft_cln(&lem->line, &lem->buff, &lem->tmp);
-	i = -1;
-	while (++i < lem->nbr_salles)
-	{
-		tmp = lem->salles[i]->couloirs;
-		while (tmp)
-		{
-			next = tmp->next;
-			tmp_s = tmp->element;
-			tmp = next;
-		}
-		if (lem->salles[i]->couloirs)
-			free(lem->salles[i]->couloirs);
-	}
-}
-
 void				probleme(int p)
 {
 	if (!p)
@@ -93,11 +66,27 @@ void				probleme(int p)
 	exit(1);
 }
 
+void					print_result(t_lem *lem, int chemin)
+{
+	int p;
+	int i;
+
+	p = lem->nbr_etapes + 1;
+	while (p--)
+	{
+		i = -1;
+		while (++i < chemin)
+			!lem->last_ant ? go_fourmis(lem, i) : 0;
+		write(1, "\n", 1);
+	}
+}
+
 int					main(int argc, char **argv)
 {
 	t_lem			lem;
 	int				chemin;
 	int				i;
+	int				p;
 
 	chemin = 0;
 	ft_bzero(&lem, sizeof(lem));
@@ -108,14 +97,9 @@ int					main(int argc, char **argv)
 	chemin = ft_solve_path(&lem);
 	ft_printf("%d\n", lem.fourmis);
 	ft_putendl(lem.line + lem.print);
-	while (!lem.last_ant)
-	{
-		i = -1;
-		while (++i < chemin)
-			!lem.last_ant ? go_fourmis(&lem, i) : 0;
-		write(1, "\n", 1);
-	}
-	ft_printf("nb_turn %d\n", lem.nbr_etapes);
+	print_result(&lem, chemin);
+	if (argc > 1 && argv[1] && argv[1][0] == '-' && argv[1][1] == 'p')
+		ft_printf("nb_turn %d\n", lem.nbr_etapes);
 	big_clean(&lem, chemin);
 	exit(0);
 }

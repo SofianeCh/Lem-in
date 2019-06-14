@@ -1,33 +1,265 @@
-expected : 85
-got      : 102
-1
-expected : 86
-got      : 74
-2
-expected : 63
-got      : 57
-3
-expected : 81
-got      : 69
-4
-expected : 73
-got      : 77
+gcc    -c -o src/lem_in.o src/lem_in.c
+gcc    -c -o src/parse.o src/parse.c
+gcc    -c -o src/crea_map.o src/crea_map.c
+gcc    -c -o src/parse2.o src/parse2.c
+gcc    -c -o src/bfs.o src/bfs.c
+gcc    -c -o src/crea_path.o src/crea_path.c
+gcc    -c -o src/merge.o src/merge.c
+gcc    -c -o src/solve.o src/solve.c
+gcc    -c -o src/error_control.o src/error_control.c
+[0;32mCompilation Succesfull[0m 
+MODE = big-superposition -- NB TEST = 10
+expected vs us (res/total)
+min | equal | plus_0 | plus_2 | plus_10
+
+1 -- 76 => 150
 5
-expected : 98
-got      : 107
+150
+5
+153
+5
+147
+0
+141
+0
+135
+2
+129
 6
-expected : 69
-got      : 93
-7
-expected : 76
-got      : 83
+123
 8
-expected : 116
-got      : 138
+117
+3
+111
+4
+105
+2
+99
+3
+93
+5
+87
+8
+81
+2
+75
 9
-expected : 65
-got      : 34
-10
-nbr of high : 6/10
-nbr of too high : 6/10
-nbr of way too high : 3/10
+69
+5
+154
+5
+154
+5
+156
+5 vs 77 / [31m150
+5
+150
+5
+153
+5
+147
+0
+141
+0
+135
+2
+129
+6
+123
+8
+117
+3
+111
+4
+105
+2
+99
+3
+93
+5
+87
+8
+81
+2
+75
+9
+69
+5
+154
+5
+154
+5
+156
+-71(B[m vs [35m1(B[m / 150
+5
+150
+5
+153
+5
+147
+0
+141
+0
+135
+2
+129
+6
+123
+8
+117
+3
+111
+4
+105
+2
+99
+3
+93
+5
+87
+8
+81
+2
+75
+9
+69
+5
+154
+5
+154
+5
+156
+-71 vs 1
+0 | 0 | 0 | 0 | 1
+0 | 0 | 1 | 0 | 0
+
+2 -- 84 => 153
+0
+200
+0 vs 81 / [31m153
+0
+200
+-84(B[m vs [32m-3(B[m / 150
+5
+150
+5
+153
+5
+147
+0
+141
+0
+135
+2
+129
+6
+123
+8
+117
+3
+111
+4
+105
+2
+99
+3
+93
+5
+87
+8
+81
+2
+75
+9
+69
+5
+154
+5
+154
+5
+156
+82
+0
+200
+-84 vs -2
+0 | 0 | 0 | 0 | 2
+1 | 0 | 1 | 0 | 0
+
+3 -- 83 => 20
+3
+20
+3
+20
+3
+20
+3
+20
+3
+296
+3 vs 74 / [31m20
+3
+20
+3
+20
+3
+20
+3
+20
+3
+296
+-80(B[m vs [32m-9(B[m / 150
+5
+150
+5
+153
+5
+147
+0
+141
+0
+135
+2
+129
+6
+123
+8
+117
+3
+111
+4
+105
+2
+99
+3
+93
+5
+87
+8
+81
+2
+75
+9
+69
+5
+154
+5
+154
+5
+156
+82
+0
+200
+-64
+3
+20
+3
+20
+3
+20
+3
+20
+3
+296
+-80 vs -11
+0 | 0 | 0 | 0 | 3
+2 | 0 | 1 | 0 | 0

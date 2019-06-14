@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 14:36:04 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/11 18:06:50 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/14 14:34:00 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,22 @@ void				ft_link_couloir(t_lem *lem)
 		link_list(lem, ind_c, len1);
 		ind_c += len + 1;
 	}
+}
+
+void				big_clean(t_lem *lem, int chemin)
+{
+	int				i;
+	t_ptr_couloir	*tmp;
+	t_ptr_couloir	*next;
+	t_couloir		*next_s;
+	t_couloir		*tmp_s;
+
+	i = -1;
+	while (++i < chemin)
+		free(lem->paths[i]->path);
+	free(lem->paths);
+	ft_cln(&lem->line, &lem->buff, &lem->tmp);
+	i = -1;
+	while (++i < lem->nbr_salles)
+		free(lem->salles[i]);
 }

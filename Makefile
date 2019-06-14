@@ -6,7 +6,7 @@
 #    By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/14 20:56:30 by sofchami          #+#    #+#              #
-#    Updated: 2019/06/11 18:21:55 by sofchami         ###   ########.fr        #
+#    Updated: 2019/06/14 13:00:45 by sofchami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJ = $(subst .c,.o,$(SRCD))
 $(NAME): $(OBJ)
 	@make re -C libft
 	@gcc -c -O3 $(SRCD) $(CGLGS)
-	@gcc -o $(NAME) $(OBJ) $(INC)
+	@gcc -o $(NAME) $(OBJ) $(INC) -g -fsanitize=address
 	@echo "${Green}Compilation Succesfull${NC} "
 
 all: $(NAME)

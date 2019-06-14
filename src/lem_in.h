@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:08:55 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/11 20:57:29 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/14 14:29:30 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct				s_lem
 	int						dieze;
 	int						ant;
 	int						print;
+	int						check;
 	int						last_ant;
 	int						nbr_etapes;
 	int						pos_start;

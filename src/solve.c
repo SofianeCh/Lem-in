@@ -6,7 +6,7 @@
 /*   By: sofchami <sofchami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 15:15:41 by sofchami          #+#    #+#             */
-/*   Updated: 2019/06/11 17:42:16 by sofchami         ###   ########.fr       */
+/*   Updated: 2019/06/14 15:01:01 by sofchami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,14 @@ void				move_fourmis(t_lem *lem, int chemin)
 			lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis;
 			lem->salles[lem->paths[chemin]->path[len_chemin - 1]]->fourmis = 0;
 		}
-		if (len_chemin == lem->paths[chemin]->size - 1 &&
-			lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis ==
-			lem->salles[lem->paths[chemin]->path[0]]->fourmis &&
-			lem->salles[lem->paths[chemin]->path[len_chemin]]->end)
-		{
-			lem->last_ant = 1;
-		}
+	}
+	len_chemin = 0;
+	if (lem->fourmis)
+	{
+		lem->salles[lem->paths[chemin]->path[len_chemin + 1]]->fourmis =
+		lem->ant;
+		lem->ant++;
+		lem->fourmis--;
 	}
 }
 
@@ -70,15 +71,10 @@ void				go_fourmis(t_lem *lem, int chemin)
 	int				len_chemin;
 	int				i;
 
+	len_chemin = lem->paths[chemin]->size - 1;
+	lem->salles[lem->paths[chemin]->path[len_chemin]]->fourmis = 0;
 	len_chemin = 0;
 	move_fourmis(lem, chemin);
-	if (lem->fourmis)
-	{
-		lem->salles[lem->paths[chemin]->path[len_chemin + 1]]->fourmis =
-		lem->ant;
-		lem->ant++;
-		lem->fourmis--;
-	}
 	i = 1;
 	while (i < lem->paths[chemin]->size)
 	{
@@ -89,6 +85,12 @@ void				go_fourmis(t_lem *lem, int chemin)
 			write(1, "-", 1);
 			ft_putstr(lem->salles[lem->paths[chemin]->path[i]]->name);
 			write(1, " ", 1);
+			if (i == lem->paths[chemin]->size - 1)
+			{
+				if (lem->check == lem->nbr_etapes)
+					break ;
+				lem->check++;
+			}
 		}
 		i++;
 	}
